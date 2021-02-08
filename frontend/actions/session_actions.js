@@ -1,14 +1,14 @@
-import * as SessionApiUtil from '../util/session_api_util';
+import * as SessionAPIUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 // regular action creators
-const receiveCurrentUser = currentUser => {
+const receiveCurrentUser = user => {
   return {
     type: RECEIVE_CURRENT_USER,
-    currentUser
+    user
   }
 }
 
@@ -27,16 +27,16 @@ const receiveSessionErrors = errors => {
 
  // thunk action creators
 export const login = (user) => dispatch => {
-  return SessionApiUtil.loginUser(user)
-    .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
+  return SessionAPIUtil.loginUser(user)
+    .then(user => dispatch(receiveCurrentUser(user)))
 }
 
 export const logout = () => dispatch => {
-  return SessionApiUtil.logoutUser()
+  return SessionAPIUtil.logoutUser()
     .then(() => dispatch(logoutCurrentUser()))
 }
 
 export const signup = (user) => dispatch => {
-  return SessionApiUtil.createUser(user)
-    .then(currentUser => dispatch(receiveCurrentUser(currentUser)))
+  return SessionAPIUtil.createUser(user)
+    .then(user => dispatch(receiveCurrentUser(user)))
 }
