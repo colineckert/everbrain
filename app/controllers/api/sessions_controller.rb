@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
       logout!
       render json: ["Logout successful"]
     else
-      render json: ["Can\'t logout if not logged in"], status: 400
+      render json: ["Unable to logout if not logged in"], status: 400
     end
   end
 
