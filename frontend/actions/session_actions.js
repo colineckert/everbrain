@@ -28,15 +28,18 @@ const receiveSessionErrors = errors => {
  // thunk action creators
 export const login = (user) => dispatch => {
   return SessionAPIUtil.loginUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
+    .then(user => dispatch(receiveCurrentUser(user)),
+      errors => dispatch(receiveSessionErrors(errors)));
 }
 
 export const logout = () => dispatch => {
   return SessionAPIUtil.logoutUser()
-    .then(() => dispatch(logoutCurrentUser()))
+    .then(() => dispatch(logoutCurrentUser()),
+      errors => dispatch(receiveSessionErrors(errors)));
 }
 
 export const signup = (user) => dispatch => {
   return SessionAPIUtil.createUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
+    .then(user => dispatch(receiveCurrentUser(user)),
+      errors => dispatch(receiveSessionErrors(errors)));
 }
