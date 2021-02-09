@@ -7,8 +7,8 @@ export default class SessionForm extends Component {
     super(props)
   
     this.state = {
-       email = "",
-       password = ""
+       email: "",
+       password: ""
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,8 +29,10 @@ export default class SessionForm extends Component {
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map(error => (
-          <li>{error}</li>
+        {this.props.errors.map((error, idx) => (
+          <li key={idx}>
+            {error}
+          </li>
         ))}
       </ul>
     )
@@ -42,7 +44,9 @@ export default class SessionForm extends Component {
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
           <Link to="/" >Everbrain</Link>
+          <br/>
           <p>Remember everything important.</p>
+          <br/>
           <input 
             type="text" 
             placeholder="Email address"
@@ -55,7 +59,7 @@ export default class SessionForm extends Component {
             value={this.state.password}
             onChange={this.update('password')}
           /> <br/>
-
+          <input type="submit" value={this.props.formType} />
         </form>
       </div>
     )
