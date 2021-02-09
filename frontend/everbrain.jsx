@@ -1,18 +1,16 @@
-import React from "react";
+import React from 'react';
 import ReactDOM from "react-dom";
-import { login, logout, signup } from "./actions/session_actions";
 import configureStore from "./store/store";
+import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const root = document.getElementById("root");
   const store = configureStore();
 
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
-
+  // TESTING START
   window.getState = store.getState;
-  window.dispatch = store.dispatch; // just for testing!
+  window.dispatch = store.dispatch;
+  // TESTING END
 
-  ReactDOM.render(<h1>Welcome to Everbrain</h1>, root);
+  const root = document.getElementById("root");
+  ReactDOM.render(<Root store={store} />, root);
 });
