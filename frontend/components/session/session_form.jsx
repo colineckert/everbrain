@@ -81,7 +81,7 @@ const AccountLink = ({ formType }) => {
     link = <Link to="/signup">Create account</Link>
   } else {
     text = "Already have an account?"
-    link = <Link to="/signup">Sign in</Link>
+    link = <Link to="/login">Sign in</Link>
   };
 
   return (

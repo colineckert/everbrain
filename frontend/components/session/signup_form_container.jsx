@@ -2,11 +2,13 @@ import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => {
+  return {
   errors: Object.values(state.errors.session),
   formType: 'Sign up',
   buttonText: 'Continue'
-})
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
