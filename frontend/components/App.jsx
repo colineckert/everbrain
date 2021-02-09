@@ -13,8 +13,6 @@ const App = () => (
         <h1>Everbrain</h1>
       </Link>
     </header>
-      <AuthRoute exact path="/" />
-
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
   </div>

@@ -40,7 +40,6 @@ export default class SessionForm extends Component {
   render() {
     return (
       <div>
-        {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
 
           <Link to="/">Everbrain</Link>
@@ -73,7 +72,7 @@ export default class SessionForm extends Component {
   }
 }
 
-const AccountLink = ({ formType }) => {
+export const AccountLink = ({ formType }) => {
   let link, text;
 
   if (formType === "Sign in") {
