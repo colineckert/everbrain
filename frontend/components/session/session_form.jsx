@@ -72,7 +72,7 @@ export default class SessionForm extends Component {
   }
 }
 
-export const AccountLink = ({ formType }) => {
+const AccountLink = ({ formType }) => {
   let link, text;
 
   if (formType === "Sign in") {
