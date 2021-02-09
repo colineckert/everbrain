@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import hp_hero from '../../../app/assets/images/hp_hero_note.png';
 
 const HomeContent = () => {
   return (
     <div>
       <div>
         <h1>Accomplish more with better notes</h1>
-        <h3>Evernote helps you capture ideas and find them fast.</h3>
+        <h3>Everbrain helps you capture ideas and find them fast.</h3>
         <Link to="/signup"><button>Sign up for free</button></Link>
         <br/>
         <Link to="/login">Already have an account? Log in</Link>
