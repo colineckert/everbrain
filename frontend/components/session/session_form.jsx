@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import DemoLogin from './demo_login';
 
 export default class SessionForm extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class SessionForm extends Component {
        email: "",
        password: ""
     }
-
+    
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,15 +22,18 @@ export default class SessionForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
+
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+
+    this.props.processForm(user)
+      .then(() => this.props.history.push('/notes'));
   }
 
   renderErrors() {
     return (
       <ul>
-        {this.props.errors.map((error, idx) => (
-          <li key={idx}>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>
             {error}
           </li>
         ))}
@@ -62,11 +66,14 @@ export default class SessionForm extends Component {
           /> <br/>
 
           {this.renderErrors()}
+
           <input type="submit" value={this.props.buttonText} />
         </form>
         <br/>
 
         <AccountLink formType={this.props.formType}/>
+        <p>or</p>
+        <DemoLogin />
       </div>
     )
   }

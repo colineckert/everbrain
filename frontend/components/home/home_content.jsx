@@ -11,8 +11,8 @@ const HomeContent = () => {
         <br/>
         <Link to="/login">Already have an account? Log in</Link>
       </div>
-      <div>
-        <img src="" alt="Hero App Image" />
+      <div className='hero-image-container'>
+        <img src={window.heroAppURL} alt="Everbrain App" />
       </div>
       <div>
         <h4>WORK ANYWHERE</h4>

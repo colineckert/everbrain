@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DemoLogin from '../session/demo_login';
 
 const HomeNav = () => {
   return (
     <div>
       <div>
-        <img src="" alt="Evernote Logo"/>
+        <Link to="/">
+          <img src={window.EnNavLogo} alt="Evernote Logo"/>
+        </Link>
       </div>
       <div>
         <Link to="/login">Log in</Link>
         <p>or</p>
-        <Link to="/signup">
-          <button>Demo</button>
-        </Link>
+        <DemoLogin />
       </div>
     </div>
   )

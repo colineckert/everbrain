@@ -9,16 +9,17 @@ import SignupFormContainer from './session/signup_form_container';
 // Home splash page
 import Home from './home/home';
 
+// Main app
+import Main from './main/main';
+
 const App = () => (
   <div>
-    <header>
-      <Link to="/">
-        <h1>Everbrain</h1>
-      </Link>
-    </header>
       <AuthRoute exact path="/" component={Home} />
+
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
+
+      <ProtectedRoute path="/notes" component={Main} />
   </div>
 );
 
