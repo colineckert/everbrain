@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
-const mapStateToProps = ({ errors }) => {
+const mapStateToProps = (state) => {
   return {
-    errors: errors.session,
-    formType: 'Sign in'
+    errors: Object.values(state.errors.session),
+    formType: 'Sign in',
+    buttonText: 'Sign in'
   }
 }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Link } from "react-router-dom";
 
 export default class SessionForm extends Component {
@@ -43,25 +42,52 @@ export default class SessionForm extends Component {
       <div>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
-          <Link to="/" >Everbrain</Link>
+
+          <Link to="/">Everbrain</Link>
           <br/>
           <p>Remember everything important.</p>
           <br/>
+
           <input 
             type="text" 
             placeholder="Email address"
             value={this.state.email}
             onChange={this.update('email')}
           /> <br/>
+
           <input 
             type="password" 
             placeholder="Password"
             value={this.state.password}
             onChange={this.update('password')}
           /> <br/>
-          <input type="submit" value={this.props.formType} />
+
+          {this.renderErrors()}
+          <input type="submit" value={this.props.buttonText} />
         </form>
+        <br/>
+
+        <AccountLink formType={this.props.formType}/>
       </div>
     )
   }
+}
+
+const AccountLink = ({ formType }) => {
+  let link, text;
+
+  if (formType === "Sign in") {
+    text = "Don't have an account?"
+    link = <Link to="/signup">Create account</Link>
+  } else {
+    text = "Already have an account?"
+    link = <Link to="/signup">Sign in</Link>
+  };
+
+  return (
+    <div>
+      <div>{text}</div>
+      {link}
+    </div>
+  )
 }
