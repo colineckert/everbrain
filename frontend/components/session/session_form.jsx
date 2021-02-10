@@ -41,12 +41,17 @@ export default class SessionForm extends Component {
     )
   }
 
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
+  }
+  
+
   render() {
     return (
       <div className="session-form-container">
         <div className="main-session-form">
           <form onSubmit={this.handleSubmit}>
-            
+
             <Link to="/"><h1>Everbrain</h1></Link>
             <br/>
             <p>Remember everything important.</p>
