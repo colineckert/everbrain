@@ -43,37 +43,49 @@ export default class SessionForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="session-form-container">
+        <div className="main-session-form">
+          <form onSubmit={this.handleSubmit}>
+            
+            <Link to="/"><h1>Everbrain</h1></Link>
+            <br/>
+            <p>Remember everything important.</p>
+            <br/>
 
-          <Link to="/">Everbrain</Link>
+            <input 
+              className="email-input"
+              type="text" 
+              placeholder="Email address"
+              value={this.state.email}
+              onChange={this.update('email')}
+            /> <br/>
+            <input
+              className="password-input"
+              type="password" 
+              placeholder="Password"
+              value={this.state.password}
+              onChange={this.update('password')}
+            /> <br/>
+
+            <div className="session-errors">
+              {this.renderErrors()}
+            </div>
+            
+            <div className="form-submit-container">
+              <button 
+                className="form-submit"
+                type="submit">{this.props.buttonText}
+              </button>
+            </div>
+          </form>
           <br/>
-          <p>Remember everything important.</p>
-          <br/>
 
-          <input 
-            type="text" 
-            placeholder="Email address"
-            value={this.state.email}
-            onChange={this.update('email')}
-          /> <br/>
-
-          <input 
-            type="password" 
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.update('password')}
-          /> <br/>
-
-          {this.renderErrors()}
-
-          <input type="submit" value={this.props.buttonText} />
-        </form>
-        <br/>
-
-        <AccountLink formType={this.props.formType}/>
-        <p>or</p>
-        <DemoLogin />
+          <AccountLink formType={this.props.formType}/>
+          
+          <div id="session-demo">
+            <DemoLogin />
+          </div>
+        </div>
       </div>
     )
   }
@@ -91,9 +103,14 @@ const AccountLink = ({ formType }) => {
   };
 
   return (
-    <div>
-      <div>{text}</div>
-      {link}
+    <div className="form-alt">
+      <div className="form-alt-text">
+        {text}
+      </div>
+      <div className="form-alt-link">
+        {link}
+      </div>
+      <p>or</p>
     </div>
   )
 }

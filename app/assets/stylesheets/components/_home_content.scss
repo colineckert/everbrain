@@ -34,6 +34,10 @@
   display: block;
 }
 
+.main-cta {
+  padding-bottom: 10px;
+}
+
 .login-alt-cta {
   text-decoration: underline;
 }
@@ -69,3 +73,17 @@ p {
 .home-content-header a {
   font-size: 18px;
 }
+
+// @media (min-width: 768px) {
+//   .home-content-body {
+//     flex-direction: row;
+//     flex: 1;
+//   }
+//   .home-content {
+//     flex: 1;
+//   }
+//   .home-content-sidebar {
+//     /* 12em is the width of the columns */
+//     flex: 0 0 12em;
+//   }
+// }

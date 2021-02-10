@@ -1,0 +1,104 @@
+body {
+  background-color: $light-grey;
+}
+
+.session-form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.main-session-form {
+  background-color: $white;
+  margin: 0px auto 28px auto;
+  padding: 62.12px 99px 48px;
+  width: 314px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow:rgba(0, 0, 0, 0.05) 0px 0.1rem 0.3rem, rgba(0, 0, 0, 0.05) 0px 0.1rem 0.2rem, rgba(0, 0, 0, 0.05) 0px 0.5rem 1.5rem;
+    border:0;
+  // box-shadow: 0px 4px 24px rgb(0, 0, 0, 00.1rem);
+  border-radius: 3px;
+
+  h1 {
+    font-size: 56px;
+    line-height: 70px;
+    // padding: 0 0 10px;
+  }
+
+  .session-errors {
+    color: red;
+    font-family: $apple-font;
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid $light-grey;
+    border-radius: 7px;
+    font-family: $apple-font;
+    font-weight: 400;
+    text-align: start;
+  }
+
+  input:focus {
+    border: 3px solid $lightest-green;
+  }
+
+  p {
+    font-family: $apple-font;
+    font-weight: 400;
+    padding-bottom: 10px;
+  }
+
+  .form-submit-container {
+    padding-top: 10px;
+  }
+
+  .form-submit {
+    padding: 14px 0;
+    display: block;
+    width: 100%;
+  }
+}
+
+.form-alt {
+  font-family: $apple-font;
+  font-weight: 400;
+  color: $dark-grey;
+  padding-top: 20px;
+
+  .form-alt-text {
+    padding-bottom: 5px;
+  }
+
+  p {
+    color: $dark-grey;
+    padding: 10px 0;
+  }
+
+}
+
+#session-demo > button {
+  border: 2px solid $green;
+  background-color: $white;
+  color: $green;
+  font-size: 14px;
+  font-family: $en-bold-serif;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 10px 30px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  transition: .3s background-color ease-in-out;
+}
+
+#session-demo > button:hover {
+  color: $light-green;
+  border-color: $light-green;
+}
