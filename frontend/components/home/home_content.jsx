@@ -19,7 +19,7 @@ const HomeContent = () => {
           <img src={window.heroAppURL} alt="Everbrain App" />
         </div>
 
-        <section className="content-sidebar">
+        <section className="home-content-sidebar">
           <div>
             <h4>WORK ANYWHERE</h4>
             <p>Keep important info handy by syncing your notes to all your devices.</p>

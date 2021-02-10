@@ -1,6 +1,7 @@
-// .home-content {
-
-// }
+.home-content {
+  padding-top: 60px;
+  margin: auto;
+}
 
 h1 {
   font-size: 56px;
@@ -16,20 +17,29 @@ h5 {
 
 .home-content-body {
   display: flex;
-  justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
-.content-header {
+.home-content-header {
+  padding: 0 0 80px;
+  text-align: -webkit-center;
+}
+
+.home-content-header button {
+  font-size: 16px;
+  padding: 16px 80px;
   display: block;
 }
 
-.content-header button {
-  font-size: 16px;
-  padding: 16px 80px;
+.hero-image-container {
+  float: left;
 }
 
-.content-sidebar div {
+.home-content-sidebar {
+  float: right;
+}
+
+.home-content-sidebar div {
   padding: 0 0 20px;
 }
 
@@ -40,4 +50,8 @@ h4 {
 
 p {
   font-size: 16px;
+}
+
+a {
+  font-size: 18px;
 }

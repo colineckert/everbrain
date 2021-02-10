@@ -1,3 +1,8 @@
+body {
+	width: 80%;
+	margin: 0 auto;
+}
+
 button {
   background-color: $green;
   color: $white;
@@ -5,7 +10,12 @@ button {
   font-family: $en-bold-serif;
   border-radius: 3px;
   text-align: center;
+  letter-spacing: 1.5px;
+  transition: .3s background-color ease-in-out;
+}
 
+button:hover {
+    background-color: $light-green;
 }
 
 a {
@@ -16,12 +26,13 @@ a:hover {
   color: $green;
 }
 
-h1 {
-  font-family: $en-title-serif;
+h1, h4 {
+  font-family: $en-serif;
+  font-weight: 600;
 }
 
-h4, h5 {
-  font-family: $en-bold-serif;
+h5 {
+  font-family: $en-serif;
 }
 
 p {
