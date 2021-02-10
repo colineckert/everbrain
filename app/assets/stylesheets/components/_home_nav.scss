@@ -1,5 +1,4 @@
 .home-nav-container {
-  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,16 +10,38 @@
   display: block;
   width: 177px;
   height: 40px;
+  
 }
 
 .home-nav-buttons {
   display: flex;
-  margin-left: 20px;
+  align-items: center;
   justify-content: space-between;
 }
 
-.home-nav-bottoms > button {
+.home-nav-demo > button {
   border: 1px solid $green;
   background-color: $white;
   color: $green;
 }
+
+.home-nav-bottoms > p {
+  padding-right: 10px;
+}
+
+.home-nav-login {
+  padding-right: 20px;
+}
+
+
+// .fa-github:before {
+//   content: "\f09b";
+// }
+
+// .fa-linkedin-in:before {
+//   content: "\f08c"; 
+// }
+
+// .fa-angellist:before {
+//   content: "\f209";
+// }

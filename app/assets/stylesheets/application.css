@@ -62,7 +62,7 @@ input[type="submit"] {
   clear: both; }
 
 body {
-  width: 80%;
+  width: 70%;
   margin: 0 auto; }
 
 button {
@@ -98,11 +98,12 @@ p {
   padding-top: 60px;
   margin: auto; }
 
-h1 {
+.home-content-header > h1 {
   font-size: 56px;
-  line-height: 70px; }
+  line-height: 70px;
+  padding: 0 0 10px; }
 
-h5 {
+.home-content-header > h5 {
   font-size: 24px;
   line-height: 150%;
   font-weight: 400;
@@ -122,10 +123,14 @@ h5 {
   display: block; }
 
 .hero-image-container {
-  float: left; }
+  float: left;
+  height: auto;
+  max-width: 100%;
+  width: auto; }
 
 .home-content-sidebar {
-  float: right; }
+  float: right;
+  min-width: 240px; }
 
 .home-content-sidebar div {
   padding: 0 0 20px; }
@@ -137,11 +142,10 @@ h4 {
 p {
   font-size: 16px; }
 
-a {
+.home-content-header a {
   font-size: 18px; }
 
 .home-nav-container {
-  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,12 +159,18 @@ a {
 
 .home-nav-buttons {
   display: flex;
-  margin-left: 20px;
+  align-items: center;
   justify-content: space-between; }
 
-.home-nav-bottoms > button {
+.home-nav-demo > button {
   border: 1px solid #00a82d;
   background-color: #fff;
   color: #00a82d; }
+
+.home-nav-bottoms > p {
+  padding-right: 10px; }
+
+.home-nav-login {
+  padding-right: 20px; }
 
 /*# sourceMappingURL=application.css.map */

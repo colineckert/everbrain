@@ -3,12 +3,13 @@
   margin: auto;
 }
 
-h1 {
+.home-content-header > h1 {
   font-size: 56px;
   line-height: 70px;
+  padding: 0 0 10px;
 }
 
-h5 {
+.home-content-header > h5 {
   font-size: 24px;
   line-height: 150%;
   font-weight: 400;
@@ -33,10 +34,17 @@ h5 {
 
 .hero-image-container {
   float: left;
+  height: auto;
+  max-width: 100%;
+  width: auto;
 }
 
 .home-content-sidebar {
   float: right;
+  min-width: 240px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
 }
 
 .home-content-sidebar div {
@@ -52,6 +60,6 @@ p {
   font-size: 16px;
 }
 
-a {
+.home-content-header a {
   font-size: 18px;
 }
