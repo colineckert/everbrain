@@ -59,6 +59,8 @@ group :development do
 
   # pry > irb
   gem 'pry-rails'
+
+  gem 'guard'
 end
 
 group :test do

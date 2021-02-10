@@ -1,0 +1,29 @@
+button {
+  background-color: $green;
+  color: $white;
+  padding: 10px 30px;
+  font-family: $en-bold-serif;
+  border-radius: 3px;
+  text-align: center;
+
+}
+
+a {
+  font-family: $en-serif;
+}
+
+a:hover {
+  color: $green;
+}
+
+h1 {
+  font-family: $en-title-serif;
+}
+
+h4, h5 {
+  font-family: $en-bold-serif;
+}
+
+p {
+  font-family: $en-serif;
+}
