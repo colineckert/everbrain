@@ -61,10 +61,6 @@ input[type="submit"] {
   display: block;
   clear: both; }
 
-body {
-  width: 70%;
-  margin: 0 auto; }
-
 button {
   background-color: #00a82d;
   color: #fff;
@@ -82,7 +78,8 @@ a {
   font-family: "Soleil", Helvetica, Arial, sans-serif; }
 
 a:hover {
-  color: #00a82d; }
+  color: #00a82d;
+  transition: .3s background-color ease-in-out; }
 
 h1, h4 {
   font-family: "Soleil", Helvetica, Arial, sans-serif;
@@ -95,8 +92,10 @@ p {
   font-family: "Soleil", Helvetica, Arial, sans-serif; }
 
 .home-content {
-  padding-top: 60px;
-  margin: auto; }
+  padding: 60px 40px 0;
+  margin: auto;
+  width: 60%;
+  margin: 0 auto; }
 
 .home-content-header > h1 {
   font-size: 56px;
@@ -153,7 +152,9 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  height: 80px; }
+  height: 80px;
+  width: 60%;
+  margin: 0 auto; }
 
 .home-nav-logo {
   display: block;
@@ -165,10 +166,21 @@ p {
   align-items: center;
   justify-content: space-between; }
 
-.home-nav-demo > button {
-  border: 1px solid #00a82d;
+#home-nav-demo > button {
+  border: 2px solid #00a82d;
   background-color: #fff;
-  color: #00a82d; }
+  color: #00a82d;
+  font-size: 14px;
+  font-family: "Soleil_Bold", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  transition: .3s background-color ease-in-out; }
+
+#home-nav-demo > button:hover {
+  color: #00cc36;
+  border-color: #00cc36; }
 
 .home-nav-bottoms > p {
   padding-right: 10px; }

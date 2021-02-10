@@ -8,7 +8,7 @@ const HomeContent = () => {
         <h1>Accomplish more with better notes</h1>
         <h5>Everbrain helps you capture ideas and find them fast.</h5>
 
-        <Link to="/signup"><button>Sign up for free</button></Link>
+        <Link className="main-cta" to="/signup"><button>Sign up for free</button></Link>
         <br/>
         <Link className="login-alt-cta" to="/login">Already have an account? Log in</Link>
       </div>

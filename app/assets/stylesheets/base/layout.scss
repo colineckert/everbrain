@@ -1,7 +1,7 @@
-body {
-	width: 70%;
-	margin: 0 auto;
-}
+// body {
+// 	width: 70%;
+// 	margin: 0 auto;
+// }
 
 button {
   background-color: $green;
@@ -15,7 +15,7 @@ button {
 }
 
 button:hover {
-    background-color: $light-green;
+  background-color: $light-green;
 }
 
 a {
@@ -24,6 +24,7 @@ a {
 
 a:hover {
   color: $green;
+  transition: .3s background-color ease-in-out;
 }
 
 h1, h4 {
