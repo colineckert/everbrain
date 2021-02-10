@@ -10,7 +10,7 @@ const HomeContent = () => {
 
         <Link to="/signup"><button>Sign up for free</button></Link>
         <br/>
-        <Link to="/login">Already have an account? Log in</Link>
+        <Link className="login-alt-cta" to="/login">Already have an account? Log in</Link>
       </div>
     
       <div className="home-content-body">
