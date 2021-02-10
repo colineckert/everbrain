@@ -1,0 +1,17 @@
+.not-found {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  h1 {
+    font-size: 70px;
+    font-weight: bolder;
+  }
+
+  a {
+    font-size: 40px;
+    // text-decoration: underline;
+  }
+}

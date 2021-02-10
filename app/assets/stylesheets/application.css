@@ -268,4 +268,16 @@ body {
   color: #00cc36;
   border-color: #00cc36; }
 
+.not-found {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+  .not-found h1 {
+    font-size: 70px;
+    font-weight: bolder; }
+  .not-found a {
+    font-size: 40px; }
+
 /*# sourceMappingURL=application.css.map */
