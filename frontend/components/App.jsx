@@ -16,13 +16,14 @@ import Main from './main/main';
 const App = () => (
   <div>
     <Switch>
+    
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
 
       <ProtectedRoute path="/notes" component={Main} />
 
       <Route exact path="/" component={Home} />
-      <Route component={NotFound} />
+      {/* <Route component={NotFound} /> */}
     </Switch>
   </div>
 );

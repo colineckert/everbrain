@@ -7,5 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Notebook.destroy_all
 
 demo_user = User.create!(email: "demo@everbrain.com", password: "password", full_name: "Demo User")
+
+demo_notebook_1 = Notebook.create!(name: "First Notebook", author_id: demo_user.id)
+demo_notebook_2 = Notebook.create!(name: "Research", author_id: demo_user.id);
+demo_notebook_3 = Notebook.create!(name: "Fellowship Members", author_id: demo_user.id);
