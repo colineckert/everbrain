@@ -2,20 +2,22 @@ class Api::NotebooksController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @notebooks = Notebook.all
+    @notebooks = current_user.notebooks.order(updated_at: desc)
     render :index
   end
 
   def show
-    @notebook = Notebook.find_by(id: params[:id])
+    @notebook = selected_notebook
     render :show
   end
 
   def update
-    @notebook = Notebook.find_by(id: params[:id])
+    @notebook = selected_notebook
 
-    if @notebook.update(notebook_params)
+    if @notebook && @notebook.update(notebook_params)
       render :show
+    elsif !@notebook
+      ender json: ['Notebook does not exist'], status: 400
     else
       render json: @notebook.errors.full_messages, status: 401
     end
@@ -32,7 +34,7 @@ class Api::NotebooksController < ApplicationController
   end
 
   def destroy
-    @notebook = current_user.notebooks.find_by(id: params[:id])
+    @notebook = selected_notebook
     if @notebook && @notebook.destroy
       render :index
     else
@@ -41,6 +43,10 @@ class Api::NotebooksController < ApplicationController
   end
 
   private
+
+  def selected_notebook
+    current_user.notebooks.find_by(id: params[:id])
+  end
 
   def notebook_params
     params.require(:notebook).permit(:name, :author_id)
