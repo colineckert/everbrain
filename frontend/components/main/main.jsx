@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import NavContainer from './nav/nav_container';
 
