@@ -1,8 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-// import LoginFormContainer from '../session_form/login_form_container';
-// import SignupFormContainer from '../session_form/signup_form_container';
+import NewNotebookModal from './new_notebook_modal';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -10,12 +9,14 @@ function Modal({ modal, closeModal }) {
   }
   let component;
   switch (modal) {
-    case 'login':
-      component = <LoginFormContainer />;
+    case 'createNotebook':
+      component = <NewNotebookModal />;
       break;
-    case 'signup':
-      component = <SignupFormContainer />;
+    case 'deleteNotebook':
+      // component = <SignupFormContainer />;
       break;
+    case 'renameNotebook':
+      // component = ;
     default:
       return null;
   }
