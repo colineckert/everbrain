@@ -7322,3 +7322,357 @@ Migrating to CreateNotebooks (20210211000430)
   [1m[36mUser Load (14.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mNotebook Load (5.7ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1[0m  [["author_id", 1]]
   [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks"[0m
+Started GET "/api/notebooks" for ::1 at 2021-02-10 17:42:58 -0800
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 192ms (ActiveRecord: 20.1ms)
+
+
+
+NameError - undefined local variable or method `new_session_url' for #<Api::NotebooksController:0x00007ffb70af2d78>
+Did you mean?  api_session_url:
+  app/controllers/application_controller.rb:11:in `require_logged_in'
+
+Started GET "/api/notebooks" for ::1 at 2021-02-10 17:45:51 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 18.1ms)
+
+
+
+NoMethodError - undefined method `notebooks' for nil:NilClass:
+  app/controllers/api/notebooks_controller.rb:5:in `index'
+
+Started POST "/api/session?user[email]=strider@gmail.com&user[password]=[FILTERED]" for ::1 at 2021-02-10 17:46:26 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"strider@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "strider@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "strider@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "myN6wjnnQL0ym5rh8UMxaw=="], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "myN6wjnnQL0ym5rh8UMxaw=="], ["updated_at", "2021-02-11 01:46:26.828492"], ["id", 2]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.4ms)
+Completed 200 OK in 266ms (Views: 12.3ms | ActiveRecord: 8.0ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-10 17:46:39 -0800
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "myN6wjnnQL0ym5rh8UMxaw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "strider@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "tIoOQCXVzdEZXefLsZYgaQ=="], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "tIoOQCXVzdEZXefLsZYgaQ=="], ["updated_at", "2021-02-11 01:46:39.068187"], ["id", 2]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/session?user[email]=gandalf@aol.com&user[password]=[FILTERED]" for ::1 at 2021-02-10 17:47:33 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"gandalf@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gandalf@aol.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (9.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "gandalf@aol.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["updated_at", "2021-02-11 01:47:34.151781"], ["id", 3]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.3ms)
+Completed 200 OK in 246ms (Views: 7.0ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-10 17:50:37 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.3ms)
+
+
+
+NameError - undefined local variable or method `desc' for #<Api::NotebooksController:0x00007ffb6dd46988>:
+  app/controllers/api/notebooks_controller.rb:5:in `index'
+
+Started GET "/api/notebooks" for ::1 at 2021-02-10 17:51:32 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  Rendered api/notebooks/index.json.jbuilder (0.7ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 17.5ms)
+
+
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/api/notebooks/index.json.jbuilder:7:in `'
+  app/controllers/api/notebooks_controller.rb:6:in `index'
+
+Started GET "/api/notebooks" for ::1 at 2021-02-10 17:51:50 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.5ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 3]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:1
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/index.json.jbuilder (50.7ms)
+Completed 200 OK in 99ms (Views: 71.3ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/api/notebooks/3" for ::1 at 2021-02-10 17:52:05 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.2ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.builder
+  [1m[36mNotebook Load (0.2ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ app/controllers/api/notebooks_controller.rb:11
+  Rendered api/notebooks/show.json.builder (480.5ms)
+Completed 500 Internal Server Error in 490ms (ActiveRecord: 1.0ms)
+
+
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Notebook Load (0.0ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC LIMIT $2[0m  [["author_id", 3], ["LIMIT", 11]]
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+
+NameError - undefined local variable or method `json' for #<#<Class:0x00007ffb6d2fc4f0>:0x00007ffb6de16e80>
+Did you mean?  JSON:
+  app/views/api/notebooks/show.json.builder:1:in `_app_views_api_notebooks_show_json_builder__1180456317485021342_70358928502180'
+  app/controllers/api/notebooks_controller.rb:11:in `show'
+
+Started GET "/api/notebooks/3" for ::1 at 2021-02-10 17:52:35 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.2ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.builder
+  Rendered api/notebooks/show.json.builder (5.6ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `notebook' for JSON:Module:
+  app/views/api/notebooks/show.json.builder:1:in `_app_views_api_notebooks_show_json_builder__1180456317485021342_70358927044660'
+  app/controllers/api/notebooks_controller.rb:11:in `show'
+
+Started GET "/api/notebooks/3" for ::1 at 2021-02-10 17:52:56 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.2ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.builder
+  Rendered api/notebooks/show.json.builder (294.6ms)
+Completed 500 Internal Server Error in 324ms (ActiveRecord: 0.4ms)
+
+
+
+NameError - undefined local variable or method `json' for #<#<Class:0x00007ffb6d2fc4f0>:0x00007ffb6dcf2928>
+Did you mean?  JSON:
+  app/views/api/notebooks/show.json.builder:2:in `_app_views_api_notebooks_show_json_builder__1180456317485021342_70358927901800'
+  app/controllers/api/notebooks_controller.rb:11:in `show'
+
+Started GET "/api/notebooks/3" for ::1 at 2021-02-10 17:53:16 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.builder
+  Rendered api/notebooks/show.json.builder (4.5ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `partial!' for JSON:Module:
+  app/views/api/notebooks/show.json.builder:2:in `_app_views_api_notebooks_show_json_builder__1180456317485021342_70358922379280'
+  app/controllers/api/notebooks_controller.rb:11:in `show'
+
+Started GET "/api/notebooks/" for ::1 at 2021-02-10 17:53:34 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (4.5ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 3]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:1
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/index.json.jbuilder (8.6ms)
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/api/notebooks/" for ::1 at 2021-02-10 17:53:49 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.4ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 3]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:1
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/index.json.jbuilder (21.3ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/notebooks/1" for ::1 at 2021-02-10 17:53:53 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.builder
+  Rendered api/notebooks/show.json.builder (277.6ms)
+Completed 500 Internal Server Error in 304ms (ActiveRecord: 0.5ms)
+
+
+
+NameError - undefined local variable or method `json' for #<#<Class:0x00007ffb6d2fc4f0>:0x00007ffb6ea9aa30>
+Did you mean?  JSON:
+  app/views/api/notebooks/show.json.builder:1:in `_app_views_api_notebooks_show_json_builder__1180456317485021342_70358935062840'
+  app/controllers/api/notebooks_controller.rb:11:in `show'
+
+Started GET "/api/notebooks/1" for ::1 at 2021-02-10 17:55:35 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.builder
+  Rendered api/notebooks/show.json.builder (385.7ms)
+Completed 500 Internal Server Error in 410ms (ActiveRecord: 0.5ms)
+
+
+
+NameError - undefined local variable or method `json' for #<#<Class:0x00007ffb6d2fc4f0>:0x00007ffb70a99c78>
+Did you mean?  JSON:
+  app/views/api/notebooks/show.json.builder:2:in `_app_views_api_notebooks_show_json_builder__1180456317485021342_70358951826280'
+  app/controllers/api/notebooks_controller.rb:11:in `show'
+
+Started GET "/api/notebooks/" for ::1 at 2021-02-10 18:05:44 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.8ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 3]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/index.json.jbuilder (4.0ms)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/notebooks/1" for ::1 at 2021-02-10 18:06:17 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.2ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.builder
+  Rendered api/notebooks/show.json.builder (251.3ms)
+Completed 500 Internal Server Error in 293ms (ActiveRecord: 0.6ms)
+
+
+
+NameError - undefined local variable or method `json' for #<#<Class:0x00007ffb6d2fc4f0>:0x00007ffb720e0e50>
+Did you mean?  JSON:
+  app/views/api/notebooks/show.json.builder:1:in `_app_views_api_notebooks_show_json_builder__1180456317485021342_70358963510580'
+  app/controllers/api/notebooks_controller.rb:11:in `show'
+
+Started GET "/api/notebooks" for ::1 at 2021-02-10 18:08:13 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.4ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 3]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/index.json.jbuilder (28.7ms)
+Completed 200 OK in 57ms (Views: 55.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/notebooks/1" for ::1 at 2021-02-10 18:08:19 -0800
+Processing by Api::NotebooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gwagmnGAbMkDM9mvaBczlQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNotebook Load (0.4ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 AND "notebooks"."id" = $2 LIMIT $3[0m  [["author_id", 3], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/notebooks_controller.rb:48
+  Rendering api/notebooks/show.json.jbuilder
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/show.json.jbuilder (1.9ms)
+Completed 200 OK in 34ms (Views: 30.6ms | ActiveRecord: 0.7ms)
+
+

@@ -1,8 +1,8 @@
 class Api::NotebooksController < ApplicationController
-  before_action :require_logged_in
+  # before_action :require_logged_in
 
   def index
-    @notebooks = current_user.notebooks.order(updated_at: desc)
+    @notebooks = current_user.notebooks.order(updated_at: :desc)
     render :index
   end
 
