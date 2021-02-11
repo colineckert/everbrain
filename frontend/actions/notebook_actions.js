@@ -32,7 +32,7 @@ export const requestNotebooks = () => dispatch => {
 }
 
 export const requestNotebook = (notebookId) => dispatch => {
-  return NotebookAPI.fetchNotebooks(notebookId)
+  return NotebookAPI.fetchNotebook(notebookId)
     .then(notebook => dispatch(receiveNotebook(notebook)))
 }
 
