@@ -21,9 +21,10 @@ const App = () => (
       <AuthRoute path="/signup" component={SignupFormContainer} />
 
       <ProtectedRoute path="/notes" component={Main} />
+      <ProtectedRoute path="/notebooks" component={Main} />
 
       <Route exact path="/" component={Home} />
-      {/* <Route component={NotFound} /> */}
+      <Route component={NotFound} />
     </Switch>
   </div>
 );

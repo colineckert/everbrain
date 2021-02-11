@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchNotebooks } from '../../../util/notebook_api_util';
 import { getAllNotebooks } from '../../../reducers/selectors'
+import { requestNotebooks, createNotebook } from '../../../actions/notebook_actions';
 import NotebookIndex from './notebook_index';
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchNotebooks: () => dispatch(fetchNotebooks())
+    requestNotebooks: () => dispatch(requestNotebooks())
   }
 }
 
