@@ -1,0 +1,28 @@
+.hidden {
+  display: none;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: $white;
+}
+
+.actions-dropdown-button {
+  background: transparent;
+}
+
+.actions-dropdown-button:hover {
+  background: transparent;
+}
+
+.fas.fa-ellipsis-h {
+  color: $grey;
+}
+
+.fas.fa-ellipsis-h:hover {
+  color: $darker-grey;
+}
+
+.notebook-actions-dropdown {
+  position: relative; 
+}

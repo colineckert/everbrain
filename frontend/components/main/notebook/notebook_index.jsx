@@ -6,14 +6,23 @@ export default class NotebookIndex extends Component {
   constructor(props) {
     super(props)
   
-    // this.state = {
-       
-    // }
+    this.state = {
+       notebookActionDropdown: "hidden"
+    }
+
+    this.toggleActionsDropdown = this.toggleActionsDropdown.bind(this);
   }
-  
 
   componentDidMount() {
     this.props.requestNotebooks();
+  }
+
+  toggleActionsDropdown() {
+    if (this.state.notebookActionDropdown === "hidden") {
+      this.setState({notebookActionDropdown: ""})
+    } else {
+      this.setState({ notebookActionDropdown: "hidden" })
+    }
   }
   
   render() {
@@ -35,7 +44,13 @@ export default class NotebookIndex extends Component {
               {date}
             </div>
             <div className="notebook-actions-dropdown">
-              <i className="fas fa-ellipsis-h"></i>
+              <button className="actions-dropdown-button" onClick={this.toggleActionsDropdown}>
+                <i className="fas fa-ellipsis-h"></i>
+              </button>
+              <ul className={`dropdown ${this.state.notebookActionDropdown}`}>
+                <li><button>Rename Notebook</button></li>
+                <li><button>Delete Notebook</button></li>
+              </ul>
             </div>
           </div>
         </li>

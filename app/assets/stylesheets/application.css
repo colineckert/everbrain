@@ -483,7 +483,27 @@ body {
     line-height: 35px; }
   .notebook-index-container .notebook-actions-dropdown {
     text-align: end; }
-  .notebook-index-container .fas.fa-ellipsis-h {
-    color: #a6a6a6; }
+
+.hidden {
+  display: none; }
+
+.dropdown {
+  position: absolute;
+  background-color: #fff; }
+
+.actions-dropdown-button {
+  background: transparent; }
+
+.actions-dropdown-button:hover {
+  background: transparent; }
+
+.fas.fa-ellipsis-h {
+  color: #a6a6a6; }
+
+.fas.fa-ellipsis-h:hover {
+  color: #333; }
+
+.notebook-actions-dropdown {
+  position: relative; }
 
 /*# sourceMappingURL=application.css.map */
