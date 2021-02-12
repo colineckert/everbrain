@@ -7,7 +7,7 @@ export default class NotebookIndex extends Component {
     super(props)
   
     this.state = {
-       notebookActionDropdown: "hidden"
+      actionsDropdown: {}
     }
 
     this.toggleActionsDropdown = this.toggleActionsDropdown.bind(this);
@@ -17,11 +17,19 @@ export default class NotebookIndex extends Component {
     this.props.requestNotebooks();
   }
 
-  toggleActionsDropdown() {
-    if (this.state.notebookActionDropdown === "hidden") {
-      this.setState({notebookActionDropdown: ""})
+  // toggleActionsDropdown() {
+  //   if (this.state.actionsDropdown === "hidden") {
+  //     this.setState({actionsDropdown: ""})
+  //   } else {
+  //     this.setState({ actionsDropdown: "hidden" })
+  //   }
+  // }
+
+  toggleActionsDropdown(notebookId) {
+    if (this.state.actionsDropdown[notebookId] === true) {
+      this.setState({ actionsDropdown: Object.assign({}, { [notebookId]: false }) }) 
     } else {
-      this.setState({ notebookActionDropdown: "hidden" })
+      this.setState({ actionsDropdown: Object.assign({}, { [notebookId]: true }) })
     }
   }
   
@@ -30,11 +38,12 @@ export default class NotebookIndex extends Component {
     const notebookList = notebooks.map(notebook => {
       
       const date = parseDate(notebook.updated_at);
-      
+      const actionsDropdown = this.state.actionsDropdown[notebook.id];
+
       return (
         <li key={notebook.id}>
           <div className="notebook-item-text">
-            <div>
+            <div className="notebook-name">
               <Link to="/notebooks">{notebook.name}</Link>
             </div>
             <div>
@@ -44,12 +53,14 @@ export default class NotebookIndex extends Component {
               {date}
             </div>
             <div className="notebook-actions-dropdown">
-              <button className="actions-dropdown-button" onClick={this.toggleActionsDropdown}>
-                <i className="fas fa-ellipsis-h"></i>
+              <button className="actions-dropdown-button" 
+                onClick={() => this.toggleActionsDropdown(notebook.id)}>
+                  <i className="fas fa-ellipsis-h"></i>
               </button>
-              <ul className={`dropdown ${this.state.notebookActionDropdown} actions-dropdown`}>
-                <li><button>Rename Notebook</button></li>
-                <li><button>Delete Notebook</button></li>
+              <ul className={`dropdown actions-dropdown
+                ${actionsDropdown ? "" : "hidden"}`}>
+                  <li><button>Rename Notebook</button></li>
+                  <li><button>Delete Notebook</button></li>
               </ul>
             </div>
           </div>
@@ -71,7 +82,7 @@ export default class NotebookIndex extends Component {
             <i className="fas fa-book-medical"></i>New Notebook</button>
         </div>
 
-        <div className="notebook-index-col-header"><h5>TITLE</h5></div>
+        <div className="notebook-index-col-header notebook-name"><h5>TITLE</h5></div>
         <div className="notebook-index-col-header"><h5>CREATED BY</h5></div>
         <div className="notebook-index-col-header"><h5>UPDATED</h5></div>
         <div className="notebook-index-col-header action"><h5>ACTION</h5></div>

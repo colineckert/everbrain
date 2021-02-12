@@ -55,7 +55,6 @@
     grid-row: 4;
     grid-column: 1 / -1;
     align-self: start;
-    
   }
 
   .notebooks-list {
@@ -68,7 +67,7 @@
     font-size: 14px;
   }
 
-  .notebooks-list li:nth-of-type(even) {
+  .notebooks-list > ul > li:nth-of-type(even) {
     background-color: rgb(243, 243, 243);
   }
 
@@ -84,4 +83,10 @@
   
 }
 
+.notebook-name {
+  padding-left: 10px;
+}
 
+.notebook-name h5 {
+  padding-left: 10px;
+}

@@ -65,8 +65,7 @@ class RenameNotebookModal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    // currentUser: state.session.id,
-    // notebook: 
+    notebook: state.ui.modal.notebookId
   }
 }
 

@@ -15,8 +15,8 @@ function Modal({ modal, closeModal }) {
     // case 'deleteNotebook':
     //   // component = <SignupFormContainer />;
     //   break;
-    // case 'renameNotebook':
-    //   // component = ;
+    case 'renameNotebook':
+      // component = ;
     default:
       return null;
   }
@@ -31,7 +31,7 @@ function Modal({ modal, closeModal }) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal.modalName
   };
 };
 

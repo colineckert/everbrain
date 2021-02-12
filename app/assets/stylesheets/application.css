@@ -89,7 +89,7 @@ h5 {
   font-family: "Soleil", Helvetica, Arial, sans-serif; }
 
 i {
-  margin: 0px 6px 0px 2px; }
+  margin: 0px 7px 0px 2px; }
 
 .home-content {
   padding: 60px 40px 0;
@@ -294,25 +294,20 @@ body {
   background-color: black;
   color: #fff;
   display: grid;
-  grid-template-rows: 50px 55px 55px 1fr 130px;
+  grid-template-rows: 50px 55px 55px 35px 35px 1fr 130px;
   padding-left: 15px;
   padding-top: 15px;
   position: static;
-  user-select: auto;
   width: 300px;
   height: 100%;
   max-width: 400px;
   min-width: 180px;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  overflow: hidden;
-  will-change: width; }
-  .main-side-nav .nav-notebooks {
+  box-sizing: border-box; }
+  .main-side-nav .nav-notebooks, .main-side-nav .nav-all-notes {
     color: #a6a6a6;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    display: grid; }
-  .main-side-nav .nav-notebooks:hover {
-    background-color: #333; }
+    display: grid;
+    align-items: center; }
   .main-side-nav .nav-search-bar {
     display: flex;
     align-items: center;
@@ -423,7 +418,8 @@ body {
     margin-left: 10px; }
   .modal-child p {
     padding-bottom: 20px;
-    color: #737373; }
+    color: #737373;
+    font-family: "Soleil", Helvetica, Arial, sans-serif; }
 
 .main-app-container {
   display: grid;
@@ -475,7 +471,7 @@ body {
     align-self: start; }
   .notebook-index-container .notebooks-list > ul > li {
     font-size: 14px; }
-  .notebook-index-container .notebooks-list li:nth-of-type(even) {
+  .notebook-index-container .notebooks-list > ul > li:nth-of-type(even) {
     background-color: #f3f3f3; }
   .notebook-index-container .notebook-item-text {
     display: grid;
@@ -484,13 +480,20 @@ body {
   .notebook-index-container .notebook-actions-dropdown {
     text-align: end; }
 
+.notebook-name {
+  padding-left: 10px; }
+
+.notebook-name h5 {
+  padding-left: 10px; }
+
 .hidden {
   display: none; }
 
 .dropdown {
   position: absolute;
+  z-index: 1;
   background-color: #fff;
-  padding: 20px;
+  padding: 10px 15px 10px 10px;
   width: 150px;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0.1rem 0.3rem, rgba(0, 0, 0, 0.05) 0px 0.1rem 0.2rem, rgba(0, 0, 0, 0.05) 0px 0.5rem 1.5rem;
@@ -500,8 +503,9 @@ body {
   background-color: transparent;
   color: black;
   text-align: left;
-  width: 150px;
-  padding: 0 5px; }
+  width: 100%;
+  padding: 0 0 0 5px;
+  margin-right: 15px; }
 
 .dropdown li > button:hover {
   background-color: #f3f3f3; }
@@ -524,5 +528,8 @@ body {
 .actions-dropdown {
   right: 0;
   top: 30px; }
+
+.actions-dropdown > li {
+  background-color: #fff; }
 
 /*# sourceMappingURL=application.css.map */

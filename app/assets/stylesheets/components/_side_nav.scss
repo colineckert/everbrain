@@ -2,34 +2,29 @@
   background-color: black;
   color: $white;
   display: grid;
-  grid-template-rows: 50px 55px 55px 1fr 130px;
+  grid-template-rows: 50px 55px 55px 35px 35px 1fr 130px;
   padding-left: 15px;
   padding-top: 15px;
 
   position: static;
-  user-select: auto;
   width: 300px;
   height: 100%;
   max-width: 400px;
   min-width: 180px;
   box-sizing: border-box;
-  flex-shrink: 0;
-  overflow: hidden;
-  will-change: width;
 
-  .nav-notebooks {
+  .nav-notebooks, .nav-all-notes {
     color: $grey;
     font-family: $apple-font;
     // align-items: flex-start;
     display: grid;
     // grid-template-columns: 25px 1fr;
-    // align-items: center;
-
+    align-items: center;
   }
 
-  .nav-notebooks:hover {
-    background-color: $darker-grey;
-  }
+  // .nav-notebooks:hover, .nav-all-notes:hover {
+  //   background-color: $darker-grey;
+  // }
 
   .nav-search-bar {
     display: flex;

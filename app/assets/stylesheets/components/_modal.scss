@@ -14,7 +14,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-
   .modal-content {
     background-color: $white;
     padding: 40px;
@@ -98,7 +97,7 @@
   p {
     padding-bottom: 20px;
     color: $dark-grey;
+    font-family: $en-serif;
   }
-
 
 }

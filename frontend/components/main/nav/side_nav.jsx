@@ -8,8 +8,7 @@ export default class SideNav extends Component {
       <div className="main-side-nav">
         <div>
           <button className="user-logout-button" onClick={() => this.props.logout()}>
-            <i className="fas fa-user"></i>
-            Logout
+            <i className="fas fa-user"></i>Logout
           </button>
         </div>
         <div className="nav-search">
@@ -22,12 +21,14 @@ export default class SideNav extends Component {
         </div>
         <div>
           <button className="new-note-button">
-            <i className="fas fa-plus"></i>
-          New Note
+            <i className="fas fa-plus"></i>New Note
           </button>
         </div>
+        <div className="nav-all-notes">
+          <Link to="/notes"><i className="fas fa-sticky-note"></i>All Notes</Link>
+        </div>
         <div className="nav-notebooks">
-          <Link to="/notebooks"><i className="fas fa-book"></i> Notebooks</Link>
+          <Link to="/notebooks"><i className="fas fa-book"></i>Notebooks</Link>
         </div>
       </div>
     )
