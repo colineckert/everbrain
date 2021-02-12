@@ -19,14 +19,12 @@
 
   .nav-notebooks {
     color: $grey;
+    font-family: $apple-font;
     // align-items: flex-start;
     display: grid;
     // grid-template-columns: 25px 1fr;
     // align-items: center;
 
-    // i {
-    //   color: $light-grey;
-    // }
   }
 
   .nav-notebooks:hover {

@@ -29,12 +29,12 @@ export default class NotebookIndex extends Component {
               <Link to="/notebooks">{notebook.name}</Link>
             </div>
             <div>
-              <p>Demo User</p>
+              Demo User
             </div>
             <div>
-              <p>{date}</p>
+              {date}
             </div>
-            <div>
+            <div className="notebook-actions-dropdown">
               <i className="fas fa-ellipsis-h"></i>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default class NotebookIndex extends Component {
         <div className="notebook-index-col-header"><h5>TITLE</h5></div>
         <div className="notebook-index-col-header"><h5>CREATED BY</h5></div>
         <div className="notebook-index-col-header"><h5>UPDATED</h5></div>
-        <div className="notebook-index-col-header"><h5>ACTION</h5></div>
+        <div className="notebook-index-col-header action"><h5>ACTION</h5></div>
 
         <div className="notebooks-list">
           <ul>

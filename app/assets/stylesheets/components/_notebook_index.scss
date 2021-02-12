@@ -9,6 +9,8 @@
   padding: 10px 35px;
   overflow: auto;
 
+  font-family: $apple-font;
+
   .notebook-index-header {
     grid-row: 1 / 2;
     font-size: 20px;
@@ -42,6 +44,18 @@
     border-top: 2px solid $dark-grey;
     padding: 10px 0;
     font-size: 12px;
+    background-color: rgb(243, 243, 243);
+  }
+
+  .notebook-index-col-header.action {
+    text-align: end;
+  }
+
+  .notebooks-list {
+    grid-row: 4;
+    grid-column: 1 / -1;
+    align-self: start;
+    
   }
 
   .notebooks-list {
@@ -50,10 +64,22 @@
     align-self: start;
   }
 
+  .notebooks-list > ul > li {
+    font-size: 14px;
+  }
+
+  .notebooks-list li:nth-of-type(even) {
+    background-color: rgb(243, 243, 243);
+  }
+
   .notebook-item-text {
     display: grid;
     grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 185px)) 1fr;
     line-height: 35px;
+  }
+
+  .notebook-actions-dropdown {
+    text-align: end;
   }
 
   .fas.fa-ellipsis-h {

@@ -18,17 +18,16 @@ class NewNotebookModal extends Component {
   }
 
   render() {
-    const { name } = this.state;
     return (
       <div className="modal-content">
         <div className="modal-header">
-          <h1>Create new notebook</h1>
+          <h1>Delete notebook?</h1>
           <button className="close-modal" onClick={this.props.closeModal}>
             <i className="fas fa-times"></i>
           </button>
         </div>
         <div>
-          <p>Notebooks are useful for grouping notes around a common topic.</p>
+          <p>Any notes in the notebook will be moved to Trash. This cannot be undone.</p>
         </div>
         <form id="notebook-form" onSubmit={this.deleteNotebook}>
           <label htmlFor="name" className="input-label">Name

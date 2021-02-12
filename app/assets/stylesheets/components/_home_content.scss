@@ -26,6 +26,10 @@
 .home-content-header {
   padding: 0 0 80px;
   text-align: -webkit-center;
+
+  a {
+    font-family: $en-serif;
+  }
 }
 
 .home-content-header button {
@@ -53,9 +57,10 @@
 .home-content-sidebar {
   float: right;
   min-width: 240px;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
+
+  p {
+  font-family: $en-serif;
+  }
 }
 
 .home-content-sidebar div {
