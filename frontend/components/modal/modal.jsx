@@ -9,14 +9,14 @@ function Modal({ modal, closeModal }) {
   }
   let component;
   switch (modal) {
-    case 'createNotebook':
+    case 'newNotebook':
       component = <NewNotebookModal />;
       break;
-    case 'deleteNotebook':
-      // component = <SignupFormContainer />;
-      break;
-    case 'renameNotebook':
-      // component = ;
+    // case 'deleteNotebook':
+    //   // component = <SignupFormContainer />;
+    //   break;
+    // case 'renameNotebook':
+    //   // component = ;
     default:
       return null;
   }

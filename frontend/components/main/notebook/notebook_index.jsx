@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { parseDate } from '../../../util/date_util'
+import { parseDate } from '../../../util/date_util';
 
 export default class NotebookIndex extends Component {
   constructor(props) {
@@ -40,7 +40,8 @@ export default class NotebookIndex extends Component {
         <h1>Notebooks</h1>
         <h5>Notebook List</h5>
         <div>
-          <button>
+          <button onClick={() => this.props.openModal('newNotebook')}>
+            <i className="fas fa-book-medical"></i>
             New Notebook
           </button>
         </div>

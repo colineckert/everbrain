@@ -31,22 +31,32 @@ class NewNotebookModal extends Component {
   render() {
     const { name } = this.state;
     return (
-      <div>
-        <h1>Create new notebook</h1>
-        <p>Notebooks are useful for grouping notes around a common topic.</p>
-        <button className="close-modal" onClick={this.props.closeModal}>
-          <i className="fas fa-times"></i>
-        </button>
+      <div className="modal-content">
+        <div className="modal-header">
+          <h1>Create new notebook</h1>
+          <button className="close-modal" onClick={this.props.closeModal}>
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
+        <div>
+          <p>Notebooks are useful for grouping notes around a common topic.</p>
+        </div>
         <form onSubmit={this.createNotebook}>
-          <label>Name
-            <input 
-              type="text" 
-              placeholder="Notebook name"
-              value={name} 
-              onChange={this.update('name')}
-            />
+          <label htmlFor="name" className="input-label">Name
           </label>
-          <button type="submit">Continue</button>
+          <input
+            type="text"
+            name="name"
+            placeholder="Notebook name"
+            value={name}
+            onChange={this.update('name')}
+          />
+          <div className="modal-buttons">
+            <button className="cancel-button" onClick={this.props.closeModal}>
+              Cancel
+            </button>
+            <button type="submit">Continue</button>
+          </div>
         </form>
       </div>
     )

@@ -44,6 +44,7 @@ body {
     font-family: $apple-font;
     font-weight: 400;
     text-align: start;
+    transition: .1s border ease-in-out;
   }
 
   input:focus {
