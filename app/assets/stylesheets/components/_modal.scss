@@ -26,12 +26,11 @@
       display: flex;
       justify-content: space-between;
       padding-bottom: 15px;
+      font-size: 18px;
     }
   }
 
   .close-modal {
-    // height: 30px;
-    // width: 30px;
     padding: 0;
     color: $dark-grey;
     background-color: transparent;

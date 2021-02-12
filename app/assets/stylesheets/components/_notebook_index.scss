@@ -1,0 +1,65 @@
+.notebook-index-container {
+  grid-column: 2 / -1;
+
+  display: grid;
+  grid-template-rows: 80px 45px 50px 1fr;
+  grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 185px)) 1fr; 
+  align-items: center;
+
+  padding: 10px 35px;
+  overflow: auto;
+
+  .notebook-index-header {
+    grid-row: 1 / 2;
+    font-size: 20px;
+  }
+
+  .notebook-index-header-2 {
+    grid-row: 2 / 3;
+    font-size: 15px;
+  }
+
+  .new-notebook {
+    grid-column-end: -1;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  .new-notebook > button {
+    background-color: transparent;
+    color: $green;
+    letter-spacing: normal;
+    transition: .2s color ease-in-out;
+  }
+
+  .new-notebook > button:hover {
+    color: $dark-green;
+  }
+
+  .notebook-index-col-header {
+    grid-row: 3 / 4;
+    color: $grey;
+    border-top: 2px solid $dark-grey;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  .notebooks-list {
+    grid-row: 4;
+    grid-column: 1 / -1;
+    align-self: start;
+  }
+
+  .notebook-item-text {
+    display: grid;
+    grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 185px)) 1fr;
+    line-height: 35px;
+  }
+
+  .fas.fa-ellipsis-h {
+    color: $grey;
+  }
+  
+}
+
+
