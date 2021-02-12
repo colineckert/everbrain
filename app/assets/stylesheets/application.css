@@ -489,7 +489,22 @@ body {
 
 .dropdown {
   position: absolute;
-  background-color: #fff; }
+  background-color: #fff;
+  padding: 20px;
+  width: 150px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0.1rem 0.3rem, rgba(0, 0, 0, 0.05) 0px 0.1rem 0.2rem, rgba(0, 0, 0, 0.05) 0px 0.5rem 1.5rem;
+  border: 0; }
+
+.dropdown li > button {
+  background-color: transparent;
+  color: black;
+  text-align: left;
+  width: 150px;
+  padding: 0 5px; }
+
+.dropdown li > button:hover {
+  background-color: #f3f3f3; }
 
 .actions-dropdown-button {
   background: transparent; }
@@ -505,5 +520,9 @@ body {
 
 .notebook-actions-dropdown {
   position: relative; }
+
+.actions-dropdown {
+  right: 0;
+  top: 30px; }
 
 /*# sourceMappingURL=application.css.map */

@@ -47,7 +47,7 @@ export default class NotebookIndex extends Component {
               <button className="actions-dropdown-button" onClick={this.toggleActionsDropdown}>
                 <i className="fas fa-ellipsis-h"></i>
               </button>
-              <ul className={`dropdown ${this.state.notebookActionDropdown}`}>
+              <ul className={`dropdown ${this.state.notebookActionDropdown} actions-dropdown`}>
                 <li><button>Rename Notebook</button></li>
                 <li><button>Delete Notebook</button></li>
               </ul>
