@@ -12,7 +12,7 @@ class NewNotebookModal extends Component {
       author_id: this.props.currentUser
     }
 
-    this.update = this.update.bind(this);
+    this.createNotebook = this.createNotebook.bind(this);
   }
 
   update(field) {
@@ -25,7 +25,8 @@ class NewNotebookModal extends Component {
     e.preventDefault();
 
     const notebook = this.state;
-    this.props.createNotebook(notebook);
+    this.props.createNotebook(notebook)
+      .then(() => this.props.closeModal());
   }
 
   render() {
@@ -41,7 +42,7 @@ class NewNotebookModal extends Component {
         <div>
           <p>Notebooks are useful for grouping notes around a common topic.</p>
         </div>
-        <form onSubmit={this.createNotebook}>
+        <form id="notebook-form" onSubmit={this.createNotebook}>
           <label htmlFor="name" className="input-label">Name
           </label>
           <input
@@ -55,7 +56,7 @@ class NewNotebookModal extends Component {
             <button className="cancel-button" onClick={this.props.closeModal}>
               Cancel
             </button>
-            <button type="submit">Continue</button>
+            <button type="submit" form="notebook-form">Continue</button>
           </div>
         </form>
       </div>

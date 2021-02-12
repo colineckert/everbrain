@@ -1,7 +1,81 @@
 .main-side-nav {
-  position: absolute;
-  height: 100vh;
   background-color: black;
   color: $white;
-  width: 260px;
+  display: grid;
+  grid-template-rows: 50px 55px 55px 1fr 130px;
+  padding-left: 15px;
+  padding-top: 15px;
+
+  position: static;
+  user-select: auto;
+  width: 300px;
+  height: 100%;
+  max-width: 400px;
+  min-width: 180px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+  will-change: width;
+
+  .nav-notebooks {
+    // align-items: flex-start;
+    display: grid;
+    // grid-template-columns: 25px 1fr;
+    // align-items: center;
+  }
+
+  .nav-notebooks:hover {
+    background-color: $darker-grey;
+  }
+
+  .nav-search-bar {
+    display: flex;
+    align-items: center;
+    background-color: $darker-grey;
+    color: $white;
+    font-family: $apple-font;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 95%;
+
+    i {
+      color: $dark-grey;
+    }
+  }
+
+  .new-note-button {
+    display: flex;
+    align-items: center;
+    background-color: $green;
+    border-radius: 20px;
+    padding: 10px;
+    width: 95%;
+    color: black;
+    font-family: $apple-font;
+    font-weight: 400;
+    font-size: 14px;
+    transition: .3s background-color ease-in-out;
+  }
+
+  .new-note-button:hover {
+    background-color: $light-green;
+  }
+
+  .user-logout-button {
+    display: flex;
+    align-items: center;
+    color: $dark-grey;
+    background-color: transparent;
+    padding: 10px;
+    // width: 95%;
+    transition: .3s color ease-in-out;
+  }
+
+  .user-logout-button:hover {
+    color: $white;
+  }
 }
+
+

@@ -25,16 +25,19 @@
     .modal-header {
       display: flex;
       justify-content: space-between;
+      padding-bottom: 15px;
     }
   }
 
   .close-modal {
-    height: 30px;
-    width: 30px;
+    // height: 30px;
+    // width: 30px;
     padding: 0;
     color: $dark-grey;
     background-color: transparent;
-    transition: .3s color ease-in-out;
+    transition: .2s color ease-in-out;
+    transform: scale(1.4, 1.4);
+    font-weight: 300;
   }
 
   .close-modal:hover {
@@ -51,7 +54,7 @@
     border: 2px solid $light-grey;
     border-radius: 7px;
     font-family: $apple-font;
-    font-weight: 400;
+    font-weight: 300;
     text-align: start;
     transition: .1s border ease-in-out;
   }
@@ -69,11 +72,20 @@
 
   .modal-buttons {
     display: flex;
-    justify-content: end;
-    padding-top: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid $light-grey;
 
     .cancel-button {
-      background-color: $dark-grey;
+      background-color: $white;
+      color: $dark-grey;
+      border: 1px solid $dark-grey;
+      transition: .1s background-color ease-in-out;
+    }
+
+    .cancel-button:hover {
+      background-color: $light-grey;
     }
   }
 
@@ -81,11 +93,13 @@
     font-size: 14px;
     padding: 10px 15px;
     display: block;
+    margin-left: 10px;
   }
 
   p {
-    padding: 15px 0;
+    padding-bottom: 20px;
     color: $dark-grey;
   }
+
 
 }

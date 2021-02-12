@@ -74,11 +74,11 @@ button:hover {
   background-color: #00cc36; }
 
 a {
-  font-family: "Soleil", Helvetica, Arial, sans-serif; }
+  font-family: "Soleil", Helvetica, Arial, sans-serif;
+  transition: .2s color ease-in-out; }
 
 a:hover {
-  color: #00a82d;
-  transition: .3s background-color ease-in-out; }
+  color: #00a82d; }
 
 h1, h4 {
   font-family: "Soleil", Helvetica, Arial, sans-serif;
@@ -89,6 +89,9 @@ h5 {
 
 p {
   font-family: "Soleil", Helvetica, Arial, sans-serif; }
+
+i {
+  margin: 0px 6px 0px 2px; }
 
 .home-content {
   padding: 60px 40px 0;
@@ -282,11 +285,62 @@ body {
     font-size: 40px; }
 
 .main-side-nav {
-  position: absolute;
-  height: 100vh;
   background-color: black;
   color: #fff;
-  width: 260px; }
+  display: grid;
+  grid-template-rows: 50px 55px 55px 1fr 130px;
+  padding-left: 15px;
+  padding-top: 15px;
+  position: static;
+  user-select: auto;
+  width: 300px;
+  height: 100%;
+  max-width: 400px;
+  min-width: 180px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+  will-change: width; }
+  .main-side-nav .nav-notebooks {
+    display: grid; }
+  .main-side-nav .nav-notebooks:hover {
+    background-color: #333; }
+  .main-side-nav .nav-search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 10px;
+    width: 95%; }
+    .main-side-nav .nav-search-bar i {
+      color: #737373; }
+  .main-side-nav .new-note-button {
+    display: flex;
+    align-items: center;
+    background-color: #00a82d;
+    border-radius: 20px;
+    padding: 10px;
+    width: 95%;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    transition: .3s background-color ease-in-out; }
+  .main-side-nav .new-note-button:hover {
+    background-color: #00cc36; }
+  .main-side-nav .user-logout-button {
+    display: flex;
+    align-items: center;
+    color: #737373;
+    background-color: transparent;
+    padding: 10px;
+    transition: .3s color ease-in-out; }
+  .main-side-nav .user-logout-button:hover {
+    color: #fff; }
 
 .modal-background {
   position: fixed;
@@ -310,14 +364,15 @@ body {
     border: 0; }
     .modal-child .modal-content .modal-header {
       display: flex;
-      justify-content: space-between; }
+      justify-content: space-between;
+      padding-bottom: 15px; }
   .modal-child .close-modal {
-    height: 30px;
-    width: 30px;
     padding: 0;
     color: #737373;
     background-color: transparent;
-    transition: .3s color ease-in-out; }
+    transition: .2s color ease-in-out;
+    transform: scale(1.4, 1.4);
+    font-weight: 300; }
   .modal-child .close-modal:hover {
     color: black;
     background-color: transparent; }
@@ -329,7 +384,7 @@ body {
     border: 2px solid #f8f8f8;
     border-radius: 7px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     text-align: start;
     transition: .1s border ease-in-out; }
   .modal-child input:focus {
@@ -341,16 +396,29 @@ body {
     margin: 0 0 5px; }
   .modal-child .modal-buttons {
     display: flex;
-    justify-content: end;
-    padding-top: 10px; }
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f8f8f8; }
     .modal-child .modal-buttons .cancel-button {
-      background-color: #737373; }
+      background-color: #fff;
+      color: #737373;
+      border: 1px solid #737373;
+      transition: .1s background-color ease-in-out; }
+    .modal-child .modal-buttons .cancel-button:hover {
+      background-color: #f8f8f8; }
   .modal-child button {
     font-size: 14px;
     padding: 10px 15px;
-    display: block; }
+    display: block;
+    margin-left: 10px; }
   .modal-child p {
-    padding: 15px 0;
+    padding-bottom: 20px;
     color: #737373; }
+
+.main-app-container {
+  display: grid;
+  grid-template-columns: 300px 345px 1fr;
+  height: 100vh; }
 
 /*# sourceMappingURL=application.css.map */

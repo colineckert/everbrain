@@ -30,20 +30,21 @@ export default class NotebookIndex extends Component {
           <div>
             <p>{date}</p>
           </div>
+          <div>
+            <i className="fas fa-ellipsis-h"></i>
+          </div>
         </li>
       )
     })
 
 
     return (
-      <div>
+      <div className="notebook-index">
         <h1>Notebooks</h1>
         <h5>Notebook List</h5>
         <div>
           <button onClick={() => this.props.openModal('newNotebook')}>
-            <i className="fas fa-book-medical"></i>
-            New Notebook
-          </button>
+            <i className="fas fa-book-medical"></i> New Notebook</button>
         </div>
         <div>
           <div><h4>TITLE</h4></div>

@@ -7,7 +7,9 @@ import Modal from '../modal/modal';
 export default () => (
   <div className="main-app-container">
     <Modal />
+
+    <Route component={SideNavContainer} />
     <Route exact path="/notebooks" component={NotebookIndexContainer} />
-    <Route exact path="/notes" component={SideNavContainer} />
+    {/* <Route exact path="/notes" component={SideNavContainer} /> */}
   </div>
 );
