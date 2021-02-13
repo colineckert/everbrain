@@ -36,7 +36,7 @@ class Api::NotebooksController < ApplicationController
   def destroy
     @notebook = selected_notebook
     if @notebook && @notebook.destroy
-      render :index
+      render :show
     else
       render json: ['Notebook does not exist']
     end

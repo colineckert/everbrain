@@ -358,7 +358,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  min-width: 500px; }
   .modal-child .modal-content {
     background-color: #fff;
     padding: 40px;
@@ -410,7 +411,7 @@ body {
       border: 1px solid #737373;
       transition: .1s background-color ease-in-out; }
     .modal-child .modal-buttons .cancel-button:hover {
-      background-color: #f8f8f8; }
+      background-color: #f3f3f3; }
   .modal-child button {
     font-size: 14px;
     padding: 10px 15px;
@@ -420,6 +421,8 @@ body {
     padding-bottom: 20px;
     color: #737373;
     font-family: "Soleil", Helvetica, Arial, sans-serif; }
+  .modal-child .delete-button {
+    background-color: #e54e40; }
 
 .main-app-container {
   display: grid;
@@ -430,7 +433,7 @@ body {
   grid-column: 2 / -1;
   display: grid;
   grid-template-rows: 80px 45px 50px 1fr;
-  grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 185px)) 1fr;
+  grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 300px)) 1fr;
   align-items: center;
   padding: 10px 35px;
   overflow: auto;
@@ -475,7 +478,7 @@ body {
     background-color: #f3f3f3; }
   .notebook-index-container .notebook-item-text {
     display: grid;
-    grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 185px)) 1fr;
+    grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 300px)) 1fr;
     line-height: 35px; }
   .notebook-index-container .notebook-actions-dropdown {
     text-align: end; }
@@ -494,7 +497,7 @@ body {
   z-index: 1;
   background-color: #fff;
   padding: 10px 15px 10px 10px;
-  width: 150px;
+  width: 180px;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0.1rem 0.3rem, rgba(0, 0, 0, 0.05) 0px 0.1rem 0.2rem, rgba(0, 0, 0, 0.05) 0px 0.5rem 1.5rem;
   border: 0; }

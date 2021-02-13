@@ -48,5 +48,5 @@ export const updateNotebook = (notebook) => dispatch => {
 
 export const deleteNotebook = (notebookId) => dispatch => {
   return NotebookAPI.deleteNotebook(notebookId)
-    .then(() => dispatch(removeNotebook(notebookId)))
+    .then((notebook) => dispatch(removeNotebook(notebook.id)))
 }

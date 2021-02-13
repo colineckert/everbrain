@@ -7,16 +7,17 @@ import { openModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   const notebooks = getAllNotebooks(state);
-  
+
   return {
-    notebooks: notebooks
+    notebooks: notebooks,
+    user: state.entities.users[state.session.id]
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     requestNotebooks: () => dispatch(requestNotebooks()),
-    openModal: modal => dispatch(openModal(modal)) 
+    openModal: (modalName, notebookId) => dispatch(openModal(modalName, notebookId)) 
   }
 }
 

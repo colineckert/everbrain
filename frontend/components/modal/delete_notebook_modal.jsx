@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import { deleteNotebook } from '../../actions/notebook_actions';
+import { deleteNotebook, requestNotebooks } from '../../actions/notebook_actions';
 
-class NewNotebookModal extends Component {
+class DeleteNotebookModal extends Component {
   constructor(props) {
     super(props)
 
+    this.deleteNotebook = this.deleteNotebook.bind(this);
   }
 
   deleteNotebook(e) {
     e.preventDefault();
 
-    const notebook = this.state;
-    this.props.deleteNotebook(notebook)
-      .then(() => this.props.closeModal());
+    const notebookId = this.props.notebookId;  
+    this.props.deleteNotebook(notebookId)
+      .then(() => this.props.closeModal())
+        .then(() => this.props.requestNotebooks());
   }
 
   render() {
@@ -30,13 +32,16 @@ class NewNotebookModal extends Component {
           <p>Any notes in the notebook will be moved to Trash. This cannot be undone.</p>
         </div>
         <form id="notebook-form" onSubmit={this.deleteNotebook}>
-          <label htmlFor="name" className="input-label">Name
-          </label>
           <div className="modal-buttons">
-            <button className="cancel-button" onClick={this.props.closeModal}>
-              Cancel
+            <button 
+              className="cancel-button" 
+              onClick={this.props.closeModal}>Cancel
             </button>
-            <button type="submit" form="notebook-form">Continue</button>
+            <button 
+              className="delete-button" 
+              type="submit" 
+              form="notebook-form">Continue
+            </button>
           </div>
         </form>
       </div>
@@ -48,15 +53,16 @@ class NewNotebookModal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.id
+    notebookId: state.ui.modal.notebookId
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     deleteNotebook: notebookId => dispatch(deleteNotebook(notebookId)),
+    requestNotebooks: () => dispatch(requestNotebooks()),
     closeModal: () => dispatch(closeModal())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewNotebookModal);
+export default connect(mapStateToProps, mapDispatchToProps)(DeleteNotebookModal);

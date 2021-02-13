@@ -13,6 +13,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 500px;
 
   .modal-content {
     background-color: $white;
@@ -41,8 +42,7 @@
   .close-modal:hover {
     color: black;
     background-color: transparent;
-
-}
+  }
 
   input {
     width: 100%;
@@ -83,7 +83,7 @@
     }
 
     .cancel-button:hover {
-      background-color: $light-grey;
+      background-color: $medium-grey;
     }
   }
 
@@ -98,6 +98,10 @@
     padding-bottom: 20px;
     color: $dark-grey;
     font-family: $en-serif;
+  }
+
+  .delete-button {
+    background-color: #e54e40;
   }
 
 }

@@ -34,7 +34,7 @@ export default class NotebookIndex extends Component {
   }
   
   render() {
-    const { notebooks } = this.props;
+    const { notebooks, user } = this.props;
     const notebookList = notebooks.map(notebook => {
       
       const date = parseDate(notebook.updated_at);
@@ -47,7 +47,7 @@ export default class NotebookIndex extends Component {
               <Link to="/notebooks">{notebook.name}</Link>
             </div>
             <div>
-              Demo User
+              {user.email}
             </div>
             <div>
               {date}
@@ -59,8 +59,20 @@ export default class NotebookIndex extends Component {
               </button>
               <ul className={`dropdown actions-dropdown
                 ${actionsDropdown ? "" : "hidden"}`}>
-                  <li><button>Rename Notebook</button></li>
-                  <li><button>Delete Notebook</button></li>
+                <li>
+                  <button onClick={() => {
+                    this.props.openModal("renameNotebook", notebook.id);
+                    this.toggleActionsDropdown(notebook.id)}}>
+                      Rename Notebook
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => {
+                    this.props.openModal("deleteNotebook", notebook.id);
+                    this.toggleActionsDropdown(notebook.id)}}>
+                      Delete Notebook
+                  </button>
+                </li>
               </ul>
             </div>
           </div>

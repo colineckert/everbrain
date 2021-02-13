@@ -8,12 +8,21 @@ class RenameNotebookModal extends Component {
     super(props)
 
     this.state = {
-      name: '',
+      name: "",
+      id: null,
       author_id: this.props.currentUser
     }
 
     this.updateNotebook = this.updateNotebook.bind(this);
   }
+
+  componentDidMount() {
+    this.setState({
+      name: this.props.notebook.name,
+      id: this.props.notebook.id,
+    })
+  }
+  
 
   update(field) {
     return (e) => {
@@ -31,6 +40,7 @@ class RenameNotebookModal extends Component {
 
   render() {
     const { name } = this.state;
+
     return (
       <div className="modal-content">
         <div className="modal-header">
@@ -65,7 +75,8 @@ class RenameNotebookModal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notebook: state.ui.modal.notebookId
+    currentUser: state.session.id,
+    notebook: state.entities.notebooks[state.ui.modal.notebookId]
   }
 }
 
