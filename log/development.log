@@ -26818,3 +26818,102 @@ Processing by Api::NotebooksController#index as JSON
 Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.5ms)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:9
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mNotebook Load (0.5ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mNotebook Destroy (0.2ms)[0m  [1m[31mDELETE FROM "notebooks" WHERE "notebooks"."id" = $1[0m  [["id", 26]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mNotebook Destroy (0.3ms)[0m  [1m[31mDELETE FROM "notebooks" WHERE "notebooks"."id" = $1[0m  [["id", 27]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mNotebook Destroy (0.3ms)[0m  [1m[31mDELETE FROM "notebooks" WHERE "notebooks"."id" = $1[0m  [["id", 28]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@everbrain.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f21+zD7BdlNZqrD7qGeyQQ=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "full_name", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "demo@everbrain.com"], ["full_name", "Demo User"], ["password_digest", "$2a$12$wrHCfXUIRjm/g8z8leEoh.8ACD8.KA9Ek7fFYQIs/VrJh5rp5UT1W"], ["session_token", "f21+zD7BdlNZqrD7qGeyQQ=="], ["created_at", "2021-02-13 21:35:01.132439"], ["updated_at", "2021-02-13 21:35:01.132439"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mNotebook Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "notebooks" WHERE "notebooks"."name" = $1 AND "notebooks"."author_id" = $2 LIMIT $3[0m  [["name", "First Notebook"], ["author_id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mNotebook Create (0.3ms)[0m  [1m[32mINSERT INTO "notebooks" ("name", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "First Notebook"], ["author_id", 9], ["created_at", "2021-02-13 21:35:01.144111"], ["updated_at", "2021-02-13 21:35:01.144111"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mNotebook Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "notebooks" WHERE "notebooks"."name" = $1 AND "notebooks"."author_id" = $2 LIMIT $3[0m  [["name", "Research"], ["author_id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mNotebook Create (0.2ms)[0m  [1m[32mINSERT INTO "notebooks" ("name", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Research"], ["author_id", 9], ["created_at", "2021-02-13 21:35:01.148667"], ["updated_at", "2021-02-13 21:35:01.148667"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mNotebook Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "notebooks" WHERE "notebooks"."name" = $1 AND "notebooks"."author_id" = $2 LIMIT $3[0m  [["name", "Fellowship Members"], ["author_id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mNotebook Create (0.2ms)[0m  [1m[32mINSERT INTO "notebooks" ("name", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fellowship Members"], ["author_id", 9], ["created_at", "2021-02-13 21:35:01.151270"], ["updated_at", "2021-02-13 21:35:01.151270"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7627633922185346895)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateNotes (20210213215733)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (37.3ms)[0m  [1m[35mCREATE TABLE "notes" ("id" bigserial primary key, "title" character varying, "body" text NOT NULL, "notebook_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210213215733_create_notes.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_notes_on_notebook_id" ON "notes"  ("notebook_id")[0m
+  ↳ db/migrate/20210213215733_create_notes.rb:11
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_notes_on_title" ON "notes"  ("title")[0m
+  ↳ db/migrate/20210213215733_create_notes.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210213215733"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7627633922185346895)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
