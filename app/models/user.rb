@@ -11,6 +11,10 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Notebook
 
+  has_many :notes,
+    through: :notebooks,
+    source: :notes
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
