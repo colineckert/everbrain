@@ -463,7 +463,8 @@ body {
     font-size: 12px;
     background-color: #f3f3f3; }
   .notebook-index-container .notebook-index-col-header.action {
-    text-align: end; }
+    text-align: end;
+    padding-right: 10px; }
   .notebook-index-container .notebooks-list {
     grid-row: 4;
     grid-column: 1 / -1;
@@ -481,7 +482,8 @@ body {
     grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 300px)) 1fr;
     line-height: 35px; }
   .notebook-index-container .notebook-actions-dropdown {
-    text-align: end; }
+    text-align: end;
+    padding-right: 10px; }
 
 .notebook-name {
   padding-left: 10px; }
@@ -529,7 +531,7 @@ body {
   position: relative; }
 
 .actions-dropdown {
-  right: 0;
+  right: 10px;
   top: 30px; }
 
 .actions-dropdown > li {
