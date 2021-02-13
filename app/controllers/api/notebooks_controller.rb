@@ -1,5 +1,4 @@
 class Api::NotebooksController < ApplicationController
-  # before_action :require_logged_in
 
   def index
     @notebooks = current_user.notebooks.order(updated_at: :desc)
@@ -17,7 +16,7 @@ class Api::NotebooksController < ApplicationController
     if @notebook && @notebook.update(notebook_params)
       render :show
     elsif !@notebook
-      ender json: ['Notebook does not exist'], status: 400
+      render json: ['Notebook does not exist'], status: 400
     else
       render json: @notebook.errors.full_messages, status: 401
     end
