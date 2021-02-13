@@ -26374,3 +26374,447 @@ Processing by Api::NotebooksController#index as JSON
 Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.8ms)
 
 
+Started DELETE "/api/session" for ::1 at 2021-02-13 13:05:01 -0800
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "yy4f7ntt4nkBou479y4WNA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@everbrain.com"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "35jX/kSgVb6KTYxdPKpfJw=="], ["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "35jX/kSgVb6KTYxdPKpfJw=="], ["updated_at", "2021-02-13 21:05:01.376892"], ["id", 7]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.7ms)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (5.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mNotebook Load (0.5ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mNotebook Destroy (0.3ms)[0m  [1m[31mDELETE FROM "notebooks" WHERE "notebooks"."id" = $1[0m  [["id", 25]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mNotebook Destroy (0.4ms)[0m  [1m[31mDELETE FROM "notebooks" WHERE "notebooks"."id" = $1[0m  [["id", 23]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mNotebook Destroy (0.3ms)[0m  [1m[31mDELETE FROM "notebooks" WHERE "notebooks"."id" = $1[0m  [["id", 24]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@everbrain.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "slzFhY2zM5DVr7Y3LlCrZg=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "full_name", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "demo@everbrain.com"], ["full_name", "Demo User"], ["password_digest", "$2a$12$SBATjKGfYkvcWL7Z4WurD.FdY4sO9zDTZ237raX6Q8sGZDsdmil0K"], ["session_token", "slzFhY2zM5DVr7Y3LlCrZg=="], ["created_at", "2021-02-13 21:05:25.065672"], ["updated_at", "2021-02-13 21:05:25.065672"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mNotebook Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "notebooks" WHERE "notebooks"."name" = $1 AND "notebooks"."author_id" = $2 LIMIT $3[0m  [["name", "First Notebook"], ["author_id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mNotebook Create (3.4ms)[0m  [1m[32mINSERT INTO "notebooks" ("name", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "First Notebook"], ["author_id", 8], ["created_at", "2021-02-13 21:05:25.074745"], ["updated_at", "2021-02-13 21:05:25.074745"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mNotebook Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "notebooks" WHERE "notebooks"."name" = $1 AND "notebooks"."author_id" = $2 LIMIT $3[0m  [["name", "Research"], ["author_id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mNotebook Create (0.3ms)[0m  [1m[32mINSERT INTO "notebooks" ("name", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Research"], ["author_id", 8], ["created_at", "2021-02-13 21:05:25.081097"], ["updated_at", "2021-02-13 21:05:25.081097"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mNotebook Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "notebooks" WHERE "notebooks"."name" = $1 AND "notebooks"."author_id" = $2 LIMIT $3[0m  [["name", "Fellowship Members"], ["author_id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mNotebook Create (0.3ms)[0m  [1m[32mINSERT INTO "notebooks" ("name", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Fellowship Members"], ["author_id", 8], ["created_at", "2021-02-13 21:05:25.083924"], ["updated_at", "2021-02-13 21:05:25.083924"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+Started GET "/" for ::1 at 2021-02-13 13:12:45 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 1351ms (Views: 1348.0ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-13 13:12:48 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@everbrain.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@everbrain.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@everbrain.com"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["updated_at", "2021-02-13 21:12:48.855558"], ["id", 8]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.2ms)
+Completed 200 OK in 205ms (Views: 6.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:12:50 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.5ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (11.3ms)
+Completed 200 OK in 32ms (Views: 15.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:14:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 307ms (Views: 306.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:14:42 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.4ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.7ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.2ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/index.json.jbuilder (7.6ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:15:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:15:01 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (3.8ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:17:08 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 300ms (Views: 299.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:17:08 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (4.0ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:17:51 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/colineckert/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 984ms (Views: 977.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:17:54 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.6ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (11.1ms)
+Completed 200 OK in 35ms (Views: 15.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:21:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 519ms (Views: 518.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:21:12 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (33.2ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-02-13 13:21:22 -0800
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OM/8ZNlLCOnEAFWQ3ULIPA=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@everbrain.com"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "+XRlJuckYM5HM4TWfNbfuA=="], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "+XRlJuckYM5HM4TWfNbfuA=="], ["updated_at", "2021-02-13 21:21:22.675330"], ["id", 8]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:21:23 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/session" for ::1 at 2021-02-13 13:21:51 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demo@everbrain.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@everbrain.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@everbrain.com"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["updated_at", "2021-02-13 21:21:51.297426"], ["id", 8]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:30
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.2ms)
+Completed 200 OK in 192ms (Views: 5.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:21:53 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (4.4ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:23:45 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:23:45 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (3.8ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:25:36 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 304ms (Views: 304.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:25:37 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (4.7ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:27:22 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 304ms (Views: 303.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:27:23 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (4.8ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:28:08 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 303ms (Views: 302.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:28:08 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.2ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.3ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (4.0ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:28:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 23ms (Views: 23.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-13 13:28:58 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 285ms (Views: 284.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-13 13:28:59 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "13OqshWAqXLCixQuCzvChw=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 8]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:5
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (4.6ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.5ms)
+
+

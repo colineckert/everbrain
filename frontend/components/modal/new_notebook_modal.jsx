@@ -68,6 +68,7 @@ class NewNotebookModal extends Component {
             name="name"
             placeholder="Notebook name"
             value={name}
+            autoFocus={true}
             onChange={this.update('name')}
           />
           <div className="errors">

@@ -74,7 +74,8 @@ class RenameNotebookModal extends Component {
             type="text"
             name="name"
             placeholder="Notebook name"
-            value={name}
+            value={name} 
+            autoFocus={true}
             onChange={this.update('name')}
           />
           <div className="errors">
