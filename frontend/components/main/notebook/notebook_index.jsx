@@ -17,14 +17,6 @@ export default class NotebookIndex extends Component {
     this.props.requestNotebooks();
   }
 
-  // toggleActionsDropdown() {
-  //   if (this.state.actionsDropdown === "hidden") {
-  //     this.setState({actionsDropdown: ""})
-  //   } else {
-  //     this.setState({ actionsDropdown: "hidden" })
-  //   }
-  // }
-
   toggleActionsDropdown(notebookId) {
     if (this.state.actionsDropdown[notebookId] === true) {
       this.setState({ actionsDropdown: Object.assign({}, { [notebookId]: false }) }) 

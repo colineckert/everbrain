@@ -50,7 +50,7 @@
     border-radius: 20px;
     padding: 10px;
     width: 95%;
-    color: black;
+    color: $white;
     font-family: $apple-font;
     font-weight: 400;
     font-size: 14px;
@@ -58,7 +58,7 @@
   }
 
   .new-note-button:hover {
-    background-color: $light-green;
+    background-color: $dark-green;
   }
 
   .user-logout-button {

@@ -91,6 +91,11 @@ h5 {
 i {
   margin: 0px 7px 0px 2px; }
 
+.errors {
+  color: #e54e40;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px; }
+
 .home-content {
   padding: 60px 40px 0;
   margin: auto;
@@ -221,10 +226,6 @@ body {
   .main-session-form h1 {
     font-size: 56px;
     line-height: 70px; }
-  .main-session-form .session-errors {
-    color: red;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 14px; }
   .main-session-form input {
     width: 100%;
     padding: 12px 20px;
@@ -328,13 +329,13 @@ body {
     border-radius: 20px;
     padding: 10px;
     width: 95%;
-    color: black;
+    color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 14px;
     transition: .3s background-color ease-in-out; }
   .main-side-nav .new-note-button:hover {
-    background-color: #00cc36; }
+    background-color: #008f26; }
   .main-side-nav .user-logout-button {
     display: flex;
     align-items: center;

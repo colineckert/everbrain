@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { createNotebook } from '../../actions/notebook_actions';
+import { clearNotebookErrors } from '../../actions/notebook_actions';
 
 class NewNotebookModal extends Component {
   constructor(props) {
@@ -29,6 +30,22 @@ class NewNotebookModal extends Component {
       .then(() => this.props.closeModal());
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  componentWillUnmount() {
+    this.props.clearNotebookErrors();
+  }
+
   render() {
     const { name } = this.state;
     return (
@@ -42,6 +59,7 @@ class NewNotebookModal extends Component {
         <div>
           <p>Notebooks are useful for grouping notes around a common topic.</p>
         </div>
+
         <form id="notebook-form" onSubmit={this.createNotebook}>
           <label htmlFor="name" className="input-label">Name
           </label>
@@ -52,6 +70,10 @@ class NewNotebookModal extends Component {
             value={name}
             onChange={this.update('name')}
           />
+          <div className="errors">
+            {this.renderErrors()}
+          </div>
+
           <div className="modal-buttons">
             <button className="cancel-button" onClick={this.props.closeModal}>
               Cancel
@@ -68,14 +90,16 @@ class NewNotebookModal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.id
+    currentUser: state.session.id,
+    errors: Object.values(state.errors.notebook)
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     createNotebook: notebook => dispatch(createNotebook(notebook)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearNotebookErrors: () => dispatch(clearNotebookErrors())
   }
 }
 

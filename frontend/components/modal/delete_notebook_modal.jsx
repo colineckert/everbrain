@@ -40,7 +40,7 @@ class DeleteNotebookModal extends Component {
             <button 
               className="delete-button" 
               type="submit" 
-              form="notebook-form">Continue
+              form="notebook-form">Delete
             </button>
           </div>
         </form>

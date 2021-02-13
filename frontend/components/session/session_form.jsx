@@ -72,7 +72,7 @@ export default class SessionForm extends Component {
               onChange={this.update('password')}
             /> <br/>
 
-            <div className="session-errors">
+            <div className="errors">
               {this.renderErrors()}
             </div>
             

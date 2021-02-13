@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { updateNotebook } from '../../actions/notebook_actions';
+import { clearNotebookErrors } from '../../actions/notebook_actions';
 
 class RenameNotebookModal extends Component {
   constructor(props) {
@@ -38,6 +39,22 @@ class RenameNotebookModal extends Component {
       .then(() => this.props.closeModal());
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  componentWillUnmount() {
+    this.props.clearNotebookErrors();
+  }
+
   render() {
     const { name } = this.state;
 
@@ -49,6 +66,7 @@ class RenameNotebookModal extends Component {
             <i className="fas fa-times"></i>
           </button>
         </div>
+
         <form id="notebook-form" onSubmit={this.updateNotebook}>
           <label htmlFor="name" className="input-label">Name
           </label>
@@ -59,6 +77,10 @@ class RenameNotebookModal extends Component {
             value={name}
             onChange={this.update('name')}
           />
+          <div className="errors">
+            {this.renderErrors()}
+          </div>
+          
           <div className="modal-buttons">
             <button className="cancel-button" onClick={this.props.closeModal}>
               Cancel
@@ -76,14 +98,16 @@ class RenameNotebookModal extends Component {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.id,
-    notebook: state.entities.notebooks[state.ui.modal.notebookId]
+    notebook: state.entities.notebooks[state.ui.modal.notebookId],
+    errors: Object.values(state.errors.notebook)
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     updateNotebook: notebook => dispatch(updateNotebook(notebook)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearNotebookErrors: () => dispatch(clearNotebookErrors())
   }
 }
 
