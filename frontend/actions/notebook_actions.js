@@ -6,28 +6,28 @@ export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';
 export const RECEIVE_NOTEBOOK_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_NOTEBOOK_ERRORS = 'CLEAR_NOTEBOOK_ERRORS';
 
-const receiveNotebooks = notebooks => {
+const receiveNotebooks = (notebooks) => {
   return {
     type: RECEIVE_NOTEBOOKS,
     notebooks
   }
 }
 
-const receiveNotebook = notebook => {
+const receiveNotebook = (notebook) => {
   return {
     type: RECEIVE_NOTEBOOK,
     notebook
   }
 }
 
-const removeNotebook = notebookId => {
+const removeNotebook = (notebookId) => {
   return {
     type: REMOVE_NOTEBOOK,
     notebookId
   }
 }
 
-const receiveNotebookErrors = errors => {
+const receiveNotebookErrors = (errors) => {
   return {
     type: RECEIVE_NOTEBOOK_ERRORS,
     errors
