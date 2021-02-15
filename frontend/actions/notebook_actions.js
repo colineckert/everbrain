@@ -13,10 +13,11 @@ const receiveNotebooks = (notebooks) => {
   }
 }
 
-const receiveNotebook = (notebook) => {
+const receiveNotebook = (notebook, notes = {}) => {
   return {
     type: RECEIVE_NOTEBOOK,
-    notebook
+    notebook,
+    notes
   }
 }
 

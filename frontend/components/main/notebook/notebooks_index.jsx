@@ -7,17 +7,26 @@ export default class NotebookIndex extends Component {
     super(props)
   
     this.state = {
-      notebookToggle: {},
+      notebookToggleExpand: {},
       notebookActionsDropdown: {},
       noteActionsDropdown: {}
     }
 
     this.toggleNotebookActionsDropdown = this.toggleNotebookActionsDropdown.bind(this);
     this.toggleNoteActionsDropdown = this.toggleNoteActionsDropdown.bind(this);
+    this.toggleNotebookExpand = this.toggleNotebookExpand.bind(this);
   }
 
   componentDidMount() {
     this.props.requestNotebooks();
+  }
+
+  toggleNotebookExpand(notebookId) {
+    if (this.state.notebookToggleExpand[notebookId] === true) {
+      this.setState({ notebookToggleExpand: Object.assign({}, { [notebookId]: false }) })
+    } else {
+      this.setState({ notebookToggleExpand: Object.assign({}, { [notebookId]: true }) })
+    }
   }
 
   toggleNotebookActionsDropdown(notebookId) {
@@ -28,7 +37,7 @@ export default class NotebookIndex extends Component {
     }
   }
 
-  toggleNoteActionsDropdown(notebookId) {
+  toggleNoteActionsDropdown(noteId) {
     if (this.state.noteActionsDropdown[notebookId] === true) {
       this.setState({ noteActionsDropdown: Object.assign({}, { [noteId]: false }) })
     } else {
@@ -61,16 +70,17 @@ export default class NotebookIndex extends Component {
                 onClick={() => this.toggleNoteActionsDropdown(note.id)}>
                   <i className="fas fa-ellipsis-h"></i>
               </button>
-              {/* <ul className={`actions-dropdown dropdown 
+              <ul className={`actions-dropdown dropdown 
                 ${noteActionsDropdown ? "" : "hidden"}`}>
                 <li>
-                  <button onClick={() => {
-                    this.props.openModal("deleteNote", note.id);
+                  <button 
+                    onClick={() => {
+                    // this.props.openModal("deleteNote", note.id);
                     this.toggleNoteActionsDropdown(note.id)}}>
                       Delete note
                   </button>
                 </li>
-              </ul> */}
+              </ul>
             </div>
           </li>
         )
@@ -85,13 +95,18 @@ export default class NotebookIndex extends Component {
       const date = parseDate(notebook.updated_at);
       const notebookActionsDropdown = this.state.notebookActionsDropdown[notebook.id];
 
+      const notebookNotesList = this.getNotebookNotes(notebook);
+      const notebookToggleExpand = this.state.notebookToggleExpand[notebook.id];
+
       return (
         <li key={notebook.id}>
           <div className="notebook-item-text">
-            <div className="notebook-name">
-              <button>
-                <i className="fas fa-caret-right"></i>
-              </button>
+            <div className="notebook-title">
+              <button className="caret-dropdown-button" 
+                onClick={() => this.toggleNotebookExpand(notebook.id)}>
+                  <i className={`fas fa-caret-right nav-icon 
+                  ${notebookToggleExpand ? "open" : ""}`}></i>
+              </button> 
               <Link to="/notebooks">
                 <i className="fas fa-book"></i>
                 {notebook.name}
@@ -123,6 +138,12 @@ export default class NotebookIndex extends Component {
               </ul>
             </div>
           </div>
+          <ul className={`notebook-index-notes-list 
+                ${notebookToggleExpand ? "" : "hidden"}`}>
+            <div className="notebook-index-notes-list-container">
+              {notebookNotesList}
+            </div>
+          </ul>
         </li>
       )
     })
@@ -141,7 +162,7 @@ export default class NotebookIndex extends Component {
             <i className="fas fa-book-medical"></i>New Notebook</button>
         </div>
 
-        <div className="notebook-index-col-header notebook-name"><h5>TITLE</h5></div>
+        <div className="notebook-index-col-header notebook-title"><h5>TITLE</h5></div>
         <div className="notebook-index-col-header"><h5>CREATED BY</h5></div>
         <div className="notebook-index-col-header"><h5>UPDATED</h5></div>
         <div className="notebook-index-col-header action"><h5>ACTION</h5></div>

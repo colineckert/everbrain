@@ -489,14 +489,14 @@ body {
     text-align: end;
     padding-right: 10px; }
 
-.notebook-name {
+.notebook-title {
   padding-left: 10px; }
 
-.notebook-name > button {
+.notebook-title > button {
   background-color: transparent;
   color: #313131; }
 
-.notebook-name h5 {
+.notebook-title h5 {
   padding-left: 10px; }
 
 .notebooks-list > ul > li:hover {
@@ -592,7 +592,7 @@ body {
   width: 100%;
   background-color: transparent;
   color: #333;
-  transition: .3s background-color ease-in-out;
+  transition: .1s background-color ease-in-out;
   text-align: left; }
   .notes-list-item p {
     font-weight: 300px;

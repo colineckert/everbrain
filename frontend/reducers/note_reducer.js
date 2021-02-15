@@ -7,15 +7,19 @@ import { RECEIVE_NOTEBOOK } from '../actions/notebook_actions';
 
 const notesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
+  let newState = Object.assign({}, oldState);
+  
   switch (action.type) {
     case RECEIVE_NOTES:
       return Object.assign({}, oldState, action.notes);
     case RECEIVE_NOTE:
       return Object.assign({}, oldState, { [action.note.id]: action.note });
-    // case RECEIVE_NOTEBOOK:
-
+    case RECEIVE_NOTEBOOK:
+      Object.values(action.notes).forEach(note => {
+        newState[note.id] = note
+      });
+      return newState;
     case REMOVE_NOTE:
-      let newState = Object.assign({}, oldState);
       delete newState[action.noteId];
       return newState;
     default:
@@ -23,4 +27,4 @@ const notesReducer = (oldState = {}, action) => {
   }
 }
 
-export default notesReducer;
+export default notesReducer; 
