@@ -36,7 +36,13 @@ export default class NotebookIndex extends Component {
         <li key={notebook.id}>
           <div className="notebook-item-text">
             <div className="notebook-name">
-              <Link to="/notebooks">{notebook.name}</Link>
+              <button>
+                <i className="fas fa-caret-right"></i>
+              </button>
+              <Link to="/notebooks">
+                <i className="fas fa-book"></i>
+                {notebook.name}
+              </Link>
             </div>
             <div>
               {user.email}
@@ -90,7 +96,6 @@ export default class NotebookIndex extends Component {
         <div className="notebook-index-col-header"><h5>CREATED BY</h5></div>
         <div className="notebook-index-col-header"><h5>UPDATED</h5></div>
         <div className="notebook-index-col-header action"><h5>ACTION</h5></div>
-
         <div className="notebooks-list">
           <ul>
             {notebookList}

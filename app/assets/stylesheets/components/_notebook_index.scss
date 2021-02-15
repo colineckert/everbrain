@@ -62,14 +62,17 @@
     grid-row: 4;
     grid-column: 1 / -1;
     align-self: start;
+    margin-top: -5px
   }
 
   .notebooks-list > ul > li {
     font-size: 14px;
+    color: #313131;
+    background-color: #fff;
   }
 
   .notebooks-list > ul > li:nth-of-type(even) {
-    background-color: rgb(243, 243, 243);
+    background-color: $medium-grey;
   }
 
   .notebook-item-text {
@@ -89,6 +92,19 @@
   padding-left: 10px;
 }
 
+.notebook-name > button {
+  background-color: transparent;
+  color: #313131;
+}
+
 .notebook-name h5 {
   padding-left: 10px;
 }
+
+.notebooks-list > ul > li:hover {
+  background-color: $hover-grey;
+}
+
+ .notebooks-list > ul > li:nth-of-type(even):hover {
+    background-color: $hover-grey;
+  }
