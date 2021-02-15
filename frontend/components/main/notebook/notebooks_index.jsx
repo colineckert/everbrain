@@ -18,9 +18,10 @@ export default class NotebookIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.requestNotebooks();
+    this.props.requestNotebooks()
+      .then(() => this.props.requestNotes());
   }
-
+  
   toggleNotebookExpand(notebookId) {
     if (this.state.notebookToggleExpand[notebookId] === true) {
       this.setState({ notebookToggleExpand: Object.assign({}, { [notebookId]: false }) })
@@ -114,7 +115,7 @@ export default class NotebookIndex extends Component {
             </div>
             <div>{user.email}</div>
             <div>{date}</div>
-            <div className="notebook-actions-dropdown">
+            <div className="dropdown-anchor">
               <button className="actions-dropdown-button" 
                 onClick={() => this.toggleNotebookActionsDropdown(notebook.id)}>
                   <i className="fas fa-ellipsis-h"></i>
@@ -139,7 +140,7 @@ export default class NotebookIndex extends Component {
             </div>
           </div>
           <ul className={`notebook-index-notes-list 
-                ${notebookToggleExpand ? "" : "hidden"}`}>
+              ${notebookToggleExpand ? "" : "hidden"}`}>
             <div className="notebook-index-notes-list-container">
               {notebookNotesList}
             </div>

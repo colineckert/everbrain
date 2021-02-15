@@ -28,22 +28,18 @@
 
 .actions-dropdown-button {
   background: transparent;
+  color: $grey;
 }
 
 .actions-dropdown-button:hover {
   background: transparent;
-}
-
-.fas.fa-ellipsis-h {
-  color: $grey;
-}
-
-.fas.fa-ellipsis-h:hover {
   color: $darker-grey;
 }
 
-.notebook-actions-dropdown {
+.dropdown-anchor {
   position: relative; 
+  text-align: end;
+  padding-right: 5px;
 }
 
 .actions-dropdown {
@@ -53,4 +49,36 @@
 
 .actions-dropdown > li {
   background-color: $white;
+}
+
+.notebook-index-notes-list-container {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+
+.notebook-index-note-list {
+    width: 100%;
+    list-style: none;
+}
+
+// .notebook-index-note-list .nav-icon {
+//     padding-right: 10px;
+// }
+
+.notebook-index-note-list li {
+    line-height: 48px;;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 185px)) 1fr; 
+    align-items: center;
+}
+
+.notebook-index-note-list li div:last-of-type {
+    text-align: right;
+}
+
+.notebook-index-note-list li div:first-of-type {
+    padding-left: 30px;
 }
