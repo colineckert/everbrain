@@ -3,8 +3,14 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 import { login, logout } from './actions/session_actions';
-import { requestNotebooks, requestNotebook, createNotebook, 
-  updateNotebook, deleteNotebook } from './actions/notebook_actions';
+import { 
+  requestNotebooks, requestNotebook, createNotebook, 
+  updateNotebook, deleteNotebook 
+} from './actions/notebook_actions';
+import {
+  requestNotes, requestNote, createNote,
+  updateNote, deleteNote 
+} from './actions/note_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -26,11 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.login = login;
   window.logout = logout;
+  // notebooks
   window.requestNotebooks = requestNotebooks;
   window.requestNotebook = requestNotebook;
   window.createNotebook = createNotebook;
   window.updateNotebook = updateNotebook;
   window.deleteNotebook = deleteNotebook;
+  // notes
+  window.requestNotes = requestNotes;
+  window.requestNote = requestNote;
+  window.createNote = createNote;
+  window.updateNote = updateNote;
+  window.deleteNote = deleteNote;
   // TESTING END
 
   const root = document.getElementById("root");

@@ -34,6 +34,12 @@ export const receiveNoteErrors = (errors) => {
   }
 }
 
+export const clearNoteErrors = () => {
+  return {
+    type: CLEAR_NOTE_ERRORS
+  }
+}
+
 // thunk actions
 export const requestNotes = () => dispatch => {
   return NoteAPI.fetchNotes()
