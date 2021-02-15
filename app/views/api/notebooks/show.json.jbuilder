@@ -4,7 +4,7 @@ json.partial! "/api/notebooks/notebook", notebook: @notebook
 #     json.partial! 'api/notebooks/notebook', notebook: @notebook
 # end
 
-json.notes do
+json.noteIds do
     json.array! @notes do |note|
         json.partial! 'api/notes/note', note: note
     end
