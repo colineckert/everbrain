@@ -7,7 +7,12 @@ class Api::NotebooksController < ApplicationController
 
   def show
     @notebook = selected_notebook
-    render :show
+    @notes = @notebook.notes.order(updated_at: :desc)
+    if @notebook
+        render :show
+      else
+        render json: ["Notebook does not exist"], status: 400
+      end
   end
 
   def update

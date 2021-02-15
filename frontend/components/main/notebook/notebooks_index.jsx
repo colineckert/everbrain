@@ -60,7 +60,7 @@ export default class NotebookIndex extends Component {
           <li key={note.id}>
             <div>
               <Link to={`/notebooks/${notebook.id}/${note.id}`}>
-                <i className="fas fa-sticky-note nav-icon"></i>
+                <i className="fas fa-sticky-note"></i>
                 {note.title}
               </Link>
             </div>

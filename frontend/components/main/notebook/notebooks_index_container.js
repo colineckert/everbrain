@@ -8,11 +8,11 @@ import NotebookIndex from './notebooks_index';
 
 const mapStateToProps = (state) => {
   const notebooks = getAllNotebooks(state);
-  const notes = {}
+  const notes = {};
   notebooks.forEach(notebook => {
     notes[notebook.id] = getAllNotebookNotes(state, notebook.id);
   });
-  // debugger
+  debugger
   return {
     notebooks: notebooks,
     notes: notes,

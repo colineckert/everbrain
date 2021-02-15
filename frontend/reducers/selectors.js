@@ -1,5 +1,5 @@
 // returns the state's notebooks as an array of notebooks
-export const getAllNotebooks = ({ entities: { notebooks } } ) => {
+export const getAllNotebooks = ({ entities: { notebooks } }) => {
   return Object.keys(notebooks).map(id => notebooks[id])
 }
 
@@ -10,7 +10,7 @@ export const getAllNotes = ({ entities: { notes } } = {}) => (
 
 // return array of notes in a specific notebook
 export const getAllNotebookNotes = ({ entities: { notebooks, notes } }, notebookId) => {
-  if (!notebookId || Object.keys(notebooks).length === 0 || Object.keys(notes).length === 0) return [];
+  // if (!notebookId || Object.keys(notebooks).length === 0 || Object.keys(notes).length === 0) return [];
   const notebookNotes = [];
   notebooks[notebookId].noteIds.forEach(noteId => {
     notebookNotes.push(notes[noteId])
