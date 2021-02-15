@@ -4,6 +4,7 @@ export const RECEIVE_NOTES = 'RECEIVE_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REMOVE_NOTE = 'REMOVE_NOTE';
 export const RECEIVE_NOTE_ERRORS = 'RECEIVE_NOTE_ERRORS';
+export const CLEAR_NOTE_ERRORS = 'CLEAR_NOTE_ERRORS';
 
 
 export const receiveNotes = (notes) => {
