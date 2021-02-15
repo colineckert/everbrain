@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import SideNavContainer from './nav/side_nav_container';
-import NotebookIndexContainer from './notebook/notebook_index_container';
 import Modal from '../modal/modal';
+import SideNavContainer from './nav/side_nav_container';
+import NotebookIndexContainer from './notebook/notebooks_index_container';
+import NotesIndexContainer from './note/notes_index_container';
 
 export default () => (
   <div className="main-app-container">
@@ -14,6 +15,6 @@ export default () => (
     
     <Route component={SideNavContainer} />
     <Route exact path="/notebooks" component={NotebookIndexContainer} />
-    {/* <Route exact path="/notes" component={SideNavContainer} /> */}
+    <Route exact path="/notes" component={NotesIndexContainer} />
   </div>
 );

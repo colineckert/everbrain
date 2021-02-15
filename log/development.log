@@ -27380,3 +27380,1532 @@ Processing by Api::NotebooksController#index as JSON
 Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.5ms)
 
 
+  [1m[36mNotebook Load (0.6ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks"[0m
+Started POST "/api/notes" for ::1 at 2021-02-14 19:10:34 -0800
+Processing by Api::NotesController#create as JSON
+  Parameters: {"note"=>{"title"=>"To Brooklyn", "body"=>"I love you", "notebook_id"=>"29"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/notes_controller.rb:28
+  [1m[36mNotebook Load (0.5ms)[0m  [1m[34mSELECT  "notebooks".* FROM "notebooks" WHERE "notebooks"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/api/notes_controller.rb:28
+  [1m[36mNote Create (1.3ms)[0m  [1m[32mINSERT INTO "notes" ("title", "body", "notebook_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "To Brooklyn"], ["body", "I love you"], ["notebook_id", 29], ["created_at", "2021-02-15 03:10:34.957133"], ["updated_at", "2021-02-15 03:10:34.957133"]]
+  ↳ app/controllers/api/notes_controller.rb:28
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/notes_controller.rb:28
+  Rendering api/notes/show.json.jbuilder
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/show.json.jbuilder (1.8ms)
+Completed 200 OK in 27ms (Views: 8.1ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/api/notes/2" for ::1 at 2021-02-14 19:11:10 -0800
+Processing by Api::NotesController#destroy as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT  "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 AND "notes"."id" = $2 LIMIT $3[0m  [["author_id", 9], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/notes_controller.rb:47
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/notes_controller.rb:37
+  [1m[36mNote Destroy (0.3ms)[0m  [1m[31mDELETE FROM "notes" WHERE "notes"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/notes_controller.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/notes_controller.rb:37
+  Rendering api/notes/show.json.jbuilder
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/show.json.jbuilder (1.6ms)
+Completed 200 OK in 14ms (Views: 7.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-14 21:15:36 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.6ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:1
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (5.5ms)
+Completed 200 OK in 31ms (Views: 11.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:15:37 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 383ms (Views: 382.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:16:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 358ms (Views: 347.7ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/api/notebooks" for ::1 at 2021-02-14 21:16:17 -0800
+Processing by Api::NotebooksController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notebooks/index.json.jbuilder
+  [1m[36mNotebook Load (0.3ms)[0m  [1m[34mSELECT "notebooks".* FROM "notebooks" WHERE "notebooks"."author_id" = $1 ORDER BY "notebooks"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notebooks/index.json.jbuilder:1
+  Rendered api/notebooks/_notebook.json.jbuilder (0.4ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.2ms)
+  Rendered api/notebooks/_notebook.json.jbuilder (0.1ms)
+  Rendered api/notebooks/index.json.jbuilder (4.4ms)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:16:19 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (8.9ms)
+Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:16:55 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 312ms (Views: 311.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:16:56 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.8ms)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:18:04 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (11.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 351ms (Views: 339.1ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:18:05 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (5.9ms)
+Completed 200 OK in 31ms (Views: 11.2ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:19:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 46ms (Views: 45.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:19:28 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.1ms)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:23:25 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 357ms (Views: 356.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:23:26 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.5ms)
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:24:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 26ms (Views: 26.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:24:28 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (12.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (17.6ms)
+Completed 200 OK in 28ms (Views: 13.7ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:29:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 32ms (Views: 32.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:29:56 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.4ms)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:50:02 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 51ms (Views: 33.8ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:50:03 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.6ms)
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:52:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 339ms (Views: 338.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:52:19 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.2ms)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:53:31 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (13.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 47ms (Views: 34.3ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:53:31 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.3ms)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 21:57:47 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 34ms (Views: 34.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 21:57:47 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.4ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:05:23 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:05:23 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.6ms)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:05:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 35ms (Views: 23.6ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:05:29 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (16.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (19.7ms)
+Completed 200 OK in 29ms (Views: 11.4ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:07:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 34ms (Views: 33.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:07:38 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.2ms)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:07:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 32ms (Views: 32.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:07:49 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.6ms)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:12:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:12:01 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.7ms)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:12:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:12:07 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.8ms)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:13:18 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 28ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:13:18 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (2.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.9ms)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:15:26 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 44ms (Views: 43.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:15:27 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.9ms)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:19:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 47ms (Views: 46.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:19:01 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (5.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (11.8ms)
+Completed 200 OK in 29ms (Views: 19.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:21:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 328ms (Views: 328.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:21:11 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.6ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (6.6ms)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:21:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (16.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 53ms (Views: 36.4ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:21:46 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (12.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.6ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (20.7ms)
+Completed 200 OK in 30ms (Views: 15.5ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:30:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 325ms (Views: 324.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:30:15 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (21.3ms)
+Completed 200 OK in 31ms (Views: 27.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:30:40 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:30:40 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (2.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (11.1ms)
+Completed 200 OK in 21ms (Views: 16.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:31:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 317ms (Views: 316.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:31:29 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (7.1ms)
+Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:34:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 357ms (Views: 341.6ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:34:18 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.1ms)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:34:39 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:34:39 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/index.json.jbuilder (8.3ms)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:35:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:35:43 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (16.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (23.0ms)
+Completed 200 OK in 49ms (Views: 30.3ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:37:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (15.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 324ms (Views: 308.2ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:37:11 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (15.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.8ms)
+Completed 200 OK in 30ms (Views: 12.3ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:38:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:38:15 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (7.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (11.7ms)
+Completed 200 OK in 23ms (Views: 13.8ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:39:33 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 41ms (Views: 40.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:39:33 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.6ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/index.json.jbuilder (8.9ms)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:40:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 39ms (Views: 38.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:40:51 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.6ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:41:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 37.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:41:20 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.9ms)
+Completed 200 OK in 18ms (Views: 14.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:41:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:41:51 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (2.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (11.1ms)
+Completed 200 OK in 24ms (Views: 18.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:42:22 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 33ms (Views: 32.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:42:22 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (6.0ms)
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:42:46 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 34ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:42:46 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (17.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.6ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (8.6ms)
+Completed 200 OK in 36ms (Views: 15.0ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:43:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 33ms (Views: 32.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:43:07 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (10.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (18.0ms)
+Completed 200 OK in 27ms (Views: 15.4ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:45:44 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 34.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:45:45 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.6ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.6ms)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:46:01 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 34ms (Views: 33.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:46:01 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (10.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (18.1ms)
+Completed 200 OK in 27ms (Views: 15.0ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:47:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 30ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:47:13 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (17.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (22.5ms)
+Completed 200 OK in 35ms (Views: 15.7ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:47:37 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 28ms (Views: 28.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:47:37 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/index.json.jbuilder (6.9ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:47:51 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:47:52 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (8.5ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:48:43 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 29ms (Views: 28.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:48:43 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (15.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.8ms)
+Completed 200 OK in 30ms (Views: 12.1ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:49:24 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 39ms (Views: 38.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:49:24 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/index.json.jbuilder (6.9ms)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:52:20 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 27ms (Views: 27.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:52:21 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (5.8ms)
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:55:29 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 27ms (Views: 27.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:55:29 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (5.6ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:56:38 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 28ms (Views: 27.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:56:39 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (9.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (14.7ms)
+Completed 200 OK in 23ms (Views: 11.4ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:57:08 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 195ms (Views: 195.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:57:08 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.7ms)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:58:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:58:07 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (16.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.4ms)
+Completed 200 OK in 32ms (Views: 13.5ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:58:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:58:28 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (7.2ms)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 22:59:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 28ms (Views: 27.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 22:59:15 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.2ms)
+Completed 200 OK in 29ms (Views: 11.9ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:00:10 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:00:10 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/index.json.jbuilder (7.8ms)
+Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:00:23 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 40ms (Views: 39.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:00:23 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.8ms)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:01:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 36ms (Views: 35.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:01:52 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (9.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.7ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (15.8ms)
+Completed 200 OK in 31ms (Views: 18.2ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:02:13 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:02:13 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (16.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (23.5ms)
+Completed 200 OK in 32ms (Views: 13.8ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:02:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 29ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:02:41 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (2.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.5ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/index.json.jbuilder (12.2ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:02:49 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:02:49 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (11.7ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (18.4ms)
+Completed 200 OK in 29ms (Views: 15.0ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:03:05 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 29ms (Views: 28.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:03:05 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (11.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/_note.json.jbuilder (0.2ms)
+  Rendered api/notes/index.json.jbuilder (17.2ms)
+Completed 200 OK in 28ms (Views: 14.9ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:03:17 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:03:17 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/index.json.jbuilder (6.8ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2021-02-14 23:04:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:04:28 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.4ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (5.1ms)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/notes" for ::1 at 2021-02-14 23:05:14 -0800
+Processing by Api::NotesController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pZ5OS0zP7DlmHLKk9HVyMQ=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering api/notes/index.json.jbuilder
+  [1m[36mNote Load (0.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" INNER JOIN "notebooks" ON "notes"."notebook_id" = "notebooks"."id" WHERE "notebooks"."author_id" = $1 ORDER BY "notes"."updated_at" DESC[0m  [["author_id", 9]]
+  ↳ app/views/api/notes/index.json.jbuilder:5
+  Rendered api/notes/_note.json.jbuilder (0.3ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/_note.json.jbuilder (0.1ms)
+  Rendered api/notes/index.json.jbuilder (4.2ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.7ms)
+
+
