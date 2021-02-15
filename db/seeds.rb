@@ -16,4 +16,12 @@ demo_notebook_1 = Notebook.create!(name: "First Notebook", author_id: demo_user.
 demo_notebook_2 = Notebook.create!(name: "Research", author_id: demo_user.id)
 demo_notebook_3 = Notebook.create!(name: "Fellowship Members", author_id: demo_user.id)
 
-# demo_note_1 = Note.create!(title: "Test Note", body: sample_text_1, notebook_id: demo_notebook_1.id)
+sample_text_1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+demo_note_1 = Note.create!(title: "Test Note", body: sample_text_1, notebook_id: demo_notebook_1.id)
+demo_note_1 = Note.create!(title: "Test Note 2", body: sample_text_1, notebook_id: demo_notebook_1.id)
+demo_note_1 = Note.create!(title: "Test Note 3", body: sample_text_1, notebook_id: demo_notebook_1.id)
+demo_note_1 = Note.create!(title: "Test Note 4", body: sample_text_1, notebook_id: demo_notebook_2.id)
+demo_note_1 = Note.create!(title: "Test Note 5", body: sample_text_1, notebook_id: demo_notebook_2.id)
+demo_note_1 = Note.create!(title: "Test Note 6", body: sample_text_1, notebook_id: demo_notebook_3.id)
+demo_note_1 = Note.create!(title: "Test Note 7", body: sample_text_1, notebook_id: demo_notebook_3.id)

@@ -6,4 +6,15 @@ export const getAllNotebooks = ({ entities: { notebooks } } ) => {
 // returns the state's notes as an array of notes
 export const getAllNotes = ({ entities: { notes } } = {}) => (
   Object.keys(notes).map(id => notes[id])
-);
+)
+
+// return array of notes in a specific notebook
+export const getAllNotebookNotes = ({ entities: { notebooks, notes } }, notebookId) => {
+  if (!notebookId || Object.keys(notebooks).length === 0 || Object.keys(notes).length === 0) return [];
+  const notebookNotes = [];
+  notebooks[notebookId].noteIds.forEach(noteId => {
+    notebookNotes.push(notes[noteId])
+  });
+
+  return notebookNotes;
+}

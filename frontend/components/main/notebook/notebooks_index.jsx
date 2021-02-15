@@ -7,22 +7,75 @@ export default class NotebookIndex extends Component {
     super(props)
   
     this.state = {
-      actionsDropdown: {}
+      notebookToggle: {},
+      notebookActionsDropdown: {},
+      noteActionsDropdown: {}
     }
 
-    this.toggleActionsDropdown = this.toggleActionsDropdown.bind(this);
+    this.toggleNotebookActionsDropdown = this.toggleNotebookActionsDropdown.bind(this);
+    this.toggleNoteActionsDropdown = this.toggleNoteActionsDropdown.bind(this);
   }
 
   componentDidMount() {
     this.props.requestNotebooks();
   }
 
-  toggleActionsDropdown(notebookId) {
-    if (this.state.actionsDropdown[notebookId] === true) {
-      this.setState({ actionsDropdown: Object.assign({}, { [notebookId]: false }) }) 
+  toggleNotebookActionsDropdown(notebookId) {
+    if (this.state.notebookActionsDropdown[notebookId] === true) {
+      this.setState({ notebookActionsDropdown: Object.assign({}, { [notebookId]: false }) }) 
     } else {
-      this.setState({ actionsDropdown: Object.assign({}, { [notebookId]: true }) })
+      this.setState({ notebookActionsDropdown: Object.assign({}, { [notebookId]: true }) })
     }
+  }
+
+  toggleNoteActionsDropdown(notebookId) {
+    if (this.state.noteActionsDropdown[notebookId] === true) {
+      this.setState({ noteActionsDropdown: Object.assign({}, { [noteId]: false }) })
+    } else {
+      this.setState({ noteActionsDropdown: Object.assign({}, { [noteId]: true }) })
+    }
+  }
+
+  getNotebookNotes(notebook) {
+    const { notes, user } = this.props;
+    const notebookNotes = notes[notebook.id];
+
+    return (
+      notebookNotes.map(note => {
+        if (!note) return null;
+        const date = parseDate(note.updated_at);
+        const noteActionsDropdown = this.state.noteActionsDropdown[note.id];
+        
+        return (
+          <li key={note.id}>
+            <div>
+              <Link to={`/notebooks/${notebook.id}/${note.id}`}>
+                <i className="fas fa-sticky-note nav-icon"></i>
+                {note.title}
+              </Link>
+            </div>
+            <div>{user.email}</div>
+            <div>{date}</div>
+            <div className="dropdown-anchor">
+              <button className="actions-dropdown-button"
+                onClick={() => this.toggleNoteActionsDropdown(note.id)}>
+                  <i className="fas fa-ellipsis-h"></i>
+              </button>
+              {/* <ul className={`actions-dropdown dropdown 
+                ${noteActionsDropdown ? "" : "hidden"}`}>
+                <li>
+                  <button onClick={() => {
+                    this.props.openModal("deleteNote", note.id);
+                    this.toggleNoteActionsDropdown(note.id)}}>
+                      Delete note
+                  </button>
+                </li>
+              </ul> */}
+            </div>
+          </li>
+        )
+      })
+    )
   }
   
   render() {
@@ -30,7 +83,7 @@ export default class NotebookIndex extends Component {
     const notebookList = notebooks.map(notebook => {
       
       const date = parseDate(notebook.updated_at);
-      const actionsDropdown = this.state.actionsDropdown[notebook.id];
+      const notebookActionsDropdown = this.state.notebookActionsDropdown[notebook.id];
 
       return (
         <li key={notebook.id}>
@@ -44,30 +97,26 @@ export default class NotebookIndex extends Component {
                 {notebook.name}
               </Link>
             </div>
-            <div>
-              {user.email}
-            </div>
-            <div>
-              {date}
-            </div>
+            <div>{user.email}</div>
+            <div>{date}</div>
             <div className="notebook-actions-dropdown">
               <button className="actions-dropdown-button" 
-                onClick={() => this.toggleActionsDropdown(notebook.id)}>
+                onClick={() => this.toggleNotebookActionsDropdown(notebook.id)}>
                   <i className="fas fa-ellipsis-h"></i>
               </button>
               <ul className={`dropdown actions-dropdown
-                ${actionsDropdown ? "" : "hidden"}`}>
+                ${notebookActionsDropdown ? "" : "hidden"}`}>
                 <li>
                   <button onClick={() => {
                     this.props.openModal("renameNotebook", notebook.id);
-                    this.toggleActionsDropdown(notebook.id)}}>
+                    this.toggleNotebookActionsDropdown(notebook.id)}}>
                       Rename Notebook
                   </button>
                 </li>
                 <li>
                   <button onClick={() => {
                     this.props.openModal("deleteNotebook", notebook.id);
-                    this.toggleActionsDropdown(notebook.id)}}>
+                    this.toggleNotebookActionsDropdown(notebook.id)}}>
                       Delete Notebook
                   </button>
                 </li>
