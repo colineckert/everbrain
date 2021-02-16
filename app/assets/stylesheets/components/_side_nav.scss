@@ -2,8 +2,7 @@
   background-color: black;
   color: $white;
   display: grid;
-  grid-template-rows: 50px 55px 55px 35px 35px 1fr 130px;
-  padding-left: 15px;
+  grid-template-rows: 50px 50px 60px 35px 35px 1fr 130px;
   padding-top: 15px;
 
   position: static;
@@ -13,18 +12,55 @@
   min-width: 180px;
   box-sizing: border-box;
 
-  .nav-notebooks, .nav-all-notes {
+  .nav-item-container {
     color: $grey;
     font-family: $apple-font;
     // align-items: flex-start;
     display: grid;
-    // grid-template-columns: 25px 1fr;
+    grid-template-columns: 15px 1fr;
+    padding: 5px 10px 5px 14px;
     align-items: center;
   }
 
-  // .nav-notebooks:hover, .nav-all-notes:hover {
-  //   background-color: $darker-grey;
-  // }
+  .nav-item-container a:hover {
+    color: $white;
+  }
+
+  .main-nav-links {
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-item-container > button {
+    background-color: transparent;
+    color: $grey;
+  }
+
+  .nav-notebook-list {
+    grid-column: 2 / -1;
+    list-style: none;
+    font-size: 13px;
+    color: $grey;
+  }
+
+  .nav-notebook-list li {
+    line-height: 30px;
+    padding: 0 8px 0 30px;
+    width: 100%;
+  }
+
+  .nav-item-container:hover, .nav-hover-notebook:hover {
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .main-nav-links .selected {
+      background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-search {
+    padding-left: 10px;
+  }
 
   .nav-search-bar {
     display: flex;
@@ -41,6 +77,10 @@
     i {
       color: $dark-grey;
     }
+  }
+
+  .new-note-button-container {
+    padding-left: 10px;
   }
 
   .new-note-button {
@@ -60,25 +100,11 @@
   .new-note-button:hover {
     background-color: $dark-green;
   }
-
-  .user-logout-button {
-    display: flex;
-    align-items: center;
-    color: $grey;
-    background-color: transparent;
-    padding: 10px;
-    // width: 95%;
-    transition: .3s color ease-in-out;
-  }
-
-  .user-logout-button:hover {
-    color: $white;
-  }
 }
 
-//account dropdown
 .nav-profile {
   position: relative;
+  padding-left: 15px;
 }
 
 .account-dropdown {

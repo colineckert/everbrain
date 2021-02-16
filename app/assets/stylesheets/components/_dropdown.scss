@@ -81,6 +81,7 @@
 .fa-caret-right {
   transform: rotate(0deg);
   transition: transform 0.2s linear;
+  background-color: transparent;
 }
 
 .fa-caret-right.open {

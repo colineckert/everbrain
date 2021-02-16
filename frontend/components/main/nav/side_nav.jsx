@@ -35,9 +35,12 @@ export default class SideNav extends Component {
     const notebookList = notebooks.map(notebook => {
       const currentNotebook = (notebook.id == this.props.match.params.notebookId);
       return (
-        <div className={`nav-hover-notebook ${currentNotebook ? "selected" : ""}`} key={notebook.id}>
+        <div key={notebook.id}
+        className={`nav-hover-notebook ${currentNotebook ? "selected" : ""}`}>
           <Link to={`/notebooks/${notebook.id}`}>
-            <li key={notebook.id}>{notebook.name}</li>
+            <li key={notebook.id}>
+              <i className="fas fa-book"></i>{notebook.name}
+            </li>
           </Link>
         </div>
       )
@@ -68,17 +71,35 @@ export default class SideNav extends Component {
           </div>
         </div>
 
-        <div>
+        <div className="new-note-button-container">
           <button className="new-note-button">
             <i className="fas fa-plus"></i>New Note
           </button>
         </div>
-        <div className="nav-all-notes">
-          <Link to="/notes"><i className="fas fa-sticky-note"></i>All Notes</Link>
-        </div>
-        <div className="nav-notebooks">
-          <Link to="/notebooks"><i className="fas fa-book"></i>Notebooks</Link>
-        </div>
+
+        <ul className="main-nav-links">
+          <div className="nav-item-container">
+            <div></div>
+            <Link to="/notes" className="main-nav-link">
+              <i className="fas fa-sticky-note"></i>
+              All Notes
+            </Link>
+          </div>
+          
+          <div className="nav-item-container">
+            <button className="caret-dropdown-button" 
+              onClick={() => this.toggleHidden("notebookDropdown")}>
+              <i className={`fas fa-caret-right ${notebookDropdown === "" ? "open" : ""}`}></i>
+            </button>
+            <Link to="/notebooks" className="main-nav-link">
+              <i className="fas fa-book"></i>
+              Notebooks
+            </Link>
+            <ul className={`nav-notebook-list ${notebookDropdown}`}>
+              {notebookList}
+            </ul>
+          </div>
+        </ul>
       </div>
     )
   }
