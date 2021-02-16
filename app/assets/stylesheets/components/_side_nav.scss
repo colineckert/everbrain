@@ -76,4 +76,32 @@
   }
 }
 
+//account dropdown
+.nav-profile {
+  position: relative;
+}
+
+.account-dropdown {
+  top: 35px;
+  width: 50px;
+  padding: 10px
+}
+
+.account-dropdown-button {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  color: $grey;
+  text-align: left;
+  padding: 0;
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.account-dropdown-button:hover {
+  background-color: transparent;
+  color: $hover-grey;
+}
+
 

@@ -102,7 +102,7 @@ export default class NotebookIndex extends Component {
             <div className="notebook-title">
               <button className="caret-dropdown-button" 
                 onClick={() => this.toggleNotebookExpand(notebook.id)}>
-                  <i className={`fas fa-caret-right nav-icon 
+                  <i className={`fas fa-caret-right 
                   ${notebookToggleExpand ? "open" : ""}`}></i>
               </button> 
               <Link to={`/notebooks/${notebook.id}`}>

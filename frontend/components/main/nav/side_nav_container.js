@@ -1,11 +1,22 @@
 import { connect } from 'react-redux';
 import { logout } from '../../../actions/session_actions';
 import SideNav from './side_nav';
+import { getAllNotebooks, getAllNotes } from '../../../reducers/selectors';
+import { requestNotebooks } from '../../../actions/notebook_actions';
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = (state) => {
   return {
-    logout: user => dispatch(logout(user))
+    currentUser: state.entities.users[state.session.id],
+    notebooks: getAllNotebooks(state),
+    notes: getAllNotes(state)
   }
 }
 
-export default connect(null, mapDispatchToProps)(SideNav);
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logout()),
+    requestNotebooks: () => dispatch(requestNotebooks()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideNav);

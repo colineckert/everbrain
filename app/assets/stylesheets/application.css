@@ -346,6 +346,29 @@ body {
   .main-side-nav .user-logout-button:hover {
     color: #fff; }
 
+.nav-profile {
+  position: relative; }
+
+.account-dropdown {
+  top: 35px;
+  width: 50px;
+  padding: 10px; }
+
+.account-dropdown-button {
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  color: #a6a6a6;
+  text-align: left;
+  padding: 0;
+  height: 35px;
+  display: inline-flex;
+  align-items: center; }
+
+.account-dropdown-button:hover {
+  background-color: transparent;
+  color: #f2f2f2; }
+
 .modal-background {
   position: fixed;
   top: 0;
@@ -427,7 +450,7 @@ body {
 
 .main-app-container {
   display: grid;
-  grid-template-columns: 300px 400px 1fr;
+  grid-template-columns: 300px 425px 1fr;
   height: 100vh; }
 
 .notebook-index-container {
