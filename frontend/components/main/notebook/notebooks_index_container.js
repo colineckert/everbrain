@@ -12,7 +12,6 @@ const mapStateToProps = (state) => {
   notebooks.forEach(notebook => {
     notes[notebook.id] = getAllNotebookNotes(state, notebook.id);
   });
-  // debugger
   return {
     notebooks: notebooks,
     notes: notes,

@@ -1,11 +1,11 @@
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
-export const openModal = (modalName, notebookId) => {
+export const openModal = (modalName, itemId) => {
   return {
     type: OPEN_MODAL,
     modalName,
-    notebookId
+    itemId
   };
 };
 

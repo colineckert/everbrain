@@ -36,7 +36,8 @@ class RenameNotebookModal extends Component {
 
     const notebook = this.state;
     this.props.updateNotebook(notebook)
-      .then(() => this.props.closeModal());
+      .then(() => this.props.closeModal())
+        // .then(() => this.props.requestNotebooks());
   }
 
   renderErrors() {
@@ -99,7 +100,7 @@ class RenameNotebookModal extends Component {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.id,
-    notebook: state.entities.notebooks[state.ui.modal.notebookId],
+    notebook: state.entities.notebooks[state.ui.modal.itemId],
     errors: Object.values(state.errors.notebook)
   }
 }

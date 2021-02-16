@@ -38,7 +38,7 @@ export default class NotebookIndex extends Component {
   }
 
   toggleNoteActionsDropdown(noteId) {
-    if (this.state.noteActionsDropdown[notebookId] === true) {
+    if (this.state.noteActionsDropdown[noteId] === true) {
       this.setState({ noteActionsDropdown: Object.assign({}, { [noteId]: false }) })
     } else {
       this.setState({ noteActionsDropdown: Object.assign({}, { [noteId]: true }) })
@@ -74,7 +74,7 @@ export default class NotebookIndex extends Component {
                 <li>
                   <button 
                     onClick={() => {
-                    // this.props.openModal("deleteNote", note.id);
+                    this.props.openModal("deleteNote", note.id);
                     this.toggleNoteActionsDropdown(note.id)}}>
                       Delete note
                   </button>
@@ -95,7 +95,6 @@ export default class NotebookIndex extends Component {
 
       const notebookNotesList = this.getNotebookNotes(notebook);
       const notebookToggleExpand = this.state.notebookToggleExpand[notebook.id];
-      // debugger
 
       return (
         <li key={notebook.id}>

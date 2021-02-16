@@ -53,7 +53,7 @@ class DeleteNotebookModal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notebookId: state.ui.modal.notebookId
+    notebookId: state.ui.modal.itemId
   }
 }
 

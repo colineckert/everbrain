@@ -50,24 +50,24 @@ export const requestNotebooks = () => dispatch => {
 
 export const requestNotebook = (notebookId) => dispatch => {
   return NotebookAPI.fetchNotebook(notebookId)
-    .then(notebook => dispatch(receiveNotebook(notebook)),
+    .then(({ notebook, notes }) => dispatch(receiveNotebook(notebook, notes)),
       errors => dispatch(receiveNotebookErrors(errors.responseJSON)))
 }
 
 export const createNotebook = (notebook) => dispatch => {
   return NotebookAPI.createNotebook(notebook)
-    .then(notebook => dispatch(receiveNotebook(notebook)),
+    .then(({ notebook, notes }) => dispatch(receiveNotebook(notebook, notes)),
       errors => dispatch(receiveNotebookErrors(errors.responseJSON)))
 }
 
 export const updateNotebook = (notebook) => dispatch => {
   return NotebookAPI.updateNotebook(notebook)
-    .then(notebook => dispatch(receiveNotebook(notebook)),
+    .then(({ notebook, notes }) => dispatch(receiveNotebook(notebook, notes)),
       errors => dispatch(receiveNotebookErrors(errors.responseJSON)))
 }
 
 export const deleteNotebook = (notebookId) => dispatch => {
   return NotebookAPI.deleteNotebook(notebookId)
-    .then((notebook) => dispatch(removeNotebook(notebook.id)),
+    .then(() => dispatch(removeNotebook(notebookId)),
       errors => dispatch(receiveNotebookErrors(errors.responseJSON)))
 }
