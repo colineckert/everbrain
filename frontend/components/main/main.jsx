@@ -4,6 +4,7 @@ import Modal from '../modal/modal';
 import SideNavContainer from './nav/side_nav_container';
 import NotebookIndexContainer from './notebook/notebooks_index_container';
 import NotesIndexContainer from './note/notes_index_container';
+import
 
 export default () => (
   <div className="main-app-container">
@@ -14,6 +15,7 @@ export default () => (
     </Switch>
     
     <Route component={SideNavContainer} />
+    <Route path="/notebooks/:notebookId" component={NotebookShowContainer} />
     <Route exact path="/notebooks" component={NotebookIndexContainer} />
     <Route exact path="/notes" component={NotesIndexContainer} />
   </div>

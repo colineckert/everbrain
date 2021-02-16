@@ -105,7 +105,7 @@ export default class NotebookIndex extends Component {
                   <i className={`fas fa-caret-right nav-icon 
                   ${notebookToggleExpand ? "open" : ""}`}></i>
               </button> 
-              <Link to="/notebooks">
+              <Link to={`/notebooks/${notebook.id}`}>
                 <i className="fas fa-book"></i>
                 {notebook.name}
               </Link>
