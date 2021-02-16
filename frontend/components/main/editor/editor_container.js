@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Editor from './editor';
-import { requestNote, updateNote, deleteNote } from '../../../actions/notes/notes_actions';
+import { requestNote, updateNote, deleteNote } from '../../../actions/note_actions';
 
 const mapStateToProps = (state, ownProps) => {
 

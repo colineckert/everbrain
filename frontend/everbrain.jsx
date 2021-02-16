@@ -14,6 +14,8 @@ import {
 
 import { getAllNotebookNotes } from './reducers/selectors';
 
+// import 'react-quill/dist/quill.snow.css';
+
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {

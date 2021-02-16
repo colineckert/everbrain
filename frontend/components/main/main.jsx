@@ -8,7 +8,6 @@ import NotebookShowContainer from './notebook/notebook_show_container';
 
 export default () => (
   <div className="main-app-container">
-    {/* <Modal /> */}
     <Switch>
       <Route path="/notebooks/:notebookId" component={Modal} />
       <Route component={Modal} />

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link, Route } from 'react-router-dom';
 import NotesList from '../note/notes_list';
+import EditorContainer from '../editor/editor_container';
 
 export default class NotebookShow extends Component {
   constructor(props) {
@@ -24,6 +26,7 @@ export default class NotebookShow extends Component {
             <NotesList notes={notes} notebook={notebook} />
           </div>
         </div>
+      <Route path={["/notebooks/:notebookId/:noteId"]} component={EditorContainer} />
       </div>
     )
   }
