@@ -6,6 +6,7 @@
   background-color: $light-grey;
   border-right: 2px $semi-grey solid;
   font-family: $apple-font;
+  overflow: scroll;
 
   .notes-sidebar-header {
     border-bottom: 3px $semi-grey solid;

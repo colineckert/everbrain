@@ -1,5 +1,6 @@
 body {
-  background-color: $light-grey;
+  // background-color: $light-grey;
+  background-color: #EBF8F0;
 }
 
 .session-form-container {
@@ -7,7 +8,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 }
 
 .main-session-form {
@@ -25,15 +25,15 @@ body {
   h1 {
     font-size: 56px;
     line-height: 70px;
-    // padding: 0 0 10px;
+    font-family: serif;
   }
 
   input {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 4px 0;
     box-sizing: border-box;
-    border: 2px solid $light-grey;
+    border: 1px solid #e6e6e6;
     border-radius: 7px;
     font-family: $apple-font;
     font-weight: 400;
@@ -42,7 +42,7 @@ body {
   }
 
   input:focus {
-    border: 3px solid $lightest-green;
+    border: 1px solid $lightest-green;
   }
 
   p {
@@ -60,16 +60,25 @@ body {
     display: block;
     width: 100%;
   }
+
+  .form-submit:hover {
+    background-color: $dark-green;
+  }
 }
 
 .form-alt {
   font-family: $apple-font;
   font-weight: 400;
   color: $dark-grey;
-  padding-top: 20px;
+  margin-top: 37px;
 
   .form-alt-text {
-    padding-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .form-alt-link {
+    color: $green;
+    padding: 8px;
   }
 
   p {
@@ -79,22 +88,42 @@ body {
 
 }
 
-#session-demo > button {
-  border: 2px solid $green;
-  background-color: $white;
-  color: $green;
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  font-family: $en-bold-serif;
-  font-weight: bold;
-  border-radius: 3px;
-  padding: 10px 30px;
+.line {
+  display: flex;
+  align-items: center;
   text-align: center;
-  letter-spacing: 1.5px;
-  transition: .3s background-color ease-in-out;
+  color: #ababab;
+  font-size: 14px;
+  font-family: $apple-font;
+  width: 100%;
+  margin-bottom: 18px;
+  margin-top: 17px;
+}
+
+.line > div {
+  padding: 3px;
+}
+
+.line::before, .line::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #d4d3d3;
+}
+
+#session-demo > button {
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  max-width: 280px;
+  padding: 11px 16px;
+  border-radius: 7px;
+  align-self: center;
+  font-size: 15px;
+  color: #6a6a6a;
+  text-align: center;
+  cursor: pointer;
+  background-color: $white;
 }
 
 #session-demo > button:hover {
-  color: $light-green;
-  border-color: $light-green;
+  background-color: $hover-grey;
 }
