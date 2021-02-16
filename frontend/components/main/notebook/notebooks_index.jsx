@@ -18,8 +18,7 @@ export default class NotebookIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.requestNotebooks()
-      .then(() => this.props.requestNotes());
+    Promise.all([this.props.requestNotes(), this.props.requestNotebooks()]);
   }
   
   toggleNotebookExpand(notebookId) {
@@ -49,10 +48,9 @@ export default class NotebookIndex extends Component {
   getNotebookNotes(notebook) {
     const { notes, user } = this.props;
     const notebookNotes = notes[notebook.id];
-
     return (
       notebookNotes.map(note => {
-        if (!note) return null;
+        // if (!note) return null;
         const date = parseDate(note.updated_at);
         const noteActionsDropdown = this.state.noteActionsDropdown[note.id];
         
@@ -92,12 +90,12 @@ export default class NotebookIndex extends Component {
   render() {
     const { notebooks, user } = this.props;
     const notebookList = notebooks.map(notebook => {
-      
       const date = parseDate(notebook.updated_at);
       const notebookActionsDropdown = this.state.notebookActionsDropdown[notebook.id];
 
       const notebookNotesList = this.getNotebookNotes(notebook);
       const notebookToggleExpand = this.state.notebookToggleExpand[notebook.id];
+      // debugger
 
       return (
         <li key={notebook.id}>

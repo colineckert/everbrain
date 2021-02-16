@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getAllNotebookNotes, getAllNotebooks } from '../../../reducers/selectors'
+import { getAllNotebookNotes, getAllNotebooks } from '../../../reducers/selectors';
 import { requestNotebooks } from '../../../actions/notebook_actions';
 import { requestNotes } from '../../../actions/note_actions';
 import { openModal } from '../../../actions/modal_actions';
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
   notebooks.forEach(notebook => {
     notes[notebook.id] = getAllNotebookNotes(state, notebook.id);
   });
-  debugger
+  // debugger
   return {
     notebooks: notebooks,
     notes: notes,

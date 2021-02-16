@@ -12,6 +12,8 @@ import {
   updateNote, deleteNote 
 } from './actions/note_actions'
 
+import { getAllNotebookNotes } from './reducers/selectors';
+
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
@@ -44,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createNote = createNote;
   window.updateNote = updateNote;
   window.deleteNote = deleteNote;
+  // selectors
+  window.getAllNotebookNotes = getAllNotebookNotes;
   // TESTING END
 
   const root = document.getElementById("root");
