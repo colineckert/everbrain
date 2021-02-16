@@ -204,9 +204,6 @@ p {
 .home-nav-login {
   padding-right: 20px; }
 
-body {
-  background-color: #EBF8F0; }
-
 .session-form-container {
   position: absolute;
   top: 50%;
@@ -642,33 +639,37 @@ body {
   transform: rotate(90deg);
   transition: transform 0.2s linear; }
 
-.notes-sidebar-container {
+.notes-index-container {
   display: grid;
   height: 100vh;
   grid-template-rows: 100px minmax(0, 50px) 1fr;
   text-align: left;
   background-color: #f8f8f8;
-  border-right: 2px #D9D9D9 solid;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  overflow: scroll; }
-  .notes-sidebar-container .notes-sidebar-header {
-    border-bottom: 3px #D9D9D9 solid;
-    box-sizing: border-box;
-    padding: 5px 25px;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    align-items: center; }
-  .notes-sidebar-container .notes-sidebar-header > h1 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 20px; }
-  .notes-sidebar-container .notes-sidebar-header > h5 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    color: #a6a6a6;
-    font-size: 14px; }
+  border-right: 1px #e6e6e6 solid; }
 
-.notes-list-item-container {
-  padding-right: 10px; }
+.notes-sidebar-header {
+  border-bottom: 3px #e6e6e6 solid;
+  box-sizing: border-box;
+  padding: 5px 25px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center; }
+
+.notes-sidebar-header > h1 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px; }
+
+.notes-sidebar-header > h5 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #a6a6a6;
+  font-size: 14px; }
+
+.notes-sidebar-container {
+  grid-row: 2 / -1;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 120px);
+  overflow: auto; }
 
 .sidebar-note-grid {
   display: grid;
@@ -678,7 +679,7 @@ body {
 .notes-list-item {
   box-sizing: border-box;
   border: 0;
-  border-bottom: 1px #D9D9D9 solid;
+  border-bottom: 1px #e6e6e6 solid;
   border-radius: 0;
   padding: 15px 25px;
   width: 100%;
