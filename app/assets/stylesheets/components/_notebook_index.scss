@@ -1,6 +1,6 @@
 .notebook-index-container {
+  background-color: $white;
   grid-column: 2 / -1;
-
   display: grid;
   grid-template-rows: 80px 45px 50px 1fr;
   grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 300px)) 1fr; 
@@ -105,6 +105,6 @@
   background-color: $hover-grey;
 }
 
- .notebooks-list > ul > li:nth-of-type(even):hover {
-    background-color: $hover-grey;
-  }
+// .notebooks-list > ul > li:nth-of-type(even):hover {
+//   background-color: $hover-grey;
+// }

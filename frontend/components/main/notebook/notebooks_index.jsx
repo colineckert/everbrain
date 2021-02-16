@@ -50,13 +50,13 @@ export default class NotebookIndex extends Component {
     const notebookNotes = notes[notebook.id];
     return (
       notebookNotes.map(note => {
-        // if (!note) return null;
+        if (!note) return null;
         const date = parseDate(note.updated_at);
         const noteActionsDropdown = this.state.noteActionsDropdown[note.id];
         
         return (
-          <li key={note.id}>
-            <div>
+          <li key={note.id} className="notebook-index-notes-list-item">
+            <div className="notebook-index-notes-item-name">
               <Link to={`/notebooks/${notebook.id}/${note.id}`}>
                 <i className="fas fa-sticky-note"></i>
                 {note.title}

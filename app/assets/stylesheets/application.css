@@ -431,6 +431,7 @@ body {
   height: 100vh; }
 
 .notebook-index-container {
+  background-color: #fff;
   grid-column: 2 / -1;
   display: grid;
   grid-template-rows: 80px 45px 50px 1fr;
@@ -502,9 +503,6 @@ body {
 .notebooks-list > ul > li:hover {
   background-color: #f2f2f2; }
 
-.notebooks-list > ul > li:nth-of-type(even):hover {
-  background-color: #f2f2f2; }
-
 .hidden {
   display: none; }
 
@@ -554,22 +552,29 @@ body {
   height: 100%;
   align-items: center; }
 
-.notebook-index-note-list {
-  width: 100%;
-  list-style: none; }
-
-.notebook-index-note-list li {
-  line-height: 48px;
+.notebook-index-notes-list-item {
+  line-height: 35px;
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 185px)) 1fr;
+  grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 300px)) 1fr;
   align-items: center; }
 
-.notebook-index-note-list li div:last-of-type {
-  text-align: right; }
+.notebook-index-notes-item-name {
+  padding-left: 40px; }
 
-.notebook-index-note-list li div:first-of-type {
-  padding-left: 30px; }
+.notebook-index-note-list {
+  width: 100%; }
+
+.notebook-index-note-list {
+  padding-right: 10px; }
+
+.fa-caret-right {
+  transform: rotate(0deg);
+  transition: transform 0.2s linear; }
+
+.fa-caret-right.open {
+  transform: rotate(90deg);
+  transition: transform 0.2s linear; }
 
 .notes-sidebar-container {
   display: grid;
