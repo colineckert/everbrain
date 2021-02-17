@@ -18,11 +18,13 @@ export default class NotesList extends Component {
     }
 
     const noteList = notes.map(note => {
-      
+      if (!note) return null;
+
       const title = note.title === '' ? 'Untitled' : note.title;
       const body = note.body.slice(0, 100).replace(/<[^>]*>?/gm, '');
       const date = parseDate(note.updated_at);
       const selected = (selectedNote == note.id);
+
       return (
         <div className="notes-list-item-container" key={note.id}>
           <Link to={`${noteUrl}${note.id}`}>

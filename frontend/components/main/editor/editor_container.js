@@ -5,7 +5,7 @@ import { openModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const note = state.entities.notes[ownProps.match.params.noteId];
-  const notebook = state.entities.notebooks[note.notebook_id];
+  const notebook = note ? state.entities.notebooks[note.notebook_id] : { name: "No Notebook" };
 
   return {
     note: note,

@@ -45,9 +45,9 @@ class Editor extends Component {
     this.props.updateNote({ id, title, body });
   }
 
-  update(title) {
+  update(field) {
     return(e) => {
-      this.setState({ [title]: e.target.value });
+      this.setState({ [field]: e.target.value });
       this.autosave();
     }
   }

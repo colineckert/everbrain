@@ -20,25 +20,12 @@ export default class NotebookShow extends Component {
         }
       });
     }
-
-    if (JSON.stringify(this.props.checkNotes) === JSON.stringify(prevProps.checkNotes)) return null; 
-    if (this.props.match.params.noteId && !prevProps.match.params.noteId) {
-      this.props.requestNotebook(this.props.match.params.notebookId);
-    } else if (this.props.match.params.noteId !== prevProps.match.params.noteId) {
-      this.props.requestNotebook(this.props.match.params.notebookId);
-    } else {
-      this.props.requestNotebook(this.props.match.params.notebookId).then((action) => {
-        if (action.notes.length) {
-          this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/${action.notes[0].id}`);
-        }
-      });
-    }
   }
   
   render() {
     const { notes, notebook } = this.props;
     if (!notebook) return (
-      <div>Loading</div>
+      <div><h5>Loading</h5></div>
     )
     const selectedNote = this.props.match.params.noteId;
 

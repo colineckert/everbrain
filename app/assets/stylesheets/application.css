@@ -61,7 +61,7 @@ input[type="submit"] {
   display: block;
   clear: both; }
 
-body {
+#root {
   background-color: white; }
 
 button {

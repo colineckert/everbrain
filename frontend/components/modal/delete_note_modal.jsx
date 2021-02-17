@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { closeModal } from '../../actions/modal_actions';
 import { deleteNote, requestNotes } from '../../actions/note_actions';
 
@@ -16,10 +17,17 @@ class DeleteNoteModal extends Component {
     const note = this.props.note;
     this.props.deleteNote(note.id)
       .then(() => this.props.closeModal())
-        .then(() => this.props.requestNotes());
+        .then(() => {
+          this.props.match.params.notebookId ? 
+            this.props.history.push(`/notebooks/${this.props.match.params.notebookId}`) : 
+            this.props.history.push('/notes')
+        });
   }
 
   render() {
+    const note = this.props;
+    if (!note) return null;
+
     return (
       <div className="modal-content">
         <div className="modal-header">
@@ -29,7 +37,7 @@ class DeleteNoteModal extends Component {
           </button>
         </div>
         <div>
-          <p>Note will be moved to trash.</p>
+          <p>Note will be permanently moved to trash.</p>
         </div>
         <form id="notebook-form" onSubmit={this.deleteNote}>
           <div className="modal-buttons">
@@ -65,4 +73,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeleteNoteModal);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeleteNoteModal));
