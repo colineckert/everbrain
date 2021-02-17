@@ -345,7 +345,8 @@ p {
     grid-column: 2 / -1;
     list-style: none;
     font-size: 13px;
-    color: #a6a6a6; }
+    color: #a6a6a6;
+    padding-top: 5px; }
   .main-side-nav .nav-notebook-list li {
     line-height: 30px;
     padding: 0 8px 0 30px;
