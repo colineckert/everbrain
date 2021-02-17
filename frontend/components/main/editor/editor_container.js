@@ -3,10 +3,12 @@ import Editor from './editor';
 import { requestNote, updateNote, deleteNote } from '../../../actions/note_actions';
 
 const mapStateToProps = (state, ownProps) => {
-
+  const note = state.entities.notes[ownProps.match.params.noteId];
+  const notebook = state.entities.notebooks[note.notebook_id];
+  // debugger
   return {
-    note: state.entities.notes[ownProps.match.params.noteId],
-    notebook: state.entities.notebooks[note.notebook_id]
+    note: note,
+    notebook: notebook
   }
 }
 

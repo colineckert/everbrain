@@ -8,7 +8,7 @@
 }
 
 .notes-sidebar-header {
-  border-bottom: 3px #e6e6e6 solid;
+  border-bottom: 1px #e6e6e6 solid;
   box-sizing: border-box;
   padding: 5px 25px;
   height: 100%;
@@ -35,9 +35,9 @@
   overflow: auto;
 }
 
-// .notes-list-item-container {
-//   padding-right: 10px;
-// }
+.notes-list-item-container {
+  padding-right: 12px;
+}
 
 .sidebar-note-grid {
   display: grid;

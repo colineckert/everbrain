@@ -648,7 +648,7 @@ p {
   border-right: 1px #e6e6e6 solid; }
 
 .notes-sidebar-header {
-  border-bottom: 3px #e6e6e6 solid;
+  border-bottom: 1px #e6e6e6 solid;
   box-sizing: border-box;
   padding: 5px 25px;
   height: 100%;
@@ -670,6 +670,9 @@ p {
   display: grid;
   grid-template-rows: repeat(auto-fit, 120px);
   overflow: auto; }
+
+.notes-list-item-container {
+  padding-right: 12px; }
 
 .sidebar-note-grid {
   display: grid;
@@ -705,5 +708,58 @@ p {
 .notes-list-item:hover {
   color: black;
   background-color: #fff; }
+
+.editor-container {
+  display: grid;
+  grid-template-rows: 100px 1fr 50px;
+  height: 100vh; }
+  .editor-container .editor-header {
+    align-items: center;
+    padding: 0 25px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px #e6e6e6 solid; }
+  .editor-container .editor-header > h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #7a8083;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+
+.quill-container {
+  padding: 24px 40px 0;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  overflow-y: auto; }
+
+.note-title-edit {
+  border: 0;
+  border-radius: 0;
+  font-size: 2em;
+  height: 40px;
+  width: 100%;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+
+#toolbar {
+  grid-column: 1 / -1;
+  padding: 0;
+  border: 0; }
+
+#quill .ql-editor {
+  padding: 12px 0 0;
+  overflow: visible;
+  height: 100%; }
+
+#quill .ql-container {
+  font-size: 15px;
+  height: 100%; }
+
+#quill .ql-container.ql-snow {
+  border: 0;
+  height: 100%; }
+
+#quill .ql-editor.ql-blank::before {
+  left: 0;
+  right: 0; }
 
 /*# sourceMappingURL=application.css.map */

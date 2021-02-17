@@ -16,7 +16,6 @@ import Main from './main/main';
 const App = () => (
   <div>
     <Switch>
-    
       <AuthRoute path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
 

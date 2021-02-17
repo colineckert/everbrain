@@ -8,8 +8,15 @@ export default class NotesList extends Component {
   }
   
   render() {
-    const { notes } = this.props;
+    const { notes, view, notebook, selectedNote } = this.props;
     
+    let noteUrl = "";
+    if (view === "notebook") {
+      noteUrl = `/notebooks/${notebook.id}/`;
+    } else {
+      noteUrl = "/notes/";
+    }
+
     const noteList = notes.map(note => {
       
       const title = note.title === '' ? 'Untitled' : note.title;
@@ -18,7 +25,7 @@ export default class NotesList extends Component {
       
       return (
         <div className="notes-list-item-container" key={note.id}>
-          <Link to={`/notes/${note.id}`}>
+          <Link to={`${noteUrl}${note.id}`}>
             <button className="notes-list-item">
               <div className="sidebar-note-grid">
                 <h4>{title}</h4>

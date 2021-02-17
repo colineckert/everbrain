@@ -16,18 +16,18 @@ export default class NotebookShow extends Component {
     const { notes, notebook } = this.props;
     
     return (
-      <div className="notes-index-container">
-        <div className="notes-sidebar-header">
-          <h1>{notebook.name}</h1>
-          <h5>{notes.length} notes</h5>
-        </div>
-        <div className="notes-sidebar-container">
-          <div className="notes-list-container">
-            <NotesList notes={notes} notebook={notebook} />
+      <>
+        <div className="notes-index-container">
+          <div className="notes-sidebar-header">
+            <h1>{notebook.name}</h1>
+            <h5>{notes.length} notes</h5>
           </div>
+            <div className="notes-sidebar-container">
+              <NotesList notes={notes} notebook={notebook} view="notebook" />
+            </div>
         </div>
-      <Route path={["/notebooks/:notebookId/:noteId"]} component={EditorContainer} />
-      </div>
+        <Route path={["/notebooks/:notebookId/:noteId"]} component={EditorContainer} />
+      </>
     )
   }
 }
