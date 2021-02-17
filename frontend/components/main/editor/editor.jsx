@@ -6,10 +6,14 @@ class Editor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "",
+      id: null,
+      title: '',
+      body: '',
+      updated_at: new Date()
     }
 
     this.update = this.update.bind(this);
+    this.handleEditorChange = this.handleEditorChange.bind(this);
   }
 
   update(field) {
@@ -18,18 +22,24 @@ class Editor extends Component {
     }
   }
 
+  handleEditorChange(text) {
+    this.setState({ body: text });
+  }
+
   render() {
     const { note, notebook } = this.props;
     return (
       <div className="editor-container">
         <div className="editor-header">
           <h3><i className="fas fa-book"></i>{notebook.name}</h3>
+          <button className="note-dropdown-button"><i className="fas fa-ellipsis-h"></i>
+          </button>
           <EditorToolbar id="toolbar" />
         </div>
         <div className="quill-container" id="quill">
           <form onSubmit={(e) => e.preventDefault()}>
             <input name="title" type="text" className="note-title-edit"
-              onChange={this.update('title')}
+              // onChange={this.update('title')}
               value={note.title}
               placeholder="Untitled">
             </input>
@@ -37,6 +47,7 @@ class Editor extends Component {
           <ReactQuill
             theme="snow"
             value={note.body || ''}
+            // onChange={this.handleEditorChange}
             modules={modules}
             formats={formats}
             placeholder="Start writing"

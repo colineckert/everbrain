@@ -17,7 +17,6 @@
   .editor-header > h3 {
     font-family: $apple-font;
     color: #7a8083;
-    font-family: $apple-font;
   }
 }
 
@@ -39,6 +38,19 @@
   width: 100%;
   color: black;
   font-family: $apple-font;
+}
+
+.note-dropdown-button {
+  background-color: transparent;
+  color: #7a8083;
+  padding: 3px 3px 3px 6px;
+  border-radius: 3px;
+  grid-row: 1;
+  grid-column: -1;
+}
+
+.note-dropdown-button:hover {
+  background-color: $hover-grey;
 }
 
 

@@ -722,8 +722,7 @@ p {
     border-bottom: 1px #e6e6e6 solid; }
   .editor-container .editor-header > h3 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    color: #7a8083;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+    color: #7a8083; }
 
 .quill-container {
   padding: 24px 40px 0;
@@ -739,6 +738,17 @@ p {
   width: 100%;
   color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+
+.note-dropdown-button {
+  background-color: transparent;
+  color: #7a8083;
+  padding: 3px 3px 3px 6px;
+  border-radius: 3px;
+  grid-row: 1;
+  grid-column: -1; }
+
+.note-dropdown-button:hover {
+  background-color: #f2f2f2; }
 
 #toolbar {
   grid-column: 1 / -1;

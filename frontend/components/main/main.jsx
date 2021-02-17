@@ -12,10 +12,17 @@ export default () => (
       <Route path="/notebooks/:notebookId" component={Modal} />
       <Route component={Modal} />
     </Switch>
+
+    <Switch>
+      <Route path="/notebooks/:notebookId" component={SideNavContainer} />
+      <Route component={SideNavContainer} />
+    </Switch> 
     
-    <Route component={SideNavContainer} />
-    <Route path="/notebooks/:notebookId" component={NotebookShowContainer} />
+    {/* <Route component={SideNavContainer} /> */}
+    {/* <Route path="/notebooks/:notebookId" component={NotebookShowContainer} /> */}
     <Route exact path="/notebooks" component={NotebookIndexContainer} />
+    <Route path="/notebooks/:notebookId/:noteId?" component={NotebookShowContainer} />
     <Route exact path="/notes" component={NotesIndexContainer} />
+    <Route path={["/notes/:noteId"]} component={NotesIndexContainer} />
   </div>
 );
