@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
+import { debounce } from "debounce";
 import EditorToolbar, { modules, formats } from './editor_toolbar';
 
 class Editor extends Component {
@@ -13,14 +14,31 @@ class Editor extends Component {
       noteDropdown: "hidden"
     }
 
+    // this.fetchNote = this.fetchNote.bind(this);
     this.update = this.update.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchNote();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.noteId !== prevProps.match.params.noteId || this.state.id === null) {
+      this.fetchNote();
+    }
+  }
+  
+  fetchNote() {
+    if (this.props.note) {
+      this.setState(this.props.note);
+    }
+  }
+
   update(field) {
     return(e) => {
-      this.setState({ [field]: e.target.value })
+      this.setState({ [field]: e.target.value });
     }
   }
 
@@ -39,11 +57,13 @@ class Editor extends Component {
   }
 
   render() {
-    const { note, notebook } = this.props;
+    // const { note, notebook } = this.props;
+    const { title, body, updated_at } = this.state;
+
     return (
       <div className="editor-container">
         <div className="editor-header">
-          <h3><i className="fas fa-book"></i>{notebook.name}</h3>
+          <h3><i className="fas fa-book"></i>{this.props.notebook.name}</h3>
           <button className="note-dropdown-button dropdown-anchor"
             onClick={() => this.toggleHidden("noteDropdown")}>
               <i className="fas fa-ellipsis-h"></i>
@@ -59,15 +79,15 @@ class Editor extends Component {
         <div className="quill-container" id="quill">
           <form onSubmit={(e) => e.preventDefault()}>
             <input name="title" type="text" className="note-title-edit"
-              // onChange={this.update('title')}
-              value={note.title}
+              onChange={this.update('title')}
+              value={title}
               placeholder="Untitled">
             </input>
           </form>
           <ReactQuill
             theme="snow"
-            value={note.body || ''}
-            // onChange={this.handleEditorChange}
+            value={body || ''}
+            onChange={this.handleEditorChange}
             modules={modules}
             formats={formats}
             placeholder="Start writing"
