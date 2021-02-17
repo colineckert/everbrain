@@ -43,3 +43,10 @@ i {
   font-family: $apple-font;
   font-size: 14px;
 }
+
+.selected {
+  box-shadow: 
+    inset 1px 1px 0 1px $select-blue,
+    inset -1px 1px 0 1px $select-blue,
+    inset 0 -2px 0 0 $select-blue,
+}

@@ -22,11 +22,11 @@ export default class NotesList extends Component {
       const title = note.title === '' ? 'Untitled' : note.title;
       const body = note.body.slice(0, 100).replace(/<[^>]*>?/gm, '');
       const date = parseDate(note.updated_at);
-      
+      const selected = (selectedNote == note.id);
       return (
         <div className="notes-list-item-container" key={note.id}>
           <Link to={`${noteUrl}${note.id}`}>
-            <button className="notes-list-item">
+            <button className={`notes-list-item ${selected ? " selected" : ""}`}>
               <div className="sidebar-note-grid">
                 <h4>{title}</h4>
                 <p>{body}</p>

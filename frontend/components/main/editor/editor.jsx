@@ -14,10 +14,13 @@ class Editor extends Component {
       noteDropdown: "hidden"
     }
 
-    // this.fetchNote = this.fetchNote.bind(this);
+    this.fetchNote = this.fetchNote.bind(this);
     this.update = this.update.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+
+    this.saveNote = this.saveNote.bind(this);
+    this.autosave = debounce(this.saveNote, 1000); 
   }
 
   componentDidMount() {
@@ -33,17 +36,25 @@ class Editor extends Component {
   fetchNote() {
     if (this.props.note) {
       this.setState(this.props.note);
+      // this.setState({})
     }
   }
+  
+  saveNote() {
+    const { id, title, body } = this.state;
+    this.props.updateNote({ id, title, body });
+  }
 
-  update(field) {
+  update(title) {
     return(e) => {
-      this.setState({ [field]: e.target.value });
+      this.setState({ [title]: e.target.value });
+      this.autosave();
     }
   }
 
   handleEditorChange(text) {
     this.setState({ body: text });
+    this.autosave();
   }
 
   deleteNote() {
@@ -90,10 +101,13 @@ class Editor extends Component {
             onChange={this.handleEditorChange}
             modules={modules}
             formats={formats}
-            placeholder="Start writing"
+            placeholder="Start writing, add a link, or upload an image"
             bounds=".editor-container"
             scrollingContainer=".quill-container"
           />
+        </div>
+        <div className="editor-tags">
+          <i className="fas fa-tag"></i>Add Tag
         </div>
       </div>
     );

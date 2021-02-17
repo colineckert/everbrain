@@ -9,7 +9,11 @@ export default class NotesIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.requestNotes();
+    if (!this.props.match.params.noteId || !this.props.notes.length) {
+      this.props.requestNotes();
+    } else if (this.props.notes.length && !this.props.match.params.noteId) {
+      this.props.history.push(`/notes/${this.props.notes[0].id}`);
+    }
   }
   
   render() {

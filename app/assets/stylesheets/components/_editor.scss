@@ -20,9 +20,16 @@
   }
 }
 
+.editor-tags {
+  color: #7a8083;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-family: $apple-font;
+  padding: 25px;
+  border-top: 1px #e6e6e6 solid;
+}
 
-// MAIN TEXT FORM
-// see quill.snow.css _quill_overrides.scss for editor styling 
 .quill-container {
   padding: 24px 40px 0;
   display: grid;
