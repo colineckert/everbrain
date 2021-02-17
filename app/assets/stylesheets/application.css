@@ -604,7 +604,9 @@ p {
 
 .actions-dropdown {
   right: 10px;
-  top: 30px; }
+  top: 30px;
+  min-height: 30px;
+  align-items: center; }
 
 .actions-dropdown > li {
   background-color: #fff; }
@@ -749,6 +751,9 @@ p {
 
 .note-dropdown-button:hover {
   background-color: #f2f2f2; }
+
+#note-dropdown {
+  padding: 5px 0px 5px 5px; }
 
 #toolbar {
   grid-column: 1 / -1;

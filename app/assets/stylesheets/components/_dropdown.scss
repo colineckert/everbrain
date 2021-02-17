@@ -44,7 +44,9 @@
 
 .actions-dropdown {
   right: 10px;
-  top: 30px
+  top: 30px;
+  min-height: 30px;
+  align-items: center
 }
 
 .actions-dropdown > li {
