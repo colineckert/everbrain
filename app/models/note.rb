@@ -1,5 +1,5 @@
 class Note < ApplicationRecord
-  validates :body, presence: true
+  # validates :body, presence: true
 
   belongs_to :notebook,
     foreign_key: :notebook_id,

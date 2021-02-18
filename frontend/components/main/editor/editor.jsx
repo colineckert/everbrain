@@ -34,10 +34,7 @@ class Editor extends Component {
   }
   
   fetchNote() {
-    if (this.props.note) {
-      this.setState(this.props.note);
-      // this.setState({})
-    }
+    if (this.props.note) this.setState(this.props.note);
   }
   
   saveNote() {

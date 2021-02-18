@@ -10,7 +10,8 @@ export default class NotesIndex extends Component {
 
   componentDidMount() {
     if (!this.props.match.params.noteId || !this.props.notes.length) {
-      this.props.requestNotes();
+      this.props.requestNotes()
+        .then((res) => this.props.history.push(`/notes/${res.notes[0].id}`));
     } else if (this.props.notes.length && !this.props.match.params.noteId) {
       this.props.history.push(`/notes/${this.props.notes[0].id}`);
     }

@@ -9,23 +9,29 @@ export default class NotebookShow extends Component {
   }
 
   componentDidMount() {
-    this.props.requestNotebook(this.props.match.params.notebookId);
+    this.props.requestNotebook(this.props.match.params.notebookId)
+      .then((res) => {
+        if (res.notes.length) {
+          this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/${res.notes[0].id}`);
+        }
+      });
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.match.params.notebookId !== prevProps.match.params.notebookId) {
-      this.props.requestNotebook(this.props.match.params.notebookId).then((action) => {
-        if (action.notes.length) {
-          this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/${action.notes[0].id}`);
-        }
-      });
+      this.props.requestNotebook(this.props.match.params.notebookId)
+        .then((res) => {
+          if (res.notes.length) {
+            this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/${res.notes[0].id}`);
+          }
+        });
     }
   }
   
   render() {
     const { notes, notebook } = this.props;
     if (!notebook) return (
-      <div><h5>Loading</h5></div>
+      <div>Loading...</div>
     )
     const selectedNote = this.props.match.params.noteId;
 

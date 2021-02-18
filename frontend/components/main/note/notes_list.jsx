@@ -9,6 +9,10 @@ export default class NotesList extends Component {
   
   render() {
     const { notes, view, notebook, selectedNote } = this.props;
+
+    notes.sort((a, b) => {
+      return new Date(b.updated_at) - new Date(a.updated_at);
+    });
     
     let noteUrl = "";
     if (view === "notebook") {

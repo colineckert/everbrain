@@ -11,6 +11,7 @@ export default class SideNav extends Component {
     }
 
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleCreateNewNote = this.handleCreateNewNote.bind(this);
   }
   
   componentDidMount() {
@@ -22,6 +23,21 @@ export default class SideNav extends Component {
     e.preventDefault();
     this.props.logout();
   }
+
+  handleCreateNewNote(e) {
+    e.preventDefault();
+
+    let notebookId;
+    if (this.props.match.params.notebookId) {
+      notebookId = this.props.match.params.notebookId;
+      this.props.createNewNote(notebookId)
+        .then((res) => this.props.history.push(`/notebooks/${notebookId}/${res.note.id}`));
+    } else {
+      notebookId = this.props.notebooks[0].id;
+      this.props.createNewNote(notebookId)
+        .then((res) => this.props.history.push(`/notes/${res.note.id}`));
+    }
+  } 
 
   toggleHidden(dropdown) {
     this.state[dropdown] === "hidden" ?
@@ -72,7 +88,8 @@ export default class SideNav extends Component {
         </div>
 
         <div className="new-note-button-container">
-          <button className="new-note-button">
+          <button className="new-note-button"
+            onClick={this.handleCreateNewNote}>
             <i className="fas fa-plus"></i>New Note
           </button>
         </div>
