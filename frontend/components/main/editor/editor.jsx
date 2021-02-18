@@ -71,17 +71,24 @@ class Editor extends Component {
     return (
       <div className="editor-container">
         <div className="editor-header">
-          <h3><i className="fas fa-book"></i>{this.props.notebook.name}</h3>
-          <button className="note-dropdown-button dropdown-anchor"
-            onClick={() => this.toggleHidden("noteDropdown")}>
-              <i className="fas fa-ellipsis-h"></i>
-          </button>
-          <ul className={`actions-dropdown dropdown ${this.state.noteDropdown}`}>
-            <li>
-              <button id="note-dropdown"
-                onClick={this.deleteNote}>Delete note</button>
-            </li>
-          </ul>
+          <div className="col-1-1">
+            <button className="expand-editor-button">
+              <i class="fas fa-expand-alt"></i>
+            </button>
+            <h3><i className="fas fa-book"></i>{this.props.notebook.name}</h3>
+          </div>
+          <div className="col-2-1">
+            <button className="note-dropdown-button dropdown-anchor"
+              onClick={() => this.toggleHidden("noteDropdown")}>
+                <i className="fas fa-ellipsis-h"></i>
+            </button>
+            <ul className={`actions-dropdown dropdown ${this.state.noteDropdown}`}>
+              <li>
+                <button id="note-dropdown"
+                  onClick={this.deleteNote}>Delete note</button>
+              </li>
+            </ul>
+          </div>
           <EditorToolbar id="toolbar" />
         </div>
         <div className="quill-container" id="quill">

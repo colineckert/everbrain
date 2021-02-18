@@ -40,15 +40,7 @@ Quill.register(Size, true);
 
 // Add fonts to whitelist and register them
 const Font = Quill.import("formats/font");
-Font.whitelist = [
-  "sans serif",
-  "arial",
-  "comic-sans",
-  "courier-new",
-  "georgia",
-  "helvetica",
-  "lucida"
-];
+Font.whitelist = ["Sans-Serif", "Serif", "Verdana", "Monospace", "Script", "Arial"];
 Quill.register(Font, true);
 
 // Modules object for setting up the Quill editor
@@ -106,15 +98,14 @@ export const QuillToolbar = () => (
         <option value="2">Subheading</option>
         <option value="3">Normal</option>
       </select>
-      {/* <select className="ql-font" defaultValue="sans serif"> */}
-      <select className="ql-font">
-        <option selected>Sans Serif</option>
-        <option value="arial">Arial</option>
-        <option value="comic-sans">Comic Sans</option>
-        <option value="courier-new">Courier New</option>
-        <option value="georgia">Georgia</option>
-        <option value="helvetica">Helvetica</option>
-        <option value="lucida">Lucida</option>
+      {/* <select className="ql-font"> */}
+      <select className="ql-font" defaultValue="Sans-Serif">
+        <option value="Sans-Serif">Sans Serif</option>
+        <option value="Serif">Serif</option>
+        <option value="Monospace">Monospace</option>
+        <option value="Script">Script</option>
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
       </select>
       <select className="ql-size" defaultValue="medium">
         <option value="extra-small">Size 1</option>
