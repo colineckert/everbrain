@@ -12,9 +12,10 @@ Note.destroy_all
 
 demo_user = User.create!(email: "demo@everbrain.com", password: "password", full_name: "Demo User")
 
-demo_notebook_1 = Notebook.create!(name: "First Notebook", author_id: demo_user.id)
+demo_notebook_1 = Notebook.create!(name: "My First Notebook", author_id: demo_user.id)
 demo_notebook_2 = Notebook.create!(name: "Quotes", author_id: demo_user.id)
-demo_notebook_3 = Notebook.create!(name: "The Fellowship", author_id: demo_user.id)
+demo_notebook_3 = Notebook.create!(name: "Travel", author_id: demo_user.id)
+demo_notebook_4 = Notebook.create!(name: "The Fellowship", author_id: demo_user.id)
 
 sample_text_1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 emojis = "😊🥺😉😍😘😚😜😂😝😳😁😣😢😭😰🥰"
@@ -46,6 +47,8 @@ boromir = "One of the Men of Gondor, from the city of Minas Tirith in the south.
 peregrin = "A young and somewhat rash Hobbit. Pippin is good-natured and a bit of a smart aleck."
 merry = "A young Hobbit from Buckland. Merry has a temperament similar to Pippin’s, though he is more mature and, unlike most Hobbits, not afraid of boats and water."
 
+destinations = "Places to visit: Italy, Spain, Hong Kong, Greece, London"
+
 demo_note_1 = Note.create!(title: "Lorem ipsum", body: sample_text_1, notebook_id: demo_notebook_1.id)
 demo_note_2 = Note.create!(title: "The Gettysburg Address by Abraham Lincoln", body: gettys, notebook_id: demo_notebook_1.id)
 demo_note_3 = Note.create!(title: "Emojis", body: emojis, notebook_id: demo_notebook_1.id)
@@ -59,12 +62,14 @@ demo_note_9 = Note.create!(title: "Ralph Waldo Emerson", body: rwe, notebook_id:
 demo_note_10 = Note.create!(title: "Gandalf", body: g_quote, notebook_id: demo_notebook_2.id)
 demo_note_11 = Note.create!(title: "Nelson Mandela", body: nm, notebook_id: demo_notebook_2.id)
 
-demo_note_12 = Note.create!(title: "Frodo Baggins", body: frodo, notebook_id: demo_notebook_3.id)
-demo_note_13 = Note.create!(title: "Samwise (Sam) Gamgee", body: sam, notebook_id: demo_notebook_3.id)
-demo_note_14 = Note.create!(title: "Gandalf the Grey", body: gandalf, notebook_id: demo_notebook_3.id)
-demo_note_15 = Note.create!(title: "Legolas", body: legolas, notebook_id: demo_notebook_3.id)
-demo_note_16 = Note.create!(title: "Gimli", body: gimli, notebook_id: demo_notebook_3.id)
-demo_note_17 = Note.create!(title: "Aragorn", body: aragorn, notebook_id: demo_notebook_3.id)
-demo_note_18 = Note.create!(title: "Boromir", body: boromir, notebook_id: demo_notebook_3.id)
-demo_note_19 = Note.create!(title: "Peregrin (Pippin) Took", body: peregrin, notebook_id: demo_notebook_3.id)
-demo_note_20 = Note.create!(title: "Meriadoc (Merry) Brandybuck", body: merry, notebook_id: demo_notebook_3.id)
+demo_note_12 = Note.create!(title: "Frodo Baggins", body: frodo, notebook_id: demo_notebook_4.id)
+demo_note_13 = Note.create!(title: "Samwise (Sam) Gamgee", body: sam, notebook_id: demo_notebook_4.id)
+demo_note_14 = Note.create!(title: "Gandalf the Grey", body: gandalf, notebook_id: demo_notebook_4.id)
+demo_note_15 = Note.create!(title: "Legolas", body: legolas, notebook_id: demo_notebook_4.id)
+demo_note_16 = Note.create!(title: "Gimli", body: gimli, notebook_id: demo_notebook_4.id)
+demo_note_17 = Note.create!(title: "Aragorn", body: aragorn, notebook_id: demo_notebook_4.id)
+demo_note_18 = Note.create!(title: "Boromir", body: boromir, notebook_id: demo_notebook_4.id)
+demo_note_19 = Note.create!(title: "Peregrin (Pippin) Took", body: peregrin, notebook_id: demo_notebook_4.id)
+demo_note_20 = Note.create!(title: "Meriadoc (Merry) Brandybuck", body: merry, notebook_id: demo_notebook_4.id)
+
+demo_note_21 = Note.create!(title: "Trip ideas", body: destinations, notebook_id: demo_notebook_3.id)
