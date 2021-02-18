@@ -65,8 +65,7 @@ class Editor extends Component {
   }
 
   render() {
-    // const { note, notebook } = this.props;
-    const { title, body, updated_at } = this.state;
+    const { title, body } = this.state;
 
     return (
       <div className="editor-container">
