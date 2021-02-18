@@ -43,8 +43,8 @@ class User < ApplicationRecord
   private
 
   def seed_defaults 
-    default_notebook = self.notebooks.create!({name: 'My First Notebook'})
-    default_note = default_notebook.notes.create!({title: 'My First Note', body: ''})
+    default_notebook = self.notebooks.create!({ name: "My First Notebook" })
+    default_note = default_notebook.notes.create!({ title: "My First Note", body: "" })
   end
 
 end
