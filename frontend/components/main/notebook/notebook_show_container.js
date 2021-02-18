@@ -7,7 +7,8 @@ import { requestNotes } from '../../../actions/note_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     notes: getAllNotebookNotes(state, ownProps.match.params.notebookId),
-    notebook: state.entities.notebooks[ownProps.match.params.notebookId]
+    notebook: state.entities.notebooks[ownProps.match.params.notebookId], 
+    checkStateNotes: state.entities.notes
   }
 }
 

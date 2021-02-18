@@ -71,9 +71,9 @@
     background-color: #fff;
   }
 
-  .notebooks-list > ul > li:nth-of-type(even) {
-    background-color: $medium-grey;
-  }
+  // .notebooks-list > ul > li:nth-of-type(even) {
+  //   background-color: $medium-grey;
+  // }
 
   .notebook-item-text {
     display: grid;
@@ -101,9 +101,9 @@
   padding-left: 10px;
 }
 
-.notebooks-list > ul > li:hover {
-  background-color: $hover-grey;
-}
+// .notebooks-list > ul > li:hover {
+//   background-color: $hover-grey;
+// }
 
 // .notebooks-list > ul > li:nth-of-type(even):hover {
 //   background-color: $hover-grey;

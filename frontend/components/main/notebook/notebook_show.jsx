@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NotesList from '../note/notes_list';
 import EditorContainer from '../editor/editor_container';
 
@@ -25,6 +25,20 @@ export default class NotebookShow extends Component {
             this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/${res.notes[0].id}`);
           }
         });
+    }
+
+    if (JSON.stringify(this.props.checkStateNotes) === JSON.stringify(prevProps.checkStateNotes)) return null;
+    
+    if (this.props.match.params.noteId && !prevProps.match.params.noteId) {
+      this.props.requestNotebook(this.props.match.params.notebookId);
+    } else if (this.props.match.params.noteId !== prevProps.match.params.noteId) {
+      this.props.requestNotebook(this.props.match.params.notebookId);
+    } else {
+      this.props.requestNotebook(this.props.match.params.notebookId).then((res) => {
+        if (res.notes.length) {
+          this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/${res.notes[0].id}`);
+        }
+      });
     }
   }
   

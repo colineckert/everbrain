@@ -546,8 +546,6 @@ p {
     font-size: 14px;
     color: #313131;
     background-color: #fff; }
-  .notebook-index-container .notebooks-list > ul > li:nth-of-type(even) {
-    background-color: #f3f3f3; }
   .notebook-index-container .notebook-item-text {
     display: grid;
     grid-template-columns: minmax(190px, 2fr) repeat(2, minmax(80px, 300px)) 1fr;
@@ -565,9 +563,6 @@ p {
 
 .notebook-title h5 {
   padding-left: 10px; }
-
-.notebooks-list > ul > li:hover {
-  background-color: #f2f2f2; }
 
 .hidden {
   display: none; }
@@ -628,7 +623,7 @@ p {
   align-items: center; }
 
 .notebook-index-notes-item-name {
-  padding-left: 40px; }
+  padding-left: 45px; }
 
 .notebook-index-note-list {
   width: 100%; }
