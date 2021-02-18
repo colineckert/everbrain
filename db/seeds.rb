@@ -12,7 +12,7 @@ Note.destroy_all
 
 demo_user = User.create!(email: "demo@everbrain.com", password: "password", full_name: "Demo User")
 
-demo_notebook_1 = Notebook.create!(name: "My First Notebook", author_id: demo_user.id)
+demo_notebook_1 = Notebook.create!(name: "Demo Notebook", author_id: demo_user.id)
 demo_notebook_2 = Notebook.create!(name: "Quotes", author_id: demo_user.id)
 demo_notebook_3 = Notebook.create!(name: "Travel", author_id: demo_user.id)
 demo_notebook_4 = Notebook.create!(name: "The Fellowship", author_id: demo_user.id)
@@ -50,7 +50,7 @@ merry = "A young Hobbit from Buckland. Merry has a temperament similar to Pippin
 destinations = "Places to visit: Italy, Spain, Hong Kong, Greece, London"
 
 demo_note_1 = Note.create!(title: "Lorem ipsum", body: sample_text_1, notebook_id: demo_notebook_1.id)
-demo_note_2 = Note.create!(title: "The Gettysburg Address by Abraham Lincoln", body: gettys, notebook_id: demo_notebook_1.id)
+demo_note_2 = Note.create!(title: "The Gettysburg Address", body: gettys, notebook_id: demo_notebook_1.id)
 demo_note_3 = Note.create!(title: "Emojis", body: emojis, notebook_id: demo_notebook_1.id)
 
 demo_note_4 = Note.create!(title: "Steve Jobs", body: sj, notebook_id: demo_notebook_2.id)
