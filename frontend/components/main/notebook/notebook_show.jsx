@@ -27,7 +27,7 @@ export default class NotebookShow extends Component {
         });
     }
 
-    if (JSON.stringify(this.props.checkStateNotes) === JSON.stringify(prevProps.checkStateNotes)) return null;
+    if (JSON.stringify(this.props.checkNotesState) === JSON.stringify(prevProps.checkNotesState)) return null;
     
     if (this.props.match.params.noteId && !prevProps.match.params.noteId) {
       this.props.requestNotebook(this.props.match.params.notebookId);
