@@ -41,6 +41,7 @@ Quill.register(Size, true);
 // Add fonts to whitelist and register them
 const Font = Quill.import("formats/font");
 Font.whitelist = [
+  "sans serif",
   "arial",
   "comic-sans",
   "courier-new",
@@ -105,7 +106,9 @@ export const QuillToolbar = () => (
         <option value="2">Subheading</option>
         <option value="3">Normal</option>
       </select>
-      <select className="ql-font" defaultValue="arial">
+      {/* <select className="ql-font" defaultValue="sans serif"> */}
+      <select className="ql-font">
+        <option selected>Sans Serif</option>
         <option value="arial">Arial</option>
         <option value="comic-sans">Comic Sans</option>
         <option value="courier-new">Courier New</option>
