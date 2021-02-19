@@ -14,7 +14,7 @@
 
 ---
 ## 📕 Overview
-[Everbrain](https://everbrain.herokuapp.com) is a note-taking app that features a rich-text editor, image uploading, autosaving, organization with notebooks, and user authentification. Everbrain is an [Evernote](https://www.evernote.com) clone.
+[Everbrain](https://everbrain.herokuapp.com) is a single-page note-taking app that features a rich-text editor, image uploading, autosaving, organization with notebooks, and user authentification. Everbrain is an [Evernote](https://www.evernote.com) clone.
 
 ## 📚 Technologies
 
