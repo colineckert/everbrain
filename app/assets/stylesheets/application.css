@@ -709,7 +709,9 @@ p {
     align-self: end; }
 
 .notes-list-item:hover {
-  color: black;
+  background-color: #fff; }
+
+.notes-list-item.selected {
   background-color: #fff; }
 
 .editor-container {

@@ -81,6 +81,9 @@
 }
 
 .notes-list-item:hover {
-  color: black;
+  background-color: $white
+}
+
+.notes-list-item.selected {
   background-color: $white
 }
