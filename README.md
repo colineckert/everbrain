@@ -22,19 +22,20 @@ Everbrain is built with a Ruby on Rails backend, PostgreSQL for the database, an
 Everbrain's rich-text editor is built with [ReactQuill](https://github.com/zenoamaro/react-quill), a [Quill](https://quilljs.com/) component for React, to create a clean WYSIWYG editing experience. Modifications to the ReactQuill editor inlcude a **custom toolbar with edit undo and redo features**, CSS styling to the Snow theme, and **note autosaving** using [debounce](https://www.npmjs.com/package/debounce).
 
 ## Features
+
 #### Notebooks
 Users can create notebooks to better organize their notes. From within the `Notebooks` index, users can rename and delete notebooks via modals, as well as view all notes within each of their notebooks and navigate directly to a selected note. 
 
 Users can also view their notebooks on the side nav, and when selecting a notebook, the most recently updated note is automatically loaded in the editor.
 
 #### Rich-Text Editor
+Users can create a new note using the main "New Note" button and will be immediately loaded in the editor. 
+
 From within the Everbrain editor, users have the ability to edit notes using different headings, font styles, sizes, and coloring, as well as add imgaes, links, formulas, and code blocks. 
 
 Changes to notes or autosaved but can be undone (and redone) using custom buttons added to the editor toolbar. 
 
-```jsx
 
-```
 
 ## In-progress tasks, planned features & known issues
 - Tags
