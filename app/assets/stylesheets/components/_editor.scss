@@ -46,6 +46,7 @@
   display: grid;
   grid-template-rows: 50px 1fr;
   overflow-y: auto;
+  word-break: break-word;
 }
 
 .note-title-edit {

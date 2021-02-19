@@ -749,7 +749,8 @@ p {
   padding: 24px 40px 0;
   display: grid;
   grid-template-rows: 50px 1fr;
-  overflow-y: auto; }
+  overflow-y: auto;
+  word-break: break-word; }
 
 .note-title-edit {
   border: 0;
