@@ -11,10 +11,10 @@
 4. [In-progress & Planned](https://github.com/colineckert/everbrain#in-progress-tasks-planned-features--known-issues)
 
 ---
-## Overview
+## 📕 Overview
 [Everbrain](https://everbrain.herokuapp.com) is a note-taking app that features a rich-text editor, image uploading, autosaving, organization with notebooks, and user authentification. Everbrain is an [Evernote](https://www.evernote.com) clone.
 
-## Technologies
+## 📚 Technologies
 
 #### Rails, PostgreSQL, React, Redux
 Everbrain is built with a Ruby on Rails backend, PostgreSQL for the database, and React/Redux for the frontend and state management. It's structured as a normalized  state and uses thunks for asynchronous CRUD actions.
@@ -22,7 +22,7 @@ Everbrain is built with a Ruby on Rails backend, PostgreSQL for the database, an
 #### ReactQuill
 Everbrain's rich-text editor is built with [ReactQuill](https://github.com/zenoamaro/react-quill), a [Quill](https://quilljs.com/) component for React, to create a clean WYSIWYG editing experience. Modifications to the ReactQuill editor inlcude a **custom toolbar with edit undo and redo features**, CSS styling to the Snow theme, and **note autosaving** using [debounce](https://www.npmjs.com/package/debounce).
 
-## Features
+## 📓 Features
 
 #### Notebooks
 Users can create notebooks to better organize their notes. From within the `Notebooks` index, users can rename and delete notebooks via modals, as well as view all notes within each of their notebooks and navigate directly to a selected note. 
