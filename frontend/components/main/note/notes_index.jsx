@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NoteList from './notes_list';
 import EditorContainer from '../editor/editor_container';
 
@@ -21,13 +21,15 @@ export default class NotesIndex extends Component {
     if (!this.props.notes) return null;
     
     const selectedNote = this.props.match.params.noteId;
+    const noteCount = this.props.notes.length;
+    const noteCountText = noteCount ? `${noteCount} notes` : `No notes found`;
 
     return (
       <>
         <div className="notes-index-container">
           <div className="notes-sidebar-header">
             <h1>All Notes</h1>
-            <h5>{this.props.notes.length} notes</h5>
+            <h5>{noteCountText}</h5>
           </div>
             <div className="notes-sidebar-container">
               <NoteList notes={this.props.notes} selectedNote={selectedNote} />

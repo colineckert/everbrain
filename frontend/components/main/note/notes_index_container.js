@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
 
   return {
     notes: notes,
-
   }
 }
 
