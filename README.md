@@ -4,9 +4,9 @@
 ---
 
 ## Table of Contents
-1. [Overview](https://github.com/colineckert/everbrain/blob/main/README.md#overview)
-2. [Technologies](https://github.com/colineckert/everbrain/blob/main/README.md#technologies)
-3. [Features](https://github.com/colineckert/everbrain/blob/main/README.md#features)
+1. [Overview](https://github.com/colineckert/everbrain#overview)
+2. [Technologies](https://github.com/colineckert/everbrain#technologies)
+3. [Features](https://github.com/colineckert/everbrain#features)
 4. In-progress & Planned
 
 ---
