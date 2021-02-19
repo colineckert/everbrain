@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
 import { debounce } from "debounce";
+import { Link } from "react-router-dom";
 import EditorToolbar, { modules, formats } from './editor_toolbar';
 
 class Editor extends Component {
@@ -74,7 +75,9 @@ class Editor extends Component {
             <button className="expand-editor-button">
               <i class="fas fa-expand-alt"></i>
             </button>
-            <h3><i className="fas fa-book"></i>{this.props.notebook.name}</h3>
+            <Link to={`/notebooks/${this.props.notebook.id}`}>
+              <h3><i className="fas fa-book"></i>{this.props.notebook.name}</h3>
+            </Link>
           </div>
           <div className="col-2-1">
             <button className="note-dropdown-button dropdown-anchor"

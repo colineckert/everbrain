@@ -16,8 +16,15 @@
   h3 {
     font-family: $apple-font;
     color: #7a8083;
-    padding-left: 15px;
+    margin-left: 15px;
     font-size: 14px;
+    padding: 5px 7px;
+    border-radius: 5px;
+    transition: .1s background-color ease-in-out;
+  }
+
+  h3:hover {
+    background-color: $hover-grey;
   }
 
   .col-1-1 {
@@ -65,16 +72,18 @@
   color: #7a8083;
   padding: 4px 1px 3px 5px;
   border-radius: 5px;
+  transition: .1s background-color ease-in-out;
 }
 
 .note-dropdown-button {
   text-align: center;
   background-color: transparent;
   color: #7a8083;
-  padding: 4px 1px 3px 5px;
+  padding: 6px 1px 5px 5px;
   border-radius: 5px;
   grid-row: 1;
   grid-column: -1;
+  transition: .1s background-color ease-in-out;
 }
 
 .expand-editor-button:hover, .note-dropdown-button:hover {
