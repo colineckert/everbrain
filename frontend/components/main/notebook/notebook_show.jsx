@@ -10,6 +10,12 @@ export default class NotebookShow extends Component {
 
   componentDidMount() {
     this.props.requestNotebook(this.props.match.params.notebookId)
+      .then((res) => {
+        if (!this.props.match.params.noteId && res.notes.length) {
+          this.props.history.push(`/notebooks/${this.props.match.params.notebookId}/${res.notes[0].id}`)
+        }
+      }
+    );
   }
 
   componentDidUpdate(prevProps) {
