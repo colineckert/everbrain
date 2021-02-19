@@ -110,6 +110,22 @@
   right: 0;
 }
 
+.ql-toolbar.ql-snow .ql-picker.ql-header {
+    width: 110px;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-font {
+    width: 113px;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-size {
+  width: 60px;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  padding: 15px 25px;
+}
+
 .ql-editor strong{
     font-weight:bold;
 }

@@ -29,7 +29,7 @@ function redoChange() {
 }
 
 const Size = Quill.import("formats/size");
-Size.whitelist = ["extra-small", "small", "medium", "large"];
+Size.whitelist = ["small", "medium", "large"];
 Quill.register(Size, true);
 
 const Font = Quill.import("formats/font");
@@ -98,10 +98,9 @@ export const QuillToolbar = () => (
         <option value="Verdana">Verdana</option>
       </select>
       <select className="ql-size" defaultValue="medium">
-        <option value="extra-small">Size 1</option>
-        <option value="small">Size 2</option>
-        <option value="medium">Size 3</option>
-        <option value="large">Size 4</option>
+        <option value="small">12</option>
+        <option value="medium">16</option>
+        <option value="large">24</option>
       </select>
     </span>
     <span className="ql-formats">

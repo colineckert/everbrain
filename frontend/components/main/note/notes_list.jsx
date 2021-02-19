@@ -25,7 +25,7 @@ export default class NotesList extends Component {
       if (!note) return null;
 
       const title = note.title === '' ? 'Untitled' : note.title;
-      const body = note.body.slice(0, 100).replace(/<[^>]*>?/gm, '');
+      const body = note.body.slice(0, 150).replace(/<[^>]*>?/gm, '');
       const date = parseDate(note.updated_at);
       const selected = (selectedNote == note.id);
 
