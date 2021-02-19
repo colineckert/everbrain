@@ -40,4 +40,4 @@ Changes to notes or autosaved but can be undone (and redone) using custom button
 - Tags
 - Search
 - Editor expanding
-- Collapsable nav and notes sidebar
+- Collapsible nav and notes sidebar
