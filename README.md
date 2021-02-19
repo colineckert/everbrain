@@ -27,11 +27,14 @@ Everbrain's rich-text editor is built with [ReactQuill](https://github.com/zenoa
 ## 📓 Features
 
 #### Notebooks
+![Notebooks demo](https://github.com/colineckert/everbrain/blob/main/app/assets/images/notebooks_demo.gif)
 Users can create notebooks to better organize their notes. From within the `Notebooks` index, users can rename and delete notebooks via modals, as well as view all notes within each of their notebooks and navigate directly to a selected note. 
 
 Users can also view their notebooks on the side nav, and when selecting a notebook, the most recently updated note is automatically loaded in the editor.
 
 #### Rich-Text Editor
+![Note editor demo](https://github.com/colineckert/everbrain/blob/main/app/assets/images/note_editor_demo.gif)
+
 Users can create a new note using the main "New Note" button and will be immediately loaded in the editor. 
 
 From within the Everbrain editor, users have the ability to edit notes using different headings, font styles, sizes, and coloring, as well as add imgaes, links, formulas, and code blocks. 
