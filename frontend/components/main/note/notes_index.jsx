@@ -18,6 +18,8 @@ export default class NotesIndex extends Component {
   }
   
   render() {
+    if (!this.props.notes) return null;
+    
     const selectedNote = this.props.match.params.noteId;
 
     return (

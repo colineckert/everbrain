@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
-// import { login } from '../../actions/session_actions';
+import { login } from '../../actions/session_actions';
 
 class DemoLogin extends Component {
   constructor(props) {
