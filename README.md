@@ -1,13 +1,14 @@
 # Everbrain
 [Try Everbrain](https://everbrain.herokuapp.com)
 ![Everbrain splash page](https://github.com/colineckert/everbrain/blob/main/app/assets/images/home_page_screengrab.png)
+
 ---
 
-## Table of Contents
+## 📖 Table of Contents
 1. [Overview](https://github.com/colineckert/everbrain#overview)
 2. [Technologies](https://github.com/colineckert/everbrain#technologies)
 3. [Features](https://github.com/colineckert/everbrain#features)
-4. In-progress & Planned
+4. [In-progress & Planned](https://github.com/colineckert/everbrain#in-progress-tasks-planned-features--known-issues)
 
 ---
 ## Overview
@@ -34,8 +35,6 @@ Users can create a new note using the main "New Note" button and will be immedia
 From within the Everbrain editor, users have the ability to edit notes using different headings, font styles, sizes, and coloring, as well as add imgaes, links, formulas, and code blocks. 
 
 Changes to notes or autosaved but can be undone (and redone) using custom buttons added to the editor toolbar. 
-
-
 
 ## In-progress tasks, planned features & known issues
 - Tags
