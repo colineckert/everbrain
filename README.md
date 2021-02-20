@@ -18,8 +18,8 @@
 
 ## 📚 Technologies
 
-#### Rails, PostgreSQL, React, Redux
-Everbrain is built with a Ruby on Rails backend, PostgreSQL for the database, and React/Redux for the frontend and state management. It's structured as a normalized  state and uses thunks for asynchronous CRUD actions.
+#### Rails, PostgreSQL, jQuery, React, Redux
+Everbrain is built using a Rails backend, PostgreSQL for the database managementa and jQuery/AJAX database requests, and React/Redux for the frontend and state management. It's structured as a normalized  state and uses thunks for asynchronous CRUD actions.
 
 #### ReactQuill
 Everbrain's rich-text editor is built with [ReactQuill](https://github.com/zenoamaro/react-quill), a [Quill](https://quilljs.com/) component for React, to create a clean WYSIWYG editing experience. Modifications to the ReactQuill editor inlcude a **custom toolbar with edit undo and redo features**, CSS styling to the Snow theme, and **note autosaving** using [debounce](https://www.npmjs.com/package/debounce).
