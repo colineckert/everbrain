@@ -1,0 +1,1 @@
+json.extract! tag, :id, :name, :author_id, :updated_at, :created_at
