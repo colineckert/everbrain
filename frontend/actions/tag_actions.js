@@ -2,6 +2,7 @@ import * as TagAPI from '../util/tag_api_util';
 
 export const RECEIVE_TAGS = 'RECEIVE_TAGS';
 export const RECEIVE_TAG = 'RECEIVE_TAG';
+export const REMOVE_TAG = 'REMOVE_TAG';
 export const RECEIVE_TAG_ERRORS = 'RECEIVE_TAG_ERRORS';
 export const CLEAR_TAG_ERRORS = 'CLEAR_TAG_ERRORS';
 
@@ -64,3 +65,5 @@ export const deleteTag = (tagId) => dispatch => {
     .then(() => dispatch(removeTag(tagId)), 
       errors => dispatch(receiveTagErrors(errors.responseJSON)))
 }
+
+// note_tag actions???
