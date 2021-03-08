@@ -175,7 +175,9 @@ p {
 .home-nav-logo {
   display: block;
   width: 175px;
-  height: 40px; }
+  height: 40px;
+  padding-right: 80px;
+  margin-top: -2px; }
 
 .home-nav-buttons {
   display: flex;
@@ -206,6 +208,16 @@ p {
 
 .home-nav-login {
   padding-right: 20px; }
+
+.logos-nav-container {
+  display: flex; }
+
+.social-links {
+  display: flex;
+  justify-content: space-evenly; }
+  .social-links svg {
+    font-size: 20px;
+    padding: 12px; }
 
 .session-form-container {
   position: absolute;

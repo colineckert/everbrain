@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faGithub, faAngellist } from '@fortawesome/free-brands-svg-icons';
 
 export default class SideNav extends Component {
   constructor(props) {
@@ -117,6 +119,19 @@ export default class SideNav extends Component {
             </ul>
           </div>
         </ul>
+        <div></div>
+        <div></div>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/colin-eckert/" target="_blank">
+              <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a href="https://github.com/colineckert" target="_blank">
+              <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <a href="https://angel.co/u/colin-eckert#" target="_blank">
+              <FontAwesomeIcon icon={faAngellist} />
+          </a>
+        </div>
       </div>
     )
   }

@@ -12,6 +12,8 @@
   display: block;
   width: 175px;
   height: 40px;
+  padding-right: 80px;
+  margin-top: -2px;
 }
 
 .home-nav-buttons {
@@ -49,15 +51,16 @@
   padding-right: 20px;
 }
 
+.logos-nav-container {
+  display: flex;
+}
 
-// .fa-github:before {
-//   content: "\f09b";
-// }
+.social-links {
+    display: flex;
+    justify-content: space-evenly;
 
-// .fa-linkedin-in:before {
-//   content: "\f08c"; 
-// }
-
-// .fa-angellist:before {
-//   content: "\f209";
-// }
+    svg {
+      font-size: 20px;
+      padding: 12px;
+    }
+}
