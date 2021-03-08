@@ -1,0 +1,2 @@
+class NoteTag < ApplicationRecord
+end
