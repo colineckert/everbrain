@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
     resources :notebooks, except: [:edit, :new]
     resources :notes, except: [:edit, :new]
+    resources :tags, except: [:edit, :new]
   end
 end
