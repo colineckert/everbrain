@@ -73,3 +73,11 @@ demo_note_19 = Note.create!(title: "Peregrin (Pippin) Took", body: peregrin, not
 demo_note_20 = Note.create!(title: "Meriadoc (Merry) Brandybuck", body: merry, notebook_id: demo_notebook_4.id)
 
 demo_note_21 = Note.create!(title: "Trip ideas", body: destinations, notebook_id: demo_notebook_3.id)
+
+demo_tag_1 = Tag.create!(name: "Important", author_id: demo_user.id)
+demo_tag_2 = Tag.create!(name: "Favs", author_id: demo_user.id)
+NoteTag.create!(note_id: demo_note_2.id, tag_id: demo_tag_1.id)
+NoteTag.create!(note_id: demo_note_4.id, tag_id: demo_tag_1.id)
+NoteTag.create!(note_id: demo_note_11.id, tag_id: demo_tag_1.id)
+NoteTag.create!(note_id: demo_note_10.id, tag_id: demo_tag_2.id)
+NoteTag.create!(note_id: demo_note_21.id, tag_id: demo_tag_2.id)

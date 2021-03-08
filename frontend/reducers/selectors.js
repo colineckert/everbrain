@@ -19,3 +19,7 @@ export const getAllNotebookNotes = ({ entities: { notebooks, notes } }, notebook
 
   return notebookNotes;
 }
+
+export const getAllTags = ({ entities: { tags } }) => {
+  Object.keys(tags).map(id => tags[id])
+}
