@@ -25,6 +25,12 @@ export const getAllTags = ({ entities: { tags } }) => {
   return Object.keys(tags).map(id => tags[id]);
 }
 
+export const getTags = ({ entities: { tags } }, tagIds) => {
+    return tagIds.map(tagId => {
+        return tags[tagId];
+    })
+}
+
 // return array of notes filtered by tag
 export const getFilteredNotes = ({ entities: { notes }}, tagId) => {
   return Object.keys(notes).map(id => notes[id]).filter(note => note.tag_ids.includes(tagId));
@@ -48,8 +54,11 @@ export const getFilteredNotebookNotes = (state, notebookId, tagId) => (
     getAllNotebookNotes(state, notebookId).filter(note => note.tag_ids.includes(tagId))
 );
 
-export const getTags = ({ entities: { tags } }, tagIds) => {
-    return tagIds.map(tagId => {
-        return tags[tagId];
-    })
+export const getNotebookNotes = (state, notebookId, ) => {
+  const tagFilters = state.ui.tagFilters;
+  if (!tagFilters) {
+    return getAllNotebookNotes(state, notebookId);
+  } else {
+    return getFilteredNotebookNotes(state, notebookId, tagFilters);
+  }
 }
