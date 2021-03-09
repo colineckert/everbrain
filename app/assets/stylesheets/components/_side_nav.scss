@@ -2,7 +2,7 @@
   background-color: black;
   color: $white;
   display: grid;
-  grid-template-rows: 50px 50px 60px 1fr 130px;
+  grid-template-rows: 50px 50px 60px 1fr 100px;
   padding-top: 15px;
 
   position: static;
@@ -15,10 +15,11 @@
   .nav-item-container {
     color: $grey;
     font-family: $apple-font;
+    font-size: 15px;
     display: grid;
     grid-template-columns: 20px 1fr;
     padding: 5px 10px 5px 14px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     align-items: center;
   }
 
@@ -46,7 +47,7 @@
 
   .nav-notebook-list li {
     line-height: 30px;
-    padding: 0 8px 0 30px;
+    padding: 0 8px 0 25px;
     width: 100%;
   }
 

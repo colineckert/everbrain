@@ -144,9 +144,6 @@ export default class SideNav extends Component {
             </ul>
           </div>
         </ul>
-
-        {/* <div></div> */}
-        {/* <div></div> */}
         
         <div className="social-links">
           <a href="https://www.linkedin.com/in/colin-eckert/" target="_blank">

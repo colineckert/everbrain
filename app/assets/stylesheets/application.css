@@ -330,7 +330,7 @@ p {
   background-color: black;
   color: #fff;
   display: grid;
-  grid-template-rows: 50px 50px 60px 1fr 130px;
+  grid-template-rows: 50px 50px 60px 1fr 100px;
   padding-top: 15px;
   position: static;
   width: 300px;
@@ -341,10 +341,11 @@ p {
   .main-side-nav .nav-item-container {
     color: #a6a6a6;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 15px;
     display: grid;
     grid-template-columns: 20px 1fr;
     padding: 5px 10px 5px 14px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     align-items: center; }
   .main-side-nav .nav-item-container a:hover {
     color: #fff; }
@@ -362,7 +363,7 @@ p {
     padding-top: 5px; }
   .main-side-nav .nav-notebook-list li {
     line-height: 30px;
-    padding: 0 8px 0 30px;
+    padding: 0 8px 0 25px;
     width: 100%; }
   .main-side-nav .nav-tag-list li {
     line-height: 30px;
