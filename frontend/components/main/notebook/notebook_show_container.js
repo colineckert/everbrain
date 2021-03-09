@@ -9,8 +9,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     notes: getAllNotebookNotes(state, ownProps.match.params.notebookId),
     notebook: state.entities.notebooks[ownProps.match.params.notebookId], 
-    checkNotesState: state.entities.notes, 
-    tagFilter: state.entities.tags[state.ui.tagFilter]
+    checkNotesState: state.entities.notes,
+    tagFilter: state.entities.tags[state.ui.tagFilters]
   }
 }
 

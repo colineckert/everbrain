@@ -103,7 +103,7 @@
 
 .sidebar-tag-filters {
   grid-row: 2 / 3;
-  border-bottom: 1px $grey solid;
+  background-color: #e6e6e6;
   display: flex;
   align-items: center;
 }
@@ -144,7 +144,6 @@
 .tag-filter-close-button {
   height: 30px;
   width: 30px;
-  // background-color: $blue;
   background-color: transparent;
   border: 0;
   color: $light-grey;
@@ -152,6 +151,5 @@
 
 .tag-filter-close-button:hover {
   color: $white;
-  // background-color: $blue;
   background-color: transparent;
 }
