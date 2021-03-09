@@ -670,6 +670,9 @@ p {
   background-color: #f8f8f8;
   border-right: 1px #e6e6e6 solid; }
 
+.notes-index-container.collapse {
+  display: none; }
+
 .notes-sidebar-header {
   border-bottom: 1px #e6e6e6 solid;
   box-sizing: border-box;
@@ -735,6 +738,32 @@ p {
 
 .notes-list-item.selected {
   background-color: #fff; }
+
+.notes-sidebar-container.shifted {
+  grid-row: 3 / -1; }
+
+.sidebar-tag-filters.hidden {
+  grid-row: 4 / -1; }
+
+.sidebar-tag-filters {
+  grid-row: 2 / 3;
+  border-bottom: 1px #a6a6a6 solid;
+  display: flex;
+  align-items: center; }
+
+.tag-filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: blue;
+  border: 1px solid blue;
+  border-radius: 20px;
+  padding: 5px;
+  width: auto;
+  line-height: 60%;
+  color: #fff;
+  font-size: 0.9em;
+  margin-left: 5px; }
 
 .editor-container {
   display: grid;

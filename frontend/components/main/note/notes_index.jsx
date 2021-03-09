@@ -26,17 +26,17 @@ export default class NotesIndex extends Component {
 
     let tagFilterItem = (<div></div>);
     const tagFilter = this.props.tagFilter;
+    debugger
     if (tagFilter) tagFilterItem = (
-      <li>
+      <li className="tag-filter-button" key={tagFilter.id}>
         <div><i className={`fas fa-tag nav-icon`}></i></div>
-          <div>{tagFilter.name}</div>
-          <div>
-            <button className="tag-filter-close-button"
-              onClick={() => this.props.removeTagFilter(tagFilter.id)}>
-              {/* <i className="fas fa-times"></i> */}
-              <i class="fas fa-times-circle"></i>
-            </button>
-          </div>
+        <div>{tagFilter.name}</div>
+        <div>
+          <button className="tag-filter-close-button"
+            onClick={() => this.props.removeTagFilter(tagFilter.id)}>
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
       </li>
     )
 
@@ -52,7 +52,7 @@ export default class NotesIndex extends Component {
               {tagFilterItem}
             </ul>
           </div>
-          <div className="notes-sidebar-container">
+          <div className={`notes-sidebar-container ${tagFilter ? "shifted" : "" }`}>
             <NoteList notes={this.props.notes} selectedNote={selectedNote} />
           </div>
         </div>

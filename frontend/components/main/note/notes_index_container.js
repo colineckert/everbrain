@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
 import { requestNotes } from '../../../actions/note_actions';
 import { removeTagFilter } from '../../../actions/tag_actions';
-import { getAllNotes } from '../../../reducers/selectors';
+import { getNotes } from '../../../reducers/selectors';
 import NotesIndex from './notes_index';
 
 
 const mapStateToProps = (state) => {
-  const notes = getAllNotes(state);
-
   return {
-    notes: notes,
+    notes: getNotes(state),
     tagFilter: state.entities.tags[state.ui.tagFilter]
   }
+  debugger
 }
 
 const mapDispatchToProps = dispatch => {

@@ -29,3 +29,16 @@ export const getAllTags = ({ entities: { tags } }) => {
 export const getFilteredNotes = ({ entities: { notes }}, tagId) => {
   return Object.keys(notes).map(id => notes[id]).filter(note => note.tag_ids.includes(tagId));
 }
+
+// fetch notes depending on whether index is filtered 
+export const getNotes = ( state ) => {
+  const tagFilters = state.ui.tagFilters;
+  const search = state.ui.search;
+  if (!tagFilters && !search) {
+    return getAllNotes(state);
+  } else if (tagFilters) {
+    return getFilteredNotes(state, tagFilters);
+  } else {
+    return getSearchNotes(state, search);
+  }
+};
