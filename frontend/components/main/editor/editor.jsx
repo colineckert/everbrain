@@ -113,7 +113,11 @@ class Editor extends Component {
             scrollingContainer=".quill-container"
           />
         </div>
-        <Tags />
+
+        <Tags 
+          note={this.props.note} noteTags={this.props.noteTags} 
+          allTags={this.props.allTags} 
+        />
       </div>
     );
   }

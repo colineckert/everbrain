@@ -37,16 +37,6 @@
   }
 }
 
-.editor-tags {
-  color: #7a8083;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  font-family: $apple-font;
-  padding: 25px;
-  border-top: 1px #e6e6e6 solid;
-}
-
 .quill-container {
   padding: 24px 40px 0;
   display: grid;
@@ -219,4 +209,16 @@
 }
 .ql-font-Arial {
   font-family: Arial, sans-serif;;
+}
+
+// editor tags list
+
+.editor-tags {
+  color: #7a8083;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-family: $apple-font;
+  padding: 25px;
+  border-top: 1px #e6e6e6 solid;
 }

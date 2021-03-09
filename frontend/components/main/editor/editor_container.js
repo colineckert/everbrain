@@ -8,11 +8,11 @@ import { openModal } from '../../../actions/modal_actions';
 const mapStateToProps = (state, ownProps) => {
   const note = state.entities.notes[ownProps.match.params.noteId];
   const notebook = note ? state.entities.notebooks[note.notebook_id] : { name: "No Notebook" };
-  const tags = note ? getTags(state, note.tag_ids) : [];
+  const noteTags = note ? getTags(state, note.tag_ids) : [];
   return {
     note: note,
     notebook: notebook,
-    noteTags: tags, 
+    noteTags: noteTags, 
     allTags: getAllTags(state)
   }
 }

@@ -757,7 +757,7 @@ p {
   justify-content: space-evenly;
   min-height: 32px;
   border-radius: 40px;
-  margin-left: 15px;
+  margin-left: 20px;
   background-color: #0081c2;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -819,15 +819,6 @@ p {
     justify-content: left; }
   .editor-header .col-2-1 {
     text-align: end; }
-
-.editor-tags {
-  color: #7a8083;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  padding: 25px;
-  border-top: 1px #e6e6e6 solid; }
 
 .quill-container {
   padding: 24px 40px 0;
@@ -964,5 +955,14 @@ p {
 
 .ql-font-Arial {
   font-family: Arial, sans-serif; }
+
+.editor-tags {
+  color: #7a8083;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  padding: 25px;
+  border-top: 1px #e6e6e6 solid; }
 
 /*# sourceMappingURL=application.css.map */
