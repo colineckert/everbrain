@@ -5,10 +5,15 @@ export const RECEIVE_TAG = 'RECEIVE_TAG';
 export const REMOVE_TAG = 'REMOVE_TAG';
 export const RECEIVE_TAG_ERRORS = 'RECEIVE_TAG_ERRORS';
 export const CLEAR_TAG_ERRORS = 'CLEAR_TAG_ERRORS';
+
 // export const RECEIVE_NOTE_TAG = 'RECEIVE_NOTE_TAG';
 // export const REMOVE_NOTE_TAG = 'REMOVE_NOTE_TAG';
 // export const RECEIVE_NOTE_TAG_ERRORS = 'RECEIVE_NOTE_TAG_ERRORS';
 
+export const RECEIVE_TAG_FILTER = 'RECEIVE_TAG_FILTER';
+export const REMOVE_TAG_FILTER = 'REMOVE_TAG_FILTER';
+
+// tag actions
 export const receiveTags = (tags) => {
   return {
     type: RECEIVE_TAGS,
@@ -43,6 +48,7 @@ export const clearTagErrors = () => {
   }
 }
 
+// note tag actions
 // export const receiveNoteTag = (noteTag) => {
 //   return {
 //     type: RECEIVE_NOTE_TAG, 
@@ -66,6 +72,22 @@ export const clearTagErrors = () => {
 //     errors
 //   }
 // }
+
+// tag filter actions
+export const receiveTagFilter = (tagId) => {
+  return {
+    type: RECEIVE_TAG_FILTER, 
+    tagId
+  }
+}
+
+export const removeTagFilter = (tagId) => {
+  return {
+    type: REMOVE_TAG_FILTER,
+    tagId
+  }
+}
+
 
 // thunk actions
 export const requestTags = () => dispatch => {
