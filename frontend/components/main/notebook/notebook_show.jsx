@@ -59,7 +59,7 @@ export default class NotebookShow extends Component {
           <div>
             <button className="tag-filter-close-button"
               onClick={() => this.props.removeTagFilter(tagFilter.id)}>
-              <i className="fas fa-times"></i>
+              <i className="fas fa-times-circle"></i>
             </button>
           </div>
         </li>

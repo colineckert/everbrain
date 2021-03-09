@@ -26,7 +26,6 @@ export default class NotesIndex extends Component {
 
     let tagFilterItem = (<div></div>);
     const tagFilter = this.props.tagFilter;
-    debugger
     if (tagFilter) tagFilterItem = (
       <li className="tag-filter-button" key={tagFilter.id}>
         <div><i className={`fas fa-tag nav-icon`}></i></div>
@@ -34,7 +33,7 @@ export default class NotesIndex extends Component {
         <div>
           <button className="tag-filter-close-button"
             onClick={() => this.props.removeTagFilter(tagFilter.id)}>
-            <i className="fas fa-times"></i>
+            <i className="fas fa-times-circle"></i>
           </button>
         </div>
       </li>

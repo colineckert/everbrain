@@ -8,9 +8,8 @@ import NotesIndex from './notes_index';
 const mapStateToProps = (state) => {
   return {
     notes: getNotes(state),
-    tagFilter: state.entities.tags[state.ui.tagFilter]
+    tagFilter: state.entities.tags[state.ui.tagFilters]
   }
-  debugger
 }
 
 const mapDispatchToProps = dispatch => {
