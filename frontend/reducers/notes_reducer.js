@@ -11,7 +11,7 @@ const notesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let newState = Object.assign({}, oldState);
   const { noteId, tagId } = action;
-  const note = state[noteId];
+  const note = oldState[noteId];
   
   switch (action.type) {
     case RECEIVE_NOTES:
@@ -29,9 +29,8 @@ const notesReducer = (oldState = {}, action) => {
       return newState;
 
     case RECEIVE_NOTE_TAG:
-      return Object.assign({}, state, 
-          { [noteId]: Object.assign({}, note, {tag_ids: note.tag_ids.concat(tagId) }) }
-      )
+      return Object.assign({}, oldState, 
+          { [noteId]: Object.assign({}, note, {tag_ids: note.tag_ids.concat(tagId) }) } )
     case REMOVE_NOTE_TAG:
       const tagIndex = note.tag_ids.indexOf(tagId);
       newState[noteId].tag_ids.splice(tagIndex, 1);
