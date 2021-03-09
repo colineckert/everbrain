@@ -10,6 +10,7 @@ export default class SideNav extends Component {
     this.state = {
       accountDropdown: "hidden",
       notebookDropdown: "hidden",
+      tagDropdown: "hidden"
     }
 
     this.handleLogout = this.handleLogout.bind(this);
@@ -18,6 +19,7 @@ export default class SideNav extends Component {
   
   componentDidMount() {
     this.props.requestNotebooks();
+    this.props.requestTags();
   }
   
 
@@ -47,8 +49,8 @@ export default class SideNav extends Component {
   }
 
   render() {
-    const { currentUser, notebooks } = this.props;
-    const { notebookDropdown, accountDropdown } = this.state;
+    const { currentUser, notebooks, tags } = this.props;
+    const { notebookDropdown, accountDropdown, tagDropdown } = this.state;
 
     const notebookList = notebooks.map(notebook => {
       const currentNotebook = (notebook.id == this.props.match.params.notebookId);
@@ -60,6 +62,16 @@ export default class SideNav extends Component {
               <i className="fas fa-book"></i>{notebook.name}
             </li>
           </Link>
+        </div>
+      )
+    });
+
+    const tagsList = tags.map(tag => {
+      return (
+        <div className={`nav-hover-tag `} key={tag.id}>
+            <a onClick={() => this.props.receiveTagFilter(tag.id)}>
+                <li key={tag.id}>{tag.name}</li>
+            </a>
         </div>
       )
     });
@@ -105,7 +117,7 @@ export default class SideNav extends Component {
             </Link>
           </div>
           
-          <div className="nav-item-container">
+          <div className="nav-item-container">  
             <button className="caret-dropdown-button" 
               onClick={() => this.toggleHidden("notebookDropdown")}>
               <i className={`fas fa-caret-right ${notebookDropdown === "" ? "open" : ""}`}></i>
@@ -118,9 +130,24 @@ export default class SideNav extends Component {
               {notebookList}
             </ul>
           </div>
+
+          <div className="nav-item-container">
+            <button className="caret-dropdown-button"
+              onClick={() => this.toggleHidden("tagDropdown")}>
+                <i className={`fas fa-caret-right ${tagDropdown === "" ? "open" : ""}`}></i>
+            </button>
+            <div>
+              <i className="fas fa-tag"></i>Tags
+            </div>
+            <ul className={`nav-tag-list ${tagDropdown}`}>
+              {tagsList}
+            </ul>
+          </div>
         </ul>
-        <div></div>
-        <div></div>
+
+        {/* <div></div> */}
+        {/* <div></div> */}
+        
         <div className="social-links">
           <a href="https://www.linkedin.com/in/colin-eckert/" target="_blank">
               <FontAwesomeIcon icon={faLinkedin} />

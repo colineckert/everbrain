@@ -330,7 +330,7 @@ p {
   background-color: black;
   color: #fff;
   display: grid;
-  grid-template-rows: 50px 50px 60px 35px 35px 1fr 130px;
+  grid-template-rows: 50px 50px 60px 1fr 130px;
   padding-top: 15px;
   position: static;
   width: 300px;
@@ -342,8 +342,9 @@ p {
     color: #a6a6a6;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     display: grid;
-    grid-template-columns: 15px 1fr;
+    grid-template-columns: 20px 1fr;
     padding: 5px 10px 5px 14px;
+    margin-bottom: 5px;
     align-items: center; }
   .main-side-nav .nav-item-container a:hover {
     color: #fff; }
@@ -353,7 +354,7 @@ p {
   .main-side-nav .nav-item-container > button {
     background-color: transparent;
     color: #a6a6a6; }
-  .main-side-nav .nav-notebook-list {
+  .main-side-nav .nav-notebook-list, .main-side-nav .nav-tag-list {
     grid-column: 2 / -1;
     list-style: none;
     font-size: 13px;
@@ -363,7 +364,11 @@ p {
     line-height: 30px;
     padding: 0 8px 0 30px;
     width: 100%; }
-  .main-side-nav .nav-item-container:hover, .main-side-nav .nav-hover-notebook:hover {
+  .main-side-nav .nav-tag-list li {
+    line-height: 30px;
+    padding: 0 8px 0 30px;
+    width: 100%; }
+  .main-side-nav .nav-item-container:hover, .main-side-nav .nav-hover-notebook:hover, .main-side-nav .nav-hover-tag:hover {
     border: 0;
     background-color: rgba(255, 255, 255, 0.2); }
   .main-side-nav .main-nav-links .selected {
@@ -399,6 +404,10 @@ p {
     transition: .3s background-color ease-in-out; }
   .main-side-nav .new-note-button:hover {
     background-color: #008f26; }
+  .main-side-nav .social-links {
+    color: #a6a6a6; }
+  .main-side-nav .social-links a:hover {
+    color: #fff; }
 
 .nav-profile {
   position: relative;

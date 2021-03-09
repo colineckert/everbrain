@@ -21,6 +21,5 @@ export const getAllNotebookNotes = ({ entities: { notebooks, notes } }, notebook
 }
 
 export const getAllTags = ({ entities: { tags } }) => {
-  debugger
   return Object.keys(tags).map(id => tags[id])
 }
