@@ -32,3 +32,18 @@ export const deleteTag = (tagId) => {
     url: `/api/tags/${tagId}`
   })
 }
+
+export const createNoteTag = (noteTag) => {
+  return $.ajax({
+    method: "POST",
+    url: `/api/notes/${noteTag.note_id}/note_tags/`,
+    data: { noteTag }
+  })
+}
+
+export const deleteNoteTag = (noteTag) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/notes/${noteTag.note_id}/note_tags/${noteTag.tag_id}`,
+  })
+}

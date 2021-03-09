@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
+import 'react-quill/dist/quill.snow.css';
+
 // import { login, logout } from './actions/session_actions';
 // import { 
 //   requestNotebooks, requestNotebook, createNotebook, 
@@ -12,9 +14,9 @@ import Root from "./components/root";
 //   updateNote, deleteNote 
 // } from './actions/note_actions'
 
-// import { getAllNotebookNotes } from './reducers/selectors';
+import { getAllNotebookNotes, getAllTags } from './reducers/selectors';
+import { createTag, requestTags, requestTag, deleteTag } from './actions/tag_actions';
 
-import 'react-quill/dist/quill.snow.css';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -32,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // // TESTING START
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   // window.login = login;
   // window.logout = logout;
   // // notebooks
@@ -48,8 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.createNote = createNote;
   // window.updateNote = updateNote;
   // window.deleteNote = deleteNote;
+  // tags
+  window.requestTags = requestTags;
+  window.requestTag = requestTag;
+  window.createTag = createTag;
+  window.deleteTag = deleteTag;
   // // selectors
   // window.getAllNotebookNotes = getAllNotebookNotes;
+  window.getAllTags = getAllTags;
   // // TESTING END
 
   const root = document.getElementById("root");
