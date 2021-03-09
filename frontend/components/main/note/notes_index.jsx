@@ -20,6 +20,8 @@ export default class NotesIndex extends Component {
   render() {
     if (!this.props.notes) return null;
     
+    const noteCount = this.props.notes.length;
+    const noteCountText = noteCount ? `${noteCount} notes` : `No notes found`;
     const selectedNote = this.props.match.params.noteId;
 
     let tagFilterItem = (<div></div>);
@@ -30,16 +32,13 @@ export default class NotesIndex extends Component {
           <div>{tagFilter.name}</div>
           <div>
             <button className="tag-filter-close-button"
-              onClick={() => this.removeTagFilter(tagFilter.id)}>
+              onClick={() => this.props.removeTagFilter(tagFilter.id)}>
               {/* <i className="fas fa-times"></i> */}
               <i class="fas fa-times-circle"></i>
             </button>
           </div>
       </li>
     )
-
-    const noteCount = this.props.notes.length;
-    const noteCountText = noteCount ? `${noteCount} notes` : `No notes found`;
 
     return (
       <>

@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => {
     requestNotebooks: () => dispatch(requestNotebooks()),
     createNewNote: notebookId => dispatch(createNote(newNoteTemplate(notebookId))),
     requestTags: () => dispatch(requestTags()), 
-    receiveTagFilter: tagId => dispatch(receiveTagFilter*(tagId)), 
+    receiveTagFilter: tagId => dispatch(receiveTagFilter(tagId)), 
     removeTagFilter: () => dispatch(removeTagFilter())
   }
 }

@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     requestNotes: () => dispatch(requestNotes()),
-    renoveTagFilter: (tagId) => dispatch(removeTagFilter(tagId))
+    removeTagFilter: (tagId) => dispatch(removeTagFilter(tagId))
   }
 }
 

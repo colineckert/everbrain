@@ -6,9 +6,9 @@ export const REMOVE_TAG = 'REMOVE_TAG';
 export const RECEIVE_TAG_ERRORS = 'RECEIVE_TAG_ERRORS';
 export const CLEAR_TAG_ERRORS = 'CLEAR_TAG_ERRORS';
 
-// export const RECEIVE_NOTE_TAG = 'RECEIVE_NOTE_TAG';
-// export const REMOVE_NOTE_TAG = 'REMOVE_NOTE_TAG';
-// export const RECEIVE_NOTE_TAG_ERRORS = 'RECEIVE_NOTE_TAG_ERRORS';
+export const RECEIVE_NOTE_TAG = 'RECEIVE_NOTE_TAG';
+export const REMOVE_NOTE_TAG = 'REMOVE_NOTE_TAG';
+export const RECEIVE_NOTE_TAG_ERRORS = 'RECEIVE_NOTE_TAG_ERRORS';
 
 export const RECEIVE_TAG_FILTER = 'RECEIVE_TAG_FILTER';
 export const REMOVE_TAG_FILTER = 'REMOVE_TAG_FILTER';
@@ -49,29 +49,29 @@ export const clearTagErrors = () => {
 }
 
 // note tag actions
-// export const receiveNoteTag = (noteTag) => {
-//   return {
-//     type: RECEIVE_NOTE_TAG, 
-//     noteId: noteTag.note_id,
-//     tagId: noteTag.tag_id
-//   }
-// }
+export const receiveNoteTag = (noteTag) => {
+  return {
+    type: RECEIVE_NOTE_TAG, 
+    noteId: noteTag.note_id,
+    tagId: noteTag.tag_id
+  }
+}
 
-// export const removeNoteTag = (noteTag) => {
-//   return {
-//     type: REMOVE_NOTE_TAG, 
-//     noteId: noteTag.note_id,
-//     tagId: noteTag.tag_id
-//   }
-// }
+export const removeNoteTag = (noteTag) => {
+  return {
+    type: REMOVE_NOTE_TAG, 
+    noteId: noteTag.note_id,
+    tagId: noteTag.tag_id
+  }
+}
 
 
-// export const receiveNoteTagErrors = (errors) => {
-//   return {
-//     type: RECEIVE_NOTE_TAG_ERRORS, 
-//     errors
-//   }
-// }
+export const receiveNoteTagErrors = (errors) => {
+  return {
+    type: RECEIVE_NOTE_TAG_ERRORS, 
+    errors
+  }
+}
 
 // tag filter actions
 export const receiveTagFilter = (tagId) => {
@@ -114,14 +114,14 @@ export const deleteTag = (tagId) => dispatch => {
       errors => dispatch(receiveTagErrors(errors.responseJSON)))
 }
 
-// export const createNoteTag = (noteTag) => dispatch => {
-//   return TagAPI.createNoteTag(noteTag)
-//     .then(noteTag => dispatch(receiveNoteTag(noteTag)), 
-//       errors => dispatch(receiveNoteTagErrors(errors.responseJSON)))
-// }
+export const createNoteTag = (noteTag) => dispatch => {
+  return TagAPI.createNoteTag(noteTag)
+    .then(noteTag => dispatch(receiveNoteTag(noteTag)), 
+      errors => dispatch(receiveNoteTagErrors(errors.responseJSON)))
+}
 
-// export const deleteNoteTag = (noteTag) => dispatch => {
-//   return TagAPI.deleteNoteTag(noteTag)
-//     .then(() => dispatch(removeNoteTag(noteTag)), 
-//       errors => dispatch(receiveNoteTagErrors(errors.responseJSON)))
-// }
+export const deleteNoteTag = (noteTag) => dispatch => {
+  return TagAPI.deleteNoteTag(noteTag)
+    .then(() => dispatch(removeNoteTag(noteTag)), 
+      errors => dispatch(receiveNoteTagErrors(errors.responseJSON)))
+}
