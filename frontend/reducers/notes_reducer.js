@@ -28,13 +28,13 @@ const notesReducer = (oldState = {}, action) => {
       });
       return newState;
 
-    // case RECEIVE_NOTE_TAG:
-    //   return Object.assign({}, oldState, 
-    //       { [noteId]: Object.assign({}, note, {tag_ids: note.tag_ids.concat(tagId) }) } )
-    // case REMOVE_NOTE_TAG:
-    //   const tagIndex = note.tag_ids.indexOf(tagId);
-    //   newState[noteId].tag_ids.splice(tagIndex, 1);
-    //   return newState;
+    case RECEIVE_NOTE_TAG:
+      return Object.assign({}, oldState, 
+          { [noteId]: Object.assign({}, note, {tag_ids: note.tag_ids.concat(tagId) }) } )
+    case REMOVE_NOTE_TAG:
+      const tagIndex = note.tag_ids.indexOf(tagId);
+      newState[noteId].tag_ids.splice(tagIndex, 1);
+      return newState;
   
     default:
       return oldState;

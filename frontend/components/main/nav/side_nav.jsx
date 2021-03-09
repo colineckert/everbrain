@@ -66,9 +66,10 @@ export default class SideNav extends Component {
       )
     });
 
-    const tagsList = tags.map(tag => {
+    const tagList = tags.map(tag => {
+      const currentTag = (tag.id === this.props.tagFilter);
       return (
-        <div className={`nav-hover-tag `} key={tag.id}>
+        <div className={`nav-hover-tag ${currentTag ? "selected" : ""}`} key={tag.id}>
           <a onClick={() => this.props.receiveTagFilter(tag.id)}>
             <li key={tag.id}>{tag.name}</li>
           </a>
@@ -140,7 +141,7 @@ export default class SideNav extends Component {
               <i className="fas fa-tag"></i>Tags
             </div>
             <ul className={`nav-tag-list ${tagDropdown}`}>
-              {tagsList}
+              {tagList}
             </ul>
           </div>
         </ul>

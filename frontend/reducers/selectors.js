@@ -31,9 +31,10 @@ export const getFilteredNotes = ({ entities: { notes }}, tagId) => {
 }
 
 // fetch notes depending on whether index is filtered 
-export const getNotes = ( state ) => {
+export const getNotes = (state) => {
   const tagFilters = state.ui.tagFilters;
   const search = state.ui.search;
+  
   if (!tagFilters && !search) {
     return getAllNotes(state);
   } else if (tagFilters) {
@@ -42,3 +43,13 @@ export const getNotes = ( state ) => {
     return getSearchNotes(state, search);
   }
 };
+
+export const getFilteredNotebookNotes = (state, notebookId, tagId) => (
+    getAllNotebookNotes(state, notebookId).filter(note => note.tag_ids.includes(tagId))
+);
+
+export const getTags = ({ entities: { tags } }, tagIds) => {
+    return tagIds.map(tagId => {
+        return tags[tagId];
+    })
+}

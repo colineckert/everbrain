@@ -50,6 +50,21 @@ export default class NotebookShow extends Component {
     )
     const selectedNote = this.props.match.params.noteId;
 
+    let tagFilterItem = (<div></div>);
+      const tagFilter = this.props.tagFilter;
+      if (tagFilter) tagFilterItem = (
+        <li className="tag-filter-button" key={tagFilter.id}>
+          <div><i className={`fas fa-tag nav-icon`}></i></div>
+          <div>{tagFilter.name}</div>
+          <div>
+            <button className="tag-filter-close-button"
+              onClick={() => this.props.removeTagFilter(tagFilter.id)}>
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+        </li>
+      )
+
     return (
       <>
         <div className="notes-index-container">
@@ -57,14 +72,19 @@ export default class NotebookShow extends Component {
             <h1>{notebook.name}</h1>
             <h5>{notes.length} notes</h5>
           </div>
-            <div className="notes-sidebar-container">
-              <NotesList 
-                notes={notes} 
-                notebook={notebook} 
-                view="notebook" 
-                selectedNote={selectedNote}
-              />
-            </div>
+          <div className={`sidebar-tag-filters ${tagFilter ? "" : "hidden"}`}>
+            <ul>
+              {tagFilterItem}
+            </ul>
+          </div>
+          <div className={`notes-sidebar-container ${tagFilter ? "shifted" : ""}`}>
+            <NotesList 
+              notes={notes} 
+              notebook={notebook} 
+              view="notebook" 
+              selectedNote={selectedNote}
+            />
+          </div>
         </div>
         <Route path={["/notebooks/:notebookId/:noteId"]} component={EditorContainer} />
       </>

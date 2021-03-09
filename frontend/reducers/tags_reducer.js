@@ -14,7 +14,10 @@ const tagsReducer = (oldState = {}, action) => {
   
   switch (action.type) {
     case RECEIVE_TAGS:
-      return Object.assign({}, oldState, action.tags);
+      Object.values(action.tags).forEach(tag => {
+        newState[tag.id] = tag;
+      });
+      return newState;
     case RECEIVE_TAG:
       return Object.assign({}, oldState, { [action.tag.id]: action.tag });
     case REMOVE_TAG:
