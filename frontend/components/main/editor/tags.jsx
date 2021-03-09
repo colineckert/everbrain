@@ -17,15 +17,20 @@ export default class Tags extends Component {
       if (!tag) return null;
 
       return (
-        <li className="tags-list-item">
-          <i className="fas fa-tag"></i>
+        <li className="tags-list-item" key={tag.id}>
           {tag.name}
+          <button>
+            <i class="fas fa-angle-down"></i>
+          </button>
         </li>
       )
     });
-
+    
     return (
       <div className="editor-tags">
+        <div>
+          <i className="fas fa-tag list-icon"></i>
+        </div>
         <ul className="editor-tags-list">
           {tagsList}
         </ul>
