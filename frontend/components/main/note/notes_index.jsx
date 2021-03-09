@@ -21,6 +21,23 @@ export default class NotesIndex extends Component {
     if (!this.props.notes) return null;
     
     const selectedNote = this.props.match.params.noteId;
+
+    let tagFilterItem = (<div></div>);
+    const tagFilter = this.props.tagFilter;
+    if (tagFilter) tagFilterItem = (
+      <li>
+        <div><i className={`fas fa-tag nav-icon`}></i></div>
+          <div>{tagFilter.name}</div>
+          <div>
+            <button className="tag-filter-close-button"
+              onClick={() => this.removeTagFilter(tagFilter.id)}>
+              {/* <i className="fas fa-times"></i> */}
+              <i class="fas fa-times-circle"></i>
+            </button>
+          </div>
+      </li>
+    )
+
     const noteCount = this.props.notes.length;
     const noteCountText = noteCount ? `${noteCount} notes` : `No notes found`;
 
@@ -31,9 +48,14 @@ export default class NotesIndex extends Component {
             <h1>All Notes</h1>
             <h5>{noteCountText}</h5>
           </div>
-            <div className="notes-sidebar-container">
-              <NoteList notes={this.props.notes} selectedNote={selectedNote} />
-            </div>
+          <div className={`sidebar-tag-filters ${tagFilter ? "" : "hidden"}`}>
+            <ul>
+              {tagFilterItem}
+            </ul>
+          </div>
+          <div className="notes-sidebar-container">
+            <NoteList notes={this.props.notes} selectedNote={selectedNote} />
+          </div>
         </div>
         <Route path={["/notes/:noteId"]} component={EditorContainer} />
       </>

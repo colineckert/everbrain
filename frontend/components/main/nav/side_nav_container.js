@@ -5,14 +5,15 @@ import SideNav from './side_nav';
 import { getAllNotebooks, getAllNotes, getAllTags } from '../../../reducers/selectors';
 import { requestNotebooks } from '../../../actions/notebook_actions';
 import { createNote } from '../../../actions/note_actions';
-import { requestTags } from '../../../actions/tag_actions';
+import { receiveTagFilter, removeTagFilter, requestTags } from '../../../actions/tag_actions';
 
 const mapStateToProps = (state) => {
   return {
     currentUser: state.entities.users[state.session.id],
     notebooks: getAllNotebooks(state),
     notes: getAllNotes(state),
-    tags: getAllTags(state)
+    tags: getAllTags(state), 
+    tagFilter: state.ui.tagFilters
   }
 }
 
@@ -29,7 +30,9 @@ const mapDispatchToProps = dispatch => {
     logout: () => dispatch(logout()),
     requestNotebooks: () => dispatch(requestNotebooks()),
     createNewNote: notebookId => dispatch(createNote(newNoteTemplate(notebookId))),
-    requestTags: () => dispatch(requestTags())
+    requestTags: () => dispatch(requestTags()), 
+    receiveTagFilter: tagId => dispatch(receiveTagFilter*(tagId)), 
+    removeTagFilter: () => dispatch(removeTagFilter())
   }
 }
 

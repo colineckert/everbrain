@@ -69,9 +69,9 @@ export default class SideNav extends Component {
     const tagsList = tags.map(tag => {
       return (
         <div className={`nav-hover-tag `} key={tag.id}>
-            <a onClick={() => this.props.receiveTagFilter(tag.id)}>
-                <li key={tag.id}>{tag.name}</li>
-            </a>
+          <a onClick={() => this.props.receiveTagFilter(tag.id)}>
+            <li key={tag.id}>{tag.name}</li>
+          </a>
         </div>
       )
     });
