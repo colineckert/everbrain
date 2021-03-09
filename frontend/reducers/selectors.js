@@ -54,7 +54,8 @@ export const getFilteredNotebookNotes = (state, notebookId, tagId) => (
     getAllNotebookNotes(state, notebookId).filter(note => note.tag_ids.includes(tagId))
 );
 
-export const getNotebookNotes = (state, notebookId, ) => {
+// fetch notebook show page notes depending on whether index is filtered 
+export const getNotebookNotes = (state, notebookId) => {
   const tagFilters = state.ui.tagFilters;
   if (!tagFilters) {
     return getAllNotebookNotes(state, notebookId);

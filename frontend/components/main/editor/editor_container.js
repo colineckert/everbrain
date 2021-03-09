@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import Editor from './editor';
 import { requestNote, updateNote, deleteNote } from '../../../actions/note_actions';
+import { getAllTags, getTags } from '../../../reducers/selectors';
+import { createTag, createNoteTag, deleteNoteTag, receiveTagFilter } from '../../../actions/tag_actions';
 import { openModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const note = state.entities.notes[ownProps.match.params.noteId];
   const notebook = note ? state.entities.notebooks[note.notebook_id] : { name: "No Notebook" };
-
+  const tags = note ? getTags(state, note.tag_ids) : [];
   return {
     note: note,
-    notebook: notebook
+    notebook: notebook,
+    noteTags: tags, 
+    allTags: getAllTags(state)
   }
 }
 
@@ -18,6 +22,10 @@ const mapDispatchToProps = dispatch => {
     requestNote: noteId => dispatch(requestNote(noteId)), 
     updateNote: note => dispatch(updateNote(note)),
     deleteNote: noteId => dispatch(deleteNote(noteId)),
+    receiveTagFilter: tagId => dispatch(receiveTagFilter(tagId)),
+    createTag: tag => dispatch(createTag(tag)),
+    // createNoteTag: noteTag => dispatch(createNoteTag(noteTag)),
+    // deleteNoteTag: noteTag => dispatch(deleteNoteTag(noteTag)),
     openModal: (modalName, itemId) => dispatch(openModal(modalName, itemId))
   }
 }

@@ -11,7 +11,10 @@ export default class NotesIndex extends Component {
   componentDidMount() {
     if (!this.props.match.params.noteId || !this.props.notes.length) {
       this.props.requestNotes()
-        .then((res) => this.props.history.push(`/notes/${res.notes[0].id}`));
+        .then((res) => {
+          // debugger
+          this.props.history.push(`/notes/${res.notes[Object.keys(res.notes)[0]].id}`)
+        });
     } else if (this.props.notes.length && !this.props.match.params.noteId) {
       this.props.history.push(`/notes/${this.props.notes[0].id}`);
     }
@@ -29,7 +32,9 @@ export default class NotesIndex extends Component {
     if (tagFilter) tagFilterItem = (
       <li className="tag-filter-button" key={tagFilter.id}>
         <div><i className={`fas fa-tag nav-icon`}></i></div>
-        <div>{tagFilter.name}</div>
+        <div className="tag-filter-name">
+          {tagFilter.name}
+        </div>
         <div>
           <button className="tag-filter-close-button"
             onClick={() => this.props.removeTagFilter(tagFilter.id)}>

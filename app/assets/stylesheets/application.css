@@ -777,6 +777,9 @@ p {
 .tag-filter-button div:last-of-type {
   padding-left: 2px; }
 
+.tag-filter-name {
+  padding-bottom: 2px; }
+
 .tag-filter-close-button {
   height: 30px;
   width: 30px;

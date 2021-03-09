@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import { debounce } from "debounce";
 import { Link } from "react-router-dom";
 import EditorToolbar, { modules, formats } from './editor_toolbar';
+import Tags from './tags';
 
 class Editor extends Component {
   constructor(props) {
@@ -73,7 +74,7 @@ class Editor extends Component {
         <div className="editor-header">
           <div className="col-1-1">
             <button className="expand-editor-button">
-              <i class="fas fa-expand-alt"></i>
+              <i className="fas fa-expand-alt"></i>
             </button>
             <Link to={`/notebooks/${this.props.notebook.id}`}>
               <h3><i className="fas fa-book"></i>{this.props.notebook.name}</h3>
@@ -112,9 +113,7 @@ class Editor extends Component {
             scrollingContainer=".quill-container"
           />
         </div>
-        <div className="editor-tags">
-          <i className="fas fa-tag"></i>Add Tag
-        </div>
+        <Tags />
       </div>
     );
   }
