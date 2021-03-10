@@ -7,12 +7,55 @@ export default class Tags extends Component {
     this.state = {
       tagName: "",
       tagActionsDropdown: {},
+      tagSearchDropdown: false,
+      tagSearchMatches: []
     }
+
+    this.removeNoteTag = this.removeNoteTag.bind(this);
+    this.updateTagField = this.updateTagField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   removeNoteTag(tagId) {
     const noteId = this.props.note.id;
     this.props.deleteNoteTag({ noteId, tagId })
+  }
+
+  updateTagField(e) {
+    this.setState({ tagName: e.target.value }, () => {
+      if (this.state.tagName.length >= 1) {
+        this.searchTags(this.state.tagName);
+      } else {
+        this.setState({ tagSearchDropdown: false });
+      }
+    })
+  }
+
+  searchTags(tagSearch) {
+    const tagSearchResults = this.props.allTags.filter(tag => {
+      return tag.name.toLowerCase().indexOf(tagSearch.toLowerCase()) !== -1;
+    });
+
+    tagSearchResults.length ? 
+      this.setState({ tagSearchDropdown: true, tagSearchMatches: tagSearchResults }) :
+      this.setState({ tagSearchDropdown: false })
+  }
+
+  renderTagSearchResults() {
+    const tagMatches = this.state.tagSearchMatches;
+    return tagMatches.map(tag => {
+      return (
+        <li key={tag.id}>
+          <button >
+            {tag.name}
+          </button>
+        </li>
+      )
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
   }
 
   toggleTagActionsDropdown(tagId) {
@@ -59,6 +102,9 @@ export default class Tags extends Component {
         </li>
       )
     });
+
+    const tagSearchDropdown = this.state.tagSearchDropdown;
+    const tagSearchResults = this.renderTagSearchResults();
     
     return (
       <div className="editor-tags">
@@ -72,9 +118,14 @@ export default class Tags extends Component {
           <form>
             <input type="text" className="tag-input"
               value={this.state.tagName}
+              onChange={this.updateTagField}
               placeholder="Add tag"
             />
           </form>
+          <ul className={
+            `tag-dropdown dropdown ${tagSearchDropdown ? "" : "hidden"}`}>
+            {tagSearchResults}
+          </ul>
         </div>
       </div>
     )
