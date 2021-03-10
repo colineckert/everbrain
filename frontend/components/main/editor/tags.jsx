@@ -16,9 +16,9 @@ export default class Tags extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  removeNoteTag(tagId) {
-    const noteId = this.props.note.id;
-    this.props.deleteNoteTag({ noteId, tagId })
+  removeNoteTag(tag_id) {
+    const note_id = this.props.note.id;
+    this.props.deleteNoteTag({ note_id, tag_id })
   }
 
   updateTagField(e) {
@@ -46,7 +46,7 @@ export default class Tags extends Component {
     return tagMatches.map(tag => {
       return (
         <li key={tag.id}>
-          <button >
+          <button onClick={() => this.handleTagDropdownSubmit(tag.id)}>
             {tag.name}
           </button>
         </li>
@@ -54,8 +54,25 @@ export default class Tags extends Component {
     })
   }
 
+  handleTagDropdownSubmit(tag_id) {
+    const note_id = this.props.note.id;
+    this.props.createNoteTag({ note_id, tag_id });
+    this.setState({ tagName: "", tagSearchDropdown: false });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
+
+    const author_id = this.props.userId;
+    const name = this.state.tagName;
+    const note_id = this.props.note.id;
+
+    this.props.createTag({ name, author_id }).then( res => {
+      const tag_id = res.tag.id;
+      this.props.createNoteTag({ note_id, tag_id });
+    })
+
+    this.setState({ tagName: "", tagSearchDropdown: false});
   }
 
   toggleTagActionsDropdown(tagId) {
@@ -115,7 +132,7 @@ export default class Tags extends Component {
           {tagsList}
         </ul>
         <div className="dropdown-anchor">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input type="text" className="tag-input"
               value={this.state.tagName}
               onChange={this.updateTagField}

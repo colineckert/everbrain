@@ -2,7 +2,6 @@ class Api::NoteTagsController < ApplicationController
 
   def create
     @note_tag = NoteTag.new(note_tag_params)
-
     if @note_tag.save
       render :show
     else
@@ -11,8 +10,9 @@ class Api::NoteTagsController < ApplicationController
   end
 
   def destroy
-    @note_tag = NoteTag.find_by(note_id: params[:note_id, tag_id: params[:tag_id]])
-    if @note_tag && @note_tag.destroy
+    @note_tag = NoteTag.find_by(note_id: params[:note_id], tag_id: params[:id])
+    if @note_tag 
+      @note_tag.destroy
       render :show
     else
       render json: ['Note tag does note exist']

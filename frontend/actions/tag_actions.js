@@ -121,6 +121,7 @@ export const createNoteTag = (noteTag) => dispatch => {
 }
 
 export const deleteNoteTag = (noteTag) => dispatch => {
+  debugger
   return TagAPI.deleteNoteTag(noteTag)
     .then(() => dispatch(removeNoteTag(noteTag)), 
       errors => dispatch(receiveNoteTagErrors(errors.responseJSON)))

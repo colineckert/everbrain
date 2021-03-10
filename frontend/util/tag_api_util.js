@@ -33,15 +33,16 @@ export const deleteTag = (tagId) => {
   })
 }
 
-export const createNoteTag = (noteTag) => {
+export const createNoteTag = (note_tag) => {
   return $.ajax({
     method: "POST",
-    url: `/api/notes/${noteTag.note_id}/note_tags/`,
-    data: { noteTag }
+    url: `/api/notes/${note_tag.note_id}/note_tags/`,
+    data: { note_tag }
   })
 }
 
 export const deleteNoteTag = (noteTag) => {
+  debugger
   return $.ajax({
     method: "DELETE",
     url: `/api/notes/${noteTag.note_id}/note_tags/${noteTag.tag_id}`,

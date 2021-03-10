@@ -79,9 +79,9 @@
   background-color: $hover-grey;
 }
 
-#note-dropdown {
-  padding: 5px 0px 5px 5px;
-}
+// #note-dropdown {
+//   padding: 10px 0px 5px 15px;
+// }
 
 #toolbar {
   grid-column: 1 / -1;
@@ -223,6 +223,11 @@
   
   .list-icon {
     margin-right: 10px;
+  }
+
+  .editor-tags-list {
+    display: flex;
+    align-items: center;
   }
 }
 
