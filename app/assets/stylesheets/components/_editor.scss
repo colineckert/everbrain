@@ -217,27 +217,47 @@
   color: #7a8083;
   display: flex;
   align-items: center;
-  // padding-left: 10px;
   font-family: $apple-font;
   padding: 25px;
   border-top: 1px #e6e6e6 solid;
   
   .list-icon {
-    margin-right: 15px;
+    margin-right: 10px;
   }
 }
 
 .tags-list-item {
   background-color: $hover-grey;
-  padding: 10px 10px 10px 15px;
+  padding: 8px 5px 8px 15px;
   border-radius: 40px;
   margin-right: 5px;
-  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.tag-actions-button {
+  padding-left: 8px;
+  background-color: transparent;
+  color: #7a8083
+}
+
+.tag-actions-button:hover {
+  background-color: transparent;
+  color: $darker-grey;
+  transform: scale(1.1);
+}
+
+.tag-input {
+  text-align: left;
+  padding-left: 10px;
   font-size: 14px;
 }
 
-.tags-list-item button {
-  padding-left: 7px;
-  background-color: transparent;
-  color: #7a8083
+.tag-input:focus {
+  background-color: $hover-grey;
+  padding: 8px 5px 8px 15px;
+  border-radius: 40px;
+  font-size: 14px;
+
 }

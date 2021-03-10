@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
     note: note,
     notebook: notebook,
     noteTags: noteTags, 
-    allTags: getAllTags(state)
+    allTags: getAllTags(state),
+    userId: state.session.id
   }
 }
 
@@ -24,8 +25,8 @@ const mapDispatchToProps = dispatch => {
     deleteNote: noteId => dispatch(deleteNote(noteId)),
     receiveTagFilter: tagId => dispatch(receiveTagFilter(tagId)),
     createTag: tag => dispatch(createTag(tag)),
-    // createNoteTag: noteTag => dispatch(createNoteTag(noteTag)),
-    // deleteNoteTag: noteTag => dispatch(deleteNoteTag(noteTag)),
+    createNoteTag: noteTag => dispatch(createNoteTag(noteTag)),
+    deleteNoteTag: noteTag => dispatch(deleteNoteTag(noteTag)),
     openModal: (modalName, itemId) => dispatch(openModal(modalName, itemId))
   }
 }

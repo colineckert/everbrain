@@ -116,7 +116,11 @@ class Editor extends Component {
 
         <Tags 
           note={this.props.note} noteTags={this.props.noteTags} 
-          allTags={this.props.allTags} 
+          allTags={this.props.allTags} createTag={this.props.createTag}
+          receiveTagFilter={this.props.receiveTagFilter}
+          createNoteTag={this.props.createNoteTag}
+          deleteNoteTag={this.props.deleteNoteTag}
+          userId={this.props.userId}
         />
       </div>
     );

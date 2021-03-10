@@ -604,8 +604,7 @@ p {
   color: black;
   text-align: left;
   width: 100%;
-  padding: 0 0 0 5px;
-  margin-right: 15px; }
+  padding: 0 0 0 5px; }
 
 .dropdown li > button:hover {
   background-color: #f2f2f2; }
@@ -661,6 +660,15 @@ p {
 .fa-caret-right.open {
   transform: rotate(90deg);
   transition: transform 0.2s linear; }
+
+.tag-dropdown {
+  width: 150px;
+  left: 5px;
+  bottom: 30px;
+  padding: 10px; }
+  .tag-dropdown li {
+    padding: 4px 4px 4px 0;
+    line-height: 20px; }
 
 .notes-index-container {
   display: grid;
@@ -964,19 +972,36 @@ p {
   padding: 25px;
   border-top: 1px #e6e6e6 solid; }
   .editor-tags .list-icon {
-    margin-right: 15px; }
+    margin-right: 10px; }
 
 .tags-list-item {
   background-color: #f2f2f2;
-  padding: 10px 10px 10px 15px;
+  padding: 8px 5px 8px 15px;
   border-radius: 40px;
   margin-right: 5px;
-  cursor: pointer;
-  font-size: 14px; }
+  font-size: 14px;
+  display: flex;
+  align-items: center; }
 
-.tags-list-item button {
-  padding-left: 7px;
+.tag-actions-button {
+  padding-left: 8px;
   background-color: transparent;
   color: #7a8083; }
+
+.tag-actions-button:hover {
+  background-color: transparent;
+  color: #333;
+  transform: scale(1.1); }
+
+.tag-input {
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px; }
+
+.tag-input:focus {
+  background-color: #f2f2f2;
+  padding: 8px 5px 8px 15px;
+  border-radius: 40px;
+  font-size: 14px; }
 
 /*# sourceMappingURL=application.css.map */

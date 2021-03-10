@@ -19,7 +19,7 @@
   text-align: left;
   width: 100%;
   padding: 0 0 0 5px;
-  margin-right: 15px;
+  // margin-right: 15px;
 }
 
 .dropdown li > button:hover {
@@ -89,4 +89,18 @@
 .fa-caret-right.open {
   transform: rotate(90deg);
   transition: transform 0.2s linear;
+}
+
+// tag dropdowns
+
+.tag-dropdown {
+  width: 150px;
+  left: 5px;
+  bottom: 30px;
+  padding: 10px;
+
+  li {
+    padding: 4px 4px 4px 0;
+    line-height: 20px;
+  }
 }
