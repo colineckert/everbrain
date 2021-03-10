@@ -28,6 +28,8 @@ But, in a larger sense, we can not dedicate -- we can not consecrate -- we can n
 Abraham Lincoln
 November 19, 1863"
 
+idea = "I'll think of something"
+
 sj = "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking."
 mt = "Spread love everywhere you go. Let no one ever come to you without leaving happier."
 fdr = "When you reach the end of your rope, tie a knot in it and hang on."
@@ -52,6 +54,7 @@ destinations = "Places to visit: Italy, Spain, Hong Kong, Greece, London"
 demo_note_1 = Note.create!(title: "Lorem ipsum", body: sample_text_1, notebook_id: demo_notebook_1.id)
 demo_note_2 = Note.create!(title: "The Gettysburg Address", body: gettys, notebook_id: demo_notebook_1.id)
 demo_note_3 = Note.create!(title: "Emojis", body: emojis, notebook_id: demo_notebook_1.id)
+demo_note_22 = Note.create!(title: "Startup Ideas", body: idea, notebook_id: demo_notebook_1.id)
 
 demo_note_4 = Note.create!(title: "Steve Jobs", body: sj, notebook_id: demo_notebook_2.id)
 demo_note_5 = Note.create!(title: "Mother Teresa", body: mt, notebook_id: demo_notebook_2.id)
@@ -75,9 +78,11 @@ demo_note_20 = Note.create!(title: "Meriadoc (Merry) Brandybuck", body: merry, n
 demo_note_21 = Note.create!(title: "Trip ideas", body: destinations, notebook_id: demo_notebook_3.id)
 
 demo_tag_1 = Tag.create!(name: "Important", author_id: demo_user.id)
-demo_tag_2 = Tag.create!(name: "Favs", author_id: demo_user.id)
+demo_tag_2 = Tag.create!(name: "Favorites", author_id: demo_user.id)
+demo_tag_3 = Tag.create!(name: "Idea", author_id: demo_user.id)
 NoteTag.create!(note_id: demo_note_2.id, tag_id: demo_tag_1.id)
 NoteTag.create!(note_id: demo_note_4.id, tag_id: demo_tag_1.id)
 NoteTag.create!(note_id: demo_note_11.id, tag_id: demo_tag_1.id)
 NoteTag.create!(note_id: demo_note_10.id, tag_id: demo_tag_2.id)
 NoteTag.create!(note_id: demo_note_21.id, tag_id: demo_tag_2.id)
+NoteTag.create!(note_id: demo_note_22.id, tag_id: demo_tag_3.id)
