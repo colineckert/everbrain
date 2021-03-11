@@ -4,11 +4,11 @@ import { removeTagFilter } from '../../../actions/tag_actions';
 import { getNotes } from '../../../reducers/selectors';
 import NotesIndex from './notes_index';
 
-
 const mapStateToProps = (state) => {
   return {
     notes: getNotes(state),
-    tagFilter: state.entities.tags[state.ui.tagFilters]
+    tagFilter: state.entities.tags[state.ui.tagFilters],
+    editorExpand: state.ui.editor
   }
 }
 

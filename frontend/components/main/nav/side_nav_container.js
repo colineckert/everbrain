@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
     notebooks: getAllNotebooks(state),
     notes: getAllNotes(state),
     tags: getAllTags(state), 
-    tagFilter: state.ui.tagFilters
+    tagFilter: state.ui.tagFilters,
+    editorExpand: state.ui.editor
   }
 }
 

@@ -12,7 +12,6 @@ export default class NotesIndex extends Component {
     if (!this.props.match.params.noteId || !this.props.notes.length) {
       this.props.requestNotes()
         .then((res) => {
-          // debugger
           this.props.history.push(`/notes/${res.notes[Object.keys(res.notes)[0]].id}`)
         });
     } else if (this.props.notes.length && !this.props.match.params.noteId) {
@@ -26,6 +25,7 @@ export default class NotesIndex extends Component {
     const noteCount = this.props.notes.length;
     const noteCountText = noteCount ? `${noteCount} notes` : `No notes found`;
     const selectedNote = this.props.match.params.noteId;
+    const { editorExpand } = this.props;
 
     let tagFilterItem = (<div></div>);
     const tagFilter = this.props.tagFilter;
@@ -46,7 +46,7 @@ export default class NotesIndex extends Component {
 
     return (
       <>
-        <div className="notes-index-container">
+        <div className={`notes-index-container ${editorExpand ? "collapse" : ""}`}>
           <div className="notes-sidebar-header">
             <h1>All Notes</h1>
             <h5>{noteCountText}</h5>

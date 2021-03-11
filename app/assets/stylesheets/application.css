@@ -410,6 +410,9 @@ p {
   .main-side-nav .social-links a:hover {
     color: #fff; }
 
+.main-side-nav.collapse {
+  display: none; }
+
 .nav-profile {
   position: relative;
   padding-left: 15px; }

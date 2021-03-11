@@ -49,7 +49,7 @@ export default class SideNav extends Component {
   }
 
   render() {
-    const { currentUser, notebooks, tags } = this.props;
+    const { currentUser, notebooks, tags, editorExpand } = this.props;
     const { notebookDropdown, accountDropdown, tagDropdown } = this.state;
 
     const notebookList = notebooks.map(notebook => {
@@ -78,7 +78,7 @@ export default class SideNav extends Component {
     });
 
     return (
-      <div className="main-side-nav">
+      <div className={`main-side-nav ${editorExpand ? "collapse" : ""}`}>
 
         <div className="nav-profile">
           <button className="account-dropdown-button" 
