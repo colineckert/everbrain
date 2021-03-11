@@ -54,6 +54,9 @@ export default class SessionForm extends Component {
             <form onSubmit={this.handleSubmit}>
 
               <Link to="/"><h1>Everbrain</h1></Link>
+              {/* <Link to="/">
+                <img src={window.EverbrainNavLogo} alt="Everbrain Logo"/>
+              </Link> */}
               <br/>
               <p>Remember everything important.</p>
               <br/>
