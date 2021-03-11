@@ -44,7 +44,7 @@ export default class NotebookShow extends Component {
   }
   
   render() {
-    const { notes, notebook } = this.props;
+    const { notes, notebook, editorExpand } = this.props;
     if (!notebook) return (
       <div>Loading...</div>
     )
@@ -67,7 +67,7 @@ export default class NotebookShow extends Component {
 
     return (
       <>
-        <div className="notes-index-container">
+        <div className={`notes-index-container ${editorExpand ? "collapse" : ""}`}>
           <div className="notes-sidebar-header">
             <h1>{notebook.name}</h1>
             <h5>{notes.length} notes</h5>

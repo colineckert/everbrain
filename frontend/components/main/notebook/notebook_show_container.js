@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
     notes: getNotebookNotes(state, ownProps.match.params.notebookId),
     notebook: state.entities.notebooks[ownProps.match.params.notebookId], 
     checkNotesState: state.entities.notes,
-    tagFilter: state.entities.tags[state.ui.tagFilters]
+    tagFilter: state.entities.tags[state.ui.tagFilters],
+    editorExpand: state.ui.editor
   }
 }
 
