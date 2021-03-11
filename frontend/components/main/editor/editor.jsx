@@ -13,7 +13,8 @@ class Editor extends Component {
       title: '',
       body: '',
       updated_at: new Date(),
-      noteDropdown: "hidden"
+      noteDropdown: "hidden",
+      editorExpand: ""
     }
 
     this.fetchNote = this.fetchNote.bind(this);
@@ -63,17 +64,25 @@ class Editor extends Component {
 
   toggleHidden(element) {
     this.state[element] === "hidden" ?
-      this.setState({ [element]: "" }) : this.setState({ [element]: "hidden" });
+      this.setState({ [element]: "" }) : 
+      this.setState({ [element]: "hidden" });
+  }
+
+  toggleEditorExpand() {
+    this.state.editorExpand === "" ? 
+      this.setState({ editorExpand: "expanded" }) : 
+      this.setState({ editorExpand: "" });
   }
 
   render() {
     const { title, body } = this.state;
 
     return (
-      <div className="editor-container">
+      <div className={`editor-container ${this.state.editorExpand}`}>
         <div className="editor-header">
           <div className="col-1-1">
-            <button className="expand-editor-button">
+            <button className="expand-editor-button"
+              onClick={() => this.toggleEditorExpand()}>
               <i className="fas fa-expand-alt"></i>
             </button>
             <Link to={`/notebooks/${this.props.notebook.id}`}>

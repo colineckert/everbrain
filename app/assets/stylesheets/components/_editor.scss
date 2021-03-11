@@ -266,3 +266,8 @@
   border-radius: 40px;
   font-size: 14px;
 }
+
+.editor-container.expand {
+  grid-column: 1 / -1;
+  // grid-column: 2 / -1;
+}
