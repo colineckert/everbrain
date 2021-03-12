@@ -36,6 +36,15 @@ export const getFilteredNotes = ({ entities: { notes }}, tagId) => {
   return Object.keys(notes).map(id => notes[id]).filter(note => note.tag_ids.includes(tagId));
 }
 
+// return an array of notes that meet search criteria
+export const getSearchNotes = ({ entities: { notes } } = {}, search) => {
+  const notesArr = Object.keys(notes).map(id => notes[id]);
+  return notesArr.filter(note => {
+    return note.body.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+  })
+}
+
+
 // fetch notes depending on whether index is filtered 
 export const getNotes = (state) => {
   const tagFilters = state.ui.tagFilters;

@@ -9,7 +9,9 @@ export default class NotesIndex extends Component {
   }
 
   componentDidMount() {
-    if (!this.props.match.params.noteId || !this.props.notes.length) {
+    if (this.props.search && !this.props.notes.length) {
+      return;
+    } else if (!this.props.match.params.noteId || !this.props.notes.length) {
       this.props.requestNotes()
         .then((res) => {
           this.props.history.push(`/notes/${res.notes[Object.keys(res.notes)[0]].id}`)
@@ -44,11 +46,13 @@ export default class NotesIndex extends Component {
       </li>
     )
 
+    // update header to display search query 
+
     return (
       <>
         <div className={`notes-index-container ${editorExpand ? "collapse" : ""}`}>
           <div className="notes-sidebar-header">
-            <h1>All Notes</h1>
+            <h1>{this.props.header}</h1>
             <h5>{noteCountText}</h5>
           </div>
           <div className={`sidebar-tag-filters ${tagFilter ? "" : "hidden"}`}>

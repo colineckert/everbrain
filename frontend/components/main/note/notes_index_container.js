@@ -5,10 +5,15 @@ import { getNotes } from '../../../reducers/selectors';
 import NotesIndex from './notes_index';
 
 const mapStateToProps = (state) => {
+  const search = state.ui.search;
+  const header = search ? `${search}` : "All Notes"
+
   return {
     notes: getNotes(state),
     tagFilter: state.entities.tags[state.ui.tagFilters],
-    editorExpand: state.ui.editor
+    editorExpand: state.ui.editor, 
+    search: search,
+    header: header
   }
 }
 
