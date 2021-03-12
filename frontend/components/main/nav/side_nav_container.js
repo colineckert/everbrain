@@ -6,6 +6,7 @@ import { getAllNotebooks, getAllNotes, getAllTags } from '../../../reducers/sele
 import { requestNotebooks } from '../../../actions/notebook_actions';
 import { createNote } from '../../../actions/note_actions';
 import { receiveTagFilter, removeTagFilter, requestTags } from '../../../actions/tag_actions';
+import { clearSearch, receiveSearch } from '../../../actions/search_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -33,7 +34,9 @@ const mapDispatchToProps = dispatch => {
     createNewNote: notebookId => dispatch(createNote(newNoteTemplate(notebookId))),
     requestTags: () => dispatch(requestTags()), 
     receiveTagFilter: tagId => dispatch(receiveTagFilter(tagId)), 
-    removeTagFilter: () => dispatch(removeTagFilter())
+    removeTagFilter: () => dispatch(removeTagFilter()), 
+    receiveSearch: search => dispatch(receiveSearch(search)), 
+    clearSearch: () => dispatch(clearSearch())
   }
 }
 
