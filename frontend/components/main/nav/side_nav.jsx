@@ -10,11 +10,19 @@ export default class SideNav extends Component {
     this.state = {
       accountDropdown: "hidden",
       notebookDropdown: "hidden",
-      tagDropdown: "hidden"
+      tagDropdown: "hidden", 
+      search: '',
+      showSearch: false,
+      searchNoteMatches: [], 
+      searchNotebookMatches: []
     }
 
     this.handleLogout = this.handleLogout.bind(this);
     this.handleCreateNewNote = this.handleCreateNewNote.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    this.toggleSearch = this.toggleSearch.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
   }
   
   componentDidMount() {
@@ -48,9 +56,93 @@ export default class SideNav extends Component {
       this.setState({ [dropdown]: "" }) : this.setState({ [dropdown]: "hidden" });
   }
 
+  handleSearchChange(e) {
+    e.preventDefault();
+    this.setState({ search: e.target.value }, () => {
+      if (this.state.seach.length >= 1) {
+        this.searchAll(this.state.search)
+      } else {
+        this.setState({ searchNoteMatches: [], searchNotebookMatches: [] });
+      }
+    })
+  }
+
+  searchAll(search) {
+    const noteMatches = this.props.notes.filter(note => {
+      return note.body.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    })
+
+    const notebookMatches = this.props.notebooks.filter(note => {
+      return note.body.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    })
+
+    if (noteMatches.length || notebookMatches.length) {
+      this.setState({ searchNoteMatches: noteMatches, searchNotebookMatches: notebookMatches });
+    } else {
+      this.setState({ searchNoteMatches: [], searchNotebookMatches: [] });
+    }
+  }
+
+  clearSearch() {
+    this.setState({ search: '', searchNoteMatches: [], searchNotebookMatches: [] });
+    this.props.clearSearch();
+  }
+
+  toggleSearch() {
+    this.setState({ showSearch: !this.state.showSearch });
+  }
+
+  handleSearchSubmit(e) {
+    e.preventDefault();
+
+    const { search } = this.state;
+    if (search.length) {
+      this.props.receiveSearch(search);
+      this.props.removeTagFilter();
+      this.setState({ searchNoteMatches: [], searchNotebookMatches: [] });
+      this.props.history.push(`/notes/`);
+    }
+  }
+
+  populateSearchResults() {
+    const { search, searchNoteMatches, searchNotebookMatches } = this.state;
+
+    if (!searchNoteMatches.length && !searchNotebookMatches.length) {
+      return (
+        <li>
+          No matches found
+        </li>
+      )
+    }
+
+    const noteHits = searchNoteMatches.map( note => {
+      return (
+        <li>
+          {note.title}
+        </li>
+      )
+    })
+
+    const notebookHits = searchNotebookMatches.map( notebook => {
+      return (
+        <li>
+          {notebook.title}
+        </li>
+      )
+    })
+
+    return (
+      <>
+        {noteHits}
+        {notebookHits}
+      </>
+    )
+  }
+  
   render() {
     const { currentUser, notebooks, tags, editorExpand } = this.props;
-    const { notebookDropdown, accountDropdown, tagDropdown } = this.state;
+    const { notebookDropdown, accountDropdown, tagDropdown, search, showSearch } = this.state;
+    const searchResults = this.populateSearchResults();
 
     const notebookList = notebooks.map(notebook => {
       const currentNotebook = (notebook.id == this.props.match.params.notebookId);
@@ -96,9 +188,18 @@ export default class SideNav extends Component {
         <div className="nav-search">
           <div className="nav-search-bar">
             <i className="fas fa-search"></i>
-            <form>
-              <input placeholder="Search"/>
+            <form onSubmit={this.handleSearchChange}>
+              <input 
+                placeholder="Search" 
+                value={search}
+                onChange={this.handleSearchChange}
+                onFocus={this.toggleSearch}
+                onBlur={this.toggleSearch}
+              />
             </form>
+            <button className={`clear-search-button ${search.length ? "" : "hidden"}`}>
+              <i className="fas fa-times clear-search-icon"></i>
+            </button>
           </div>
         </div>
 
