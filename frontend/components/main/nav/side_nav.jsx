@@ -200,6 +200,11 @@ export default class SideNav extends Component {
             <button className={`clear-search-button ${search.length ? "" : "hidden"}`}>
               <i className="fas fa-times clear-search-icon"></i>
             </button>
+            {search && 
+              <ul>
+                {searchResults}
+              </ul>
+            }
           </div>
         </div>
 
