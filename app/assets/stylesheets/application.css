@@ -386,9 +386,14 @@ p {
     font-size: 14px;
     border-radius: 20px;
     padding: 10px;
-    width: 95%; }
+    width: 95%;
+    justify-content: space-between; }
     .main-side-nav .nav-search-bar i {
       color: #737373; }
+  .main-side-nav .clear-search-button {
+    background-color: transparent; }
+  .main-side-nav .clear-search-button:hover {
+    color: #fff; }
   .main-side-nav .new-note-button-container {
     padding-left: 10px; }
   .main-side-nav .new-note-button {
@@ -675,6 +680,12 @@ p {
   padding: 12px 0;
   margin: 10px 0;
   font-size: 14px; }
+
+.search-dropdown {
+  color: #333;
+  top: 100px;
+  padding: 20px 10px;
+  width: 300px; }
 
 .notes-index-container {
   display: grid;

@@ -82,10 +82,19 @@
     border-radius: 20px;
     padding: 10px;
     width: 95%;
+    justify-content: space-between;
 
     i {
       color: $dark-grey;
     }
+  }
+
+  .clear-search-button {
+    background-color: transparent;
+  }
+
+  .clear-search-button:hover {
+    color: $white;
   }
 
   .new-note-button-container {

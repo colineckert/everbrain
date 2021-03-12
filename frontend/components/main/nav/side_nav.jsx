@@ -59,7 +59,7 @@ export default class SideNav extends Component {
   handleSearchChange(e) {
     e.preventDefault();
     this.setState({ search: e.target.value }, () => {
-      if (this.state.seach.length >= 1) {
+      if (this.state.search.length >= 1) {
         this.searchAll(this.state.search)
       } else {
         this.setState({ searchNoteMatches: [], searchNotebookMatches: [] });
@@ -69,11 +69,11 @@ export default class SideNav extends Component {
 
   searchAll(search) {
     const noteMatches = this.props.notes.filter(note => {
-      return note.body.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+      return note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     })
 
-    const notebookMatches = this.props.notebooks.filter(note => {
-      return note.body.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    const notebookMatches = this.props.notebooks.filter(notebook => {
+      return notebook.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     })
 
     if (noteMatches.length || notebookMatches.length) {
@@ -187,8 +187,8 @@ export default class SideNav extends Component {
 
         <div className="nav-search">
           <div className="nav-search-bar">
-            <i className="fas fa-search"></i>
             <form onSubmit={this.handleSearchChange}>
+            <i className="fas fa-search"></i>
               <input 
                 placeholder="Search" 
                 value={search}
@@ -199,7 +199,7 @@ export default class SideNav extends Component {
             </form>
             <button onClick={this.clearSearch} 
               className={`clear-search-button ${search.length ? "" : "hidden"}`}>
-              <i className="fas fa-times clear-search-icon"></i>
+              <i className="fas fa-times-circle clear-search-icon"></i>
             </button>
             {search && 
               <ul className={`search-dropdown dropdown ${showSearch ? "" : "hidden"}`}>
