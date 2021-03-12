@@ -197,11 +197,12 @@ export default class SideNav extends Component {
                 onBlur={this.toggleSearch}
               />
             </form>
-            <button className={`clear-search-button ${search.length ? "" : "hidden"}`}>
+            <button onClick={this.clearSearch} 
+              className={`clear-search-button ${search.length ? "" : "hidden"}`}>
               <i className="fas fa-times clear-search-icon"></i>
             </button>
             {search && 
-              <ul>
+              <ul className={`search-dropdown dropdown ${showSearch ? "" : "hidden"}`}>
                 {searchResults}
               </ul>
             }
