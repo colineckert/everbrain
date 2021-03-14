@@ -109,7 +109,7 @@ export default class SideNav extends Component {
 
     if (!searchNoteMatches.length && !searchNotebookMatches.length) {
       return (
-        <li>
+        <li style={{ padding: '5px 10px 5px 15px' }}>
           No matches found
         </li>
       )
