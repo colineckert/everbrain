@@ -109,8 +109,8 @@
 .search-dropdown {
   color: $darker-grey;
   top: 105px;
-  // left: 0;
-  padding: 20px 10px;
+  left: 0;
+  // padding: 20px 10px;
   width: 300px;
 
   i {
@@ -118,15 +118,14 @@
     padding-right: 8px;
   }
 
-  button {
-    color: $darker-grey;
-    padding-bottom: 2px;
+  li {
+    // color: $darker-grey;
+    padding: 3px 0;
   }
 }
 
-
-// .search-dropdown > li:nth-of-type(2) {
-//   border-top: 1px solid $grey;
-//   margin-top: 10px;
-//   padding: 5px 0 5px 7px;
-// }
+.search-dropdown > li:nth-of-type(2) {
+  border-top: 1px solid $grey;
+  margin-top: 10px;
+  padding: 5px 0 5px 7px;
+}

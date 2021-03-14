@@ -23,7 +23,7 @@ export default class NotesIndex extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.search && !this.props.search) {
-      this.props.history.push(`/notes/${res.notes[Object.keys(res.notes)[0]].id}`);
+      this.props.history.push(`/notes/${this.props.notes[0].id}`);
     }
   }
   

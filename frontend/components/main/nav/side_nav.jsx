@@ -225,6 +225,12 @@ export default class SideNav extends Component {
             </button>
             {search && 
               <ul className={`search-dropdown dropdown ${showSearch ? "" : "hidden"}`}>
+                <li>
+                  <button onMouseDown={this.handleSearchSubmit}>
+                    Search all notes
+                  </button>
+                </li>
+                <li>Go to...</li>
                 {searchResults}
               </ul>
             }
