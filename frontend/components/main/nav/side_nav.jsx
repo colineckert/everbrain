@@ -118,7 +118,7 @@ export default class SideNav extends Component {
     const noteHits = searchNoteMatches.map( note => {
       return (
         <li key={note.id}>
-          <button onClick={() => {
+          <button onMouseDown={() => {
             this.clearSearch(),
             this.props.history.push(`/notes/${note.id}`);
           }}>
@@ -132,12 +132,12 @@ export default class SideNav extends Component {
     const notebookHits = searchNotebookMatches.map( notebook => {
       return (
         <li key={notebook.id}>
-          <button onClick={() => {
+          <button onMouseDown={() => {
             this.clearSearch(),
             this.props.history.push(`/notebooks/${notebook.id}`);
           }}>
             <i className="fas fa-book"></i>
-            {notebook.title}
+            {notebook.name}
           </button>
         </li>
       )
