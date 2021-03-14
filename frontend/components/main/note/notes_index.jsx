@@ -14,10 +14,16 @@ export default class NotesIndex extends Component {
     } else if (!this.props.match.params.noteId || !this.props.notes.length) {
       this.props.requestNotes()
         .then((res) => {
-          this.props.history.push(`/notes/${res.notes[Object.keys(res.notes)[0]].id}`)
+          this.props.history.push(`/notes/${res.notes[Object.keys(res.notes)[0]].id}`);
         });
     } else if (this.props.notes.length && !this.props.match.params.noteId) {
       this.props.history.push(`/notes/${this.props.notes[0].id}`);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.search && !this.props.search) {
+      this.props.history.push(`/notes/${res.notes[Object.keys(res.notes)[0]].id}`);
     }
   }
   
