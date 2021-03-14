@@ -683,9 +683,12 @@ p {
 
 .search-dropdown {
   color: #333;
-  top: 100px;
+  top: 105px;
   padding: 20px 10px;
   width: 300px; }
+  .search-dropdown i {
+    color: #333;
+    padding-right: 8px; }
 
 .notes-index-container {
   display: grid;

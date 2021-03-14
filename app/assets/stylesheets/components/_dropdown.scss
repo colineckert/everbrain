@@ -104,19 +104,27 @@
   padding: 12px 0;
   margin: 10px 0;
   font-size: 14px;
-
-  li {
-    // padding: 6px 20px;
-  }
 }
 
 .search-dropdown {
   color: $darker-grey;
-  top: 100px;
+  top: 105px;
   // left: 0;
   padding: 20px 10px;
   width: 300px;
+
+  i {
+    color: $darker-grey;
+    padding-right: 8px;
+  }
+
+  // li {
+  //   color: $darker-grey;
+  //   padding-bottom: 5px;
+  // }
 }
+
+
 // .search-dropdown > li:nth-of-type(2) {
 //   border-top: 1px solid $grey;
 //   margin-top: 10px;
