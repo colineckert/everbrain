@@ -123,7 +123,7 @@ export default class SideNav extends Component {
             this.props.history.push(`/notes/${note.id}`);
           }}>
             <i className="fas fa-sticky-note"></i>
-            {note.title}
+            {this.highlightText(note.title, search)}
           </button>
         </li>
       )
@@ -137,7 +137,7 @@ export default class SideNav extends Component {
             this.props.history.push(`/notebooks/${notebook.id}`);
           }}>
             <i className="fas fa-book"></i>
-            {notebook.name}
+            {this.highlightText(notebook.name, search)}
           </button>
         </li>
       )
@@ -149,6 +149,16 @@ export default class SideNav extends Component {
         {notebookHits}
       </>
     )
+  }
+
+  highlightText(str, text) {
+    const regex = new RegExp(`(${text})`, "gi");
+
+    const strParts = str.split(regex);
+
+    return strParts.map((part, i) =>
+      regex.test(part) ? <b key={i}>{part}</b> : <span key={i}>{part}</span>
+    );
   }
   
   render() {
