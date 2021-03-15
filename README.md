@@ -1,5 +1,5 @@
 # Everbrain
-![Everbrain splash page](https://github.com/colineckert/everbrain/blob/main/app/assets/images/home_page_screengrab.png)
+![Everbrain splash page](https://github.com/colineckert/everbrain/blob/main/app/assets/images/everbrain-home.png)
 
 ### Demo
 [Try Everbrain](https://everbrain.herokuapp.com) via the live demo login.
