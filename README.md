@@ -39,10 +39,57 @@ Users can create a new note using the main "New Note" button and will be immedia
 
 From within the Everbrain editor, users have the ability to edit notes using different headings, font styles, sizes, and coloring, as well as add imgaes, links, formulas, and code blocks. 
 
-Changes to notes or autosaved but can be undone (and redone) using custom buttons added to the editor toolbar. 
+Changes to notes are autosaved but can be undone (and redone) using custom buttons added to the editor toolbar. 
+
+The editor toolbar is also hidden until the user clicks into the editor, showing the human-friendly last updated date when the editor is hidden.
+
+#### Search
+![Search demo]()
+
+Users can search all notebooks via the left search bar. As users input their search query, matching results appear in real-time, with exact text bolded for immediate search feedback. 
+
+Clicking a note or notebook from the search results dropdown links directly to that note or notebook. Users also have the option to search all notes to query note contents, and Everbrain will display all the matching notes in the sidebar.
+
+#### Tags
+![Tag demo]()
+
+Users can add add and remove tags from notes, allowing an additional level of organiztion. When viewing all notes or a notebook's notes, the notes list can also be filter by selected a tag. 
+
+Tags can be addeded to a note from within the note editor, where inputing a tag name will search for existing matching tags or create a new tag if no matches exist. 
+
+```js
+// return array of notes filtered by tag
+export const getFilteredNotes = ({ entities: { notes }}, tagId) => {
+  return Object.keys(notes).map(id => notes[id]).filter(note => note.tag_ids.includes(tagId));
+}
+
+// return an array of notes that meet search query
+export const getSearchNotes = ({ entities: { notes } } = {}, search) => {
+  const notesArr = Object.keys(notes).map(id => notes[id]);
+  return notesArr.filter(note => {
+    return note.body.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+  })
+}
+
+// fetch notes depending on whether notes index is filtered by search or tag
+export const getNotes = (state) => {
+  const tagFilters = state.ui.tagFilters;
+  const search = state.ui.search;
+  
+  if (!tagFilters && !search) {
+    return getAllNotes(state);
+  } else if (tagFilters) {
+    return getFilteredNotes(state, tagFilters);
+  } else {
+    return getSearchNotes(state, search);
+  }
+};
+```
 
 ## In-progress tasks, planned features & known issues
-- Tags
-- Search
-- Editor expanding
-- Collapsible nav and notes sidebar
+
+#### Reminders
+As users are adding notes to their Everbrain second brain, they should have the ability to add reminders to notes to prompt them to review or continue working on the specified note. 
+
+#### Media Embeds
+Currently, users can only add images and links to their notes. More embed options, such as videos (Youtube) and audio files, with in-editor previews would be the ideal evolution of embeds and a more robust editor. 

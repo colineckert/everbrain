@@ -44,7 +44,6 @@ export const getSearchNotes = ({ entities: { notes } } = {}, search) => {
   })
 }
 
-
 // fetch notes depending on whether index is filtered 
 export const getNotes = (state) => {
   const tagFilters = state.ui.tagFilters;
