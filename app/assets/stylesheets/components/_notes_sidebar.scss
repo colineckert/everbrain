@@ -20,16 +20,23 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   align-items: center;
-}
 
-.notes-sidebar-header > h1 {
-  font-family: $apple-font;
-  font-size: 20px;
-}
-.notes-sidebar-header > h5 {
-  font-family: $apple-font;
-  color: $grey;
-  font-size: 14px;
+  .header-text {
+    display: flex;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: $apple-font;
+    font-size: 20px;
+  }
+
+  h5 {
+    font-family: $apple-font;
+    color: $grey;
+    font-size: 14px;
+  }
+
 }
 
 .notes-sidebar-container {

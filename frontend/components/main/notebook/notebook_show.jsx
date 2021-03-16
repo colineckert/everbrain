@@ -69,7 +69,9 @@ export default class NotebookShow extends Component {
       <>
         <div className={`notes-index-container ${editorExpand ? "collapse" : ""}`}>
           <div className="notes-sidebar-header">
-            <h1>{notebook.name}</h1>
+            <div className="header-text">
+              <i className="fas fa-book"></i><h1>{notebook.name}</h1>
+            </div>
             <h5>{notes.length} notes</h5>
           </div>
           <div className={`sidebar-tag-filters ${tagFilter ? "" : "hidden"}`}>

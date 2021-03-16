@@ -33,7 +33,7 @@ export default class NotesIndex extends Component {
     const noteCount = this.props.notes.length;
     const noteCountText = noteCount ? `${noteCount} notes` : `No notes found`;
     const selectedNote = this.props.match.params.noteId;
-    const { editorExpand } = this.props;
+    const { editorExpand, search, header } = this.props;
 
     let tagFilterItem = (<div></div>);
     const tagFilter = this.props.tagFilter;
@@ -53,12 +53,26 @@ export default class NotesIndex extends Component {
     )
 
     // update header to display search query 
+    let headerText;
+    if (search) {
+      headerText = (
+        <div className="header-text">
+          <i className="fas fa-search"></i><h1>{header}</h1>
+        </div>
+      )
+    } else {
+      headerText = (
+        <div className="header-text">
+          <i className="fas fa-sticky-note"></i><h1>{header}</h1>
+        </div>
+      )
+    }
 
     return (
       <>
         <div className={`notes-index-container ${editorExpand ? "collapse" : ""}`}>
           <div className="notes-sidebar-header">
-            <h1>{this.props.header}</h1>
+            {headerText}
             <h5>{noteCountText}</h5>
           </div>
           <div className={`sidebar-tag-filters ${tagFilter ? "" : "hidden"}`}>

@@ -249,7 +249,7 @@ export default class SideNav extends Component {
             <div></div>
             <Link to="/notes" className="main-nav-link">
               <i className="fas fa-sticky-note"></i>
-              All Notes
+              Notes
             </Link>
           </div>
           
