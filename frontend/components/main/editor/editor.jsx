@@ -111,7 +111,7 @@ class Editor extends Component {
             </ul>
           </div>
           <div className="">
-              <h5 className={showToolbar ? "hidden" : ""}>Last edited on {dateString}</h5>
+              <h5 className={showToolbar ? "hidden" : ""}>Last edited {dateString}</h5>
           </div>
           <EditorToolbar showToolbar={showToolbar} />
         </div>
