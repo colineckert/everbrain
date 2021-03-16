@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import { debounce } from "debounce";
 import { Link } from "react-router-dom";
 import EditorToolbar, { modules, formats } from './editor_toolbar';
+import { parseDate } from '../../../util/date_util';
 import Tags from './tags';
 
 class Editor extends Component {
@@ -13,14 +14,15 @@ class Editor extends Component {
       title: '',
       body: '',
       updated_at: new Date(),
-      noteDropdown: "hidden"
+      noteDropdown: "hidden",
+      showToolbar: false
     }
 
     this.fetchNote = this.fetchNote.bind(this);
     this.update = this.update.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
-
+    this.setToolbarStatus = this.setToolbarStatus.bind(this);
     this.saveNote = this.saveNote.bind(this);
     this.autosave = debounce(this.saveNote, 1000); 
   }
@@ -75,9 +77,14 @@ class Editor extends Component {
     }
   }
 
+  setToolbarStatus(status) {
+    this.setState({ showToolbar: status });
+  }
+
   render() {
-    const { title, body } = this.state;
+    const { title, body, updated_at, showToolbar } = this.state;
     const { editorExpand } = this.props;
+    const dateString = parseDate(updated_at);
 
     return (
       <div className={`editor-container ${editorExpand ? "expand" : ""}`}>
@@ -103,20 +110,26 @@ class Editor extends Component {
               </li>
             </ul>
           </div>
-          <EditorToolbar id="toolbar" />
+          <div className="">
+              <h5 className={showToolbar ? "hidden" : ""}>Last edited on {dateString}</h5>
+          </div>
+          <EditorToolbar showToolbar={showToolbar} />
         </div>
         <div className="quill-container" id="quill">
           <form onSubmit={(e) => e.preventDefault()}>
             <input name="title" type="text" className="note-title-edit"
+              onFocus={() => this.setToolbarStatus(false)}  
               onChange={this.update('title')}
               value={title}
-              placeholder="Untitled">
+              placeholder="Untitled"
+            >
             </input>
           </form>
           <ReactQuill
             theme="snow"
             value={body || ''}
             onChange={this.handleEditorChange}
+            onFocus={() => this.setToolbarStatus(true)}
             modules={modules}
             formats={formats}
             placeholder="Start writing, add a link, or upload an image"

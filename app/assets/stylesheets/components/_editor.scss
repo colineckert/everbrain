@@ -26,6 +26,12 @@
     background-color: $hover-grey;
   }
 
+  h5 {
+    font-family: $apple-font;
+    color: #7a8083;
+    font-size: 14px;
+  }
+
   .col-1-1 {
     display: flex;
     align-items: center;
@@ -85,6 +91,7 @@
 
 #toolbar {
   grid-column: 1 / -1;
+  grid-row: 2;
   padding: 0;
   border: 0;
 }

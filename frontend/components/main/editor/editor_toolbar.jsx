@@ -72,8 +72,8 @@ export const formats = [
   "code-block"
 ];
 
-export const QuillToolbar = () => (
-  <div id="toolbar">
+export const EditorToolbar = ({ showToolbar }) => (
+  <div id="toolbar" className={`ql-toolbar ql-snow ${showToolbar ? "" : "hidden"}`}>
     <span className="ql-formats">
       <button className="ql-undo">
         <CustomUndo />
@@ -139,4 +139,4 @@ export const QuillToolbar = () => (
   </div>
 );
 
-export default QuillToolbar;
+export default EditorToolbar;

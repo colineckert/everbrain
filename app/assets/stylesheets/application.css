@@ -99,6 +99,9 @@ i {
 .selected {
   box-shadow: inset 1px 1px 0 1px #0081c2, inset -1px 1px 0 1px #0081c2, inset 0 -2px 0 0 #0081c2; }
 
+.hidden {
+  display: none; }
+
 .home-content {
   padding: 60px 40px 0;
   margin: auto;
@@ -594,9 +597,6 @@ p {
 .notebook-title h5 {
   padding-left: 10px; }
 
-.hidden {
-  display: none; }
-
 .dropdown {
   align-items: center;
   position: absolute;
@@ -847,6 +847,10 @@ p {
     transition: .1s background-color ease-in-out; }
   .editor-header h3:hover {
     background-color: #f2f2f2; }
+  .editor-header h5 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #7a8083;
+    font-size: 14px; }
   .editor-header .col-1-1 {
     display: flex;
     align-items: center;
@@ -893,6 +897,7 @@ p {
 
 #toolbar {
   grid-column: 1 / -1;
+  grid-row: 2;
   padding: 0;
   border: 0; }
 
