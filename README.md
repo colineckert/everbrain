@@ -86,6 +86,22 @@ export const getNotes = (state) => {
 };
 ```
 
+### User Auth
+Users can create new accounts and login, with their session token being stored in the browser's cookies. The current user is bootstrapped to the window so that login is not required again on app refresh. 
+
+```erb
+<% if logged_in? %>
+  <script type="text/javascript">
+    window.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+  </script>
+<% end %>
+
+<main id="root"></main>
+```
+
 ## In-progress tasks, planned features & known issues
 
 #### Reminders
