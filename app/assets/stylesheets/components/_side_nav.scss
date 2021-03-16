@@ -12,6 +12,10 @@
   min-width: 180px;
   box-sizing: border-box;
 
+  .nav-profile h3 {
+    padding-right: 3px;
+  }
+
   .nav-item-container {
     color: $grey;
     font-family: $apple-font;

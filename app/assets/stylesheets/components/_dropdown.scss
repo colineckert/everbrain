@@ -105,7 +105,7 @@
 .search-dropdown {
   color: $darker-grey;
   top: 105px;
-  // left: 0;
+  left: 10px;
   width: 300px;
 
   i {
@@ -122,4 +122,9 @@
   border-top: 1px solid $semi-grey;
   margin-top: 10px;
   padding: 5px 0 5px 7px;
+}
+
+// account doprdown
+.account-dropdown {
+  width: 200px;
 }

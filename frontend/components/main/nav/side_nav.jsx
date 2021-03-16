@@ -198,7 +198,8 @@ export default class SideNav extends Component {
           <button className="account-dropdown-button" 
             onClick={() => this.toggleHidden("accountDropdown")}>
               <i className="fas fa-user"></i>
-              {currentUser.email} <i className="fas fa-angle-down"></i>
+              <h3>{currentUser.email}</h3>
+              <i className="fas fa-angle-down"></i>
           </button>
           <ul className={`account-dropdown dropdown ${accountDropdown}`}>
             <li>
