@@ -48,6 +48,18 @@ The editor toolbar is also hidden until the user clicks into the editor, showing
 
 Users can search all notebooks via the left search bar. As users input their search query, matching results appear in real-time, with exact text bolded for immediate search feedback. 
 
+```jsx
+highlightSearchText(str, text) {
+  const regex = new RegExp(`(${text})`, "gi");
+
+  const strParts = str.split(regex);
+
+  return strParts.map((part, i) =>
+    regex.test(part) ? <b key={i}>{part}</b> : <span key={i}>{part}</span>
+  );
+}
+```
+
 Clicking a note or notebook from the search results dropdown links directly to that note or notebook. Users also have the option to search all notes to query note contents, and Everbrain will display all the matching notes in the sidebar.
 
 ### Tags

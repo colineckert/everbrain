@@ -49,7 +49,7 @@ export default class SideNav extends Component {
       this.props.createNewNote(notebookId)
         .then((res) => this.props.history.push(`/notes/${res.note.id}`));
     }
-  } 
+  }
 
   toggleHidden(dropdown) {
     this.state[dropdown] === "hidden" ?
@@ -123,7 +123,7 @@ export default class SideNav extends Component {
             this.props.history.push(`/notes/${note.id}`);
           }}>
             <i className="fas fa-sticky-note"></i>
-            {this.highlightText(note.title, search)}
+            {this.highlightSearchText(note.title, search)}
           </button>
         </li>
       )
@@ -137,7 +137,7 @@ export default class SideNav extends Component {
             this.props.history.push(`/notebooks/${notebook.id}`);
           }}>
             <i className="fas fa-book"></i>
-            {this.highlightText(notebook.name, search)}
+            {this.highlightSearchText(notebook.name, search)}
           </button>
         </li>
       )
@@ -151,7 +151,7 @@ export default class SideNav extends Component {
     )
   }
 
-  highlightText(str, text) {
+  highlightSearchText(str, text) {
     const regex = new RegExp(`(${text})`, "gi");
 
     const strParts = str.split(regex);
